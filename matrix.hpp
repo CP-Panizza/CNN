@@ -2,10 +2,14 @@
 #define _MATRIX_HPP_
 
 #include <fstream>
+#include <cstdlib>
+#include <memory.h>
+
 double **Create2dArray(int row, int col){
     double **array = new double *[row];
     for (int i = 0; i < row; ++i) {
         array[i] = new double[col];
+        memset(array[i], 0, sizeof(double) * col);
     }
     return array;
 }
@@ -66,6 +70,12 @@ public:
 
         this->width = w;
         this->height = h;
+    }
+
+    Matrix(int h, int w, double **_data) {
+        this->width = w;
+        this->height = h;
+        this->data = _data;
     }
 
 
@@ -171,8 +181,29 @@ public:
         return m;
     }
 
+    Matrix *operator*(double a){
+        Matrix *m = this->Copy();
+        for (int i = 0; i < m->height; ++i) {
+            for (int j = 0; j < m->width; ++j) {
+                m->data[i][j]  = m->data[i][j] * a;
+            }
+        }
+        return m;
+    }
+
 
     Matrix *operator+(Matrix *a){
+        if (a->height == this->height && a->width == this->width){
+            auto data = Create2dArray(this->height, this->width);
+            for (int i = 0; i < this->height; ++i) {
+                for (int j = 0; j < this->width; ++j) {
+                    data[i][j] = this->Get(i,j) + a->Get(i, j);
+                }
+            }
+            Matrix *t = new Matrix(this->height, this->width, data);
+            return t;
+        }
+
         if(a->height != 1 || a->width != this->width){
             printf("dim not match: %d x %d --- %d x %d", this->height,this->width, a->height, a->width);
             exit(-1);
@@ -182,7 +213,38 @@ public:
         for (int i = 0; i < m->height; ++i) {
             row = m->Row(i);
             for (int j = 0; j < this->width; ++j) {
-                m->data[i][j] = m->Get(i, j) + row->Get(1, j);
+                m->data[i][j] = m->Get(i, j) + a->Get(0, j);
+            }
+            delete(row);
+        }
+        return m;
+    }
+
+
+    Matrix *operator-(Matrix *a){
+
+        if (a->height == this->height && a->width == this->width){
+            auto data = Create2dArray(this->height, this->width);
+            for (int i = 0; i < this->height; ++i) {
+                for (int j = 0; j < this->width; ++j) {
+                    data[i][j] = this->Get(i,j) - a->Get(i, j);
+                }
+            }
+            Matrix *t = new Matrix(this->height, this->width, data);
+            return t;
+        }
+
+
+        if(a->height != 1 || a->width != this->width){
+            printf("dim not match: %d x %d --- %d x %d", this->height,this->width, a->height, a->width);
+            exit(-1);
+        }
+        Matrix *m = this->Copy();
+        Matrix *row = nullptr;
+        for (int i = 0; i < m->height; ++i) {
+            row = m->Row(i);
+            for (int j = 0; j < this->width; ++j) {
+                m->data[i][j] = m->Get(i, j) - a->Get(0, j);
             }
             delete(row);
         }
@@ -217,9 +279,11 @@ public:
         result->height = this->height;
         result->data = data;
     }
-
-
 };
+
+Matrix *Zeros(int h, int w){
+    return new Matrix(h, w, Create2dArray(h, w));
+}
 
 
 std::ostream & operator<<( std::ostream & os, Matrix *matrix)

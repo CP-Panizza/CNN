@@ -80,6 +80,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/load_data.hpp">
+			<Option target="Convelution"/>
+		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/main.cpp">
 			<Option target="Convelution"/>
 		</Unit>

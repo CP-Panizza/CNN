@@ -6,11 +6,39 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/load_data.hpp
+vector
+-
+iostream
+-
+fstream
+-
+string
+-
+cstdlib
+-
+cinttypes
+-
+matrix.hpp
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.hpp
+
 C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/main.cpp
 iostream
 -
 cstdlib
 -
 matrix.hpp
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.hpp
+load_data.hpp
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/load_data.hpp
+windows.h
+-
+
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.hpp
+fstream
+-
+cstdlib
+-
+memory.h
 -
 

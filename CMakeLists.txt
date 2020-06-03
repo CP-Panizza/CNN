@@ -6,4 +6,5 @@ set(CMAKE_CXX_STANDARD 11)
 add_executable(Convelution
         main.cpp
         matrix.hpp
+        load_data.hpp
         )
