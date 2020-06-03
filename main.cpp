@@ -21,7 +21,19 @@ void DrawImg(Matrix *mat, int x, int y){
 
 int main() {
 
+    Matrix a = {
+            {1,2,3},
+            {4,5,6},
+            {7,8,9}
+    };
+    Matrix b = {
+            {1,2,3},
+            {4,5,6},
+            {7,8,9}
+    };
 
+    Matrix *z = Zeros(3,3);
+    std::cout << (a.Dot(&b));
 //    vector<Matrix *> *imgs = new vector<Matrix *>;
 //    vector<unsigned int> *labels = new vector<unsigned int>;
 //    load("C:\\Users\\Administrator\\Desktop\\Work_bench\\cpp\\Convelution\\cmake-build-debug\\data\\img_label\\t10k-images.idx3-ubyte",
