@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/main.cpp
+iostream
+-
+cstdlib
+-
+matrix.hpp
+-
+
