@@ -9,7 +9,7 @@
 class Convelution {
 public:
     std::vector<Matrix *> *W;
-    std::vector<Matrix *> *x;
+    std::vector <std::vector<Matrix *>> *x;
     Matrix *col;
     Matrix *col_W;
     Matrix *b;
