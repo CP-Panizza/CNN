@@ -3,5 +3,13 @@
 
 CMakeFiles/Convelution.dir/main.cpp.obj: ../load_data.hpp
 CMakeFiles/Convelution.dir/main.cpp.obj: ../main.cpp
-CMakeFiles/Convelution.dir/main.cpp.obj: ../matrix.hpp
+CMakeFiles/Convelution.dir/main.cpp.obj: ../matrix.h
+CMakeFiles/Convelution.dir/main.cpp.obj: ../utils.h
+
+CMakeFiles/Convelution.dir/matrix.cpp.obj: ../matrix.cpp
+CMakeFiles/Convelution.dir/matrix.cpp.obj: ../matrix.h
+
+CMakeFiles/Convelution.dir/utils.cpp.obj: ../matrix.h
+CMakeFiles/Convelution.dir/utils.cpp.obj: ../utils.cpp
+CMakeFiles/Convelution.dir/utils.cpp.obj: ../utils.h
 

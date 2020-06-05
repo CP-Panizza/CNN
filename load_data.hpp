@@ -7,7 +7,7 @@
 #include <string>
 #include <cstdlib>
 #include<cinttypes>
-#include "matrix.hpp"
+#include "matrix.h"
 using namespace std;
 
 
@@ -77,7 +77,7 @@ void readAndSave(const string& mnist_img_path, const string& mnist_label_path)
         mnist_image.read(pixels, rows * cols);
         char label;
         mnist_label.read(&label, 1);
-        auto data = Create2dArray(rows, cols);
+        auto data = Create2dArray<double>(rows, cols);
         for (int m = 0; m != rows; m++)
         {
             for (int n = 0; n != cols; n++)
@@ -98,7 +98,14 @@ void readAndSave(const string& mnist_img_path, const string& mnist_label_path)
     }
 }
 
-void load(const string& mnist_img_path, const string& mnist_label_path, vector<Matrix *> *imgs, vector<unsigned int> *labels){
+/**
+ *
+ * @param mnist_img_path:图片数据src
+ * @param mnist_label_path:标签数据src
+ * @param imgs: vector<Matrix*>
+ * @param labels: 标签
+ */
+void Load_data(const string& mnist_img_path, const string& mnist_label_path, vector<vector<Matrix*>> *imgs, vector<unsigned int> *labels){
     //以二进制格式读取mnist数据库中的图像文件和标签文件
     ifstream mnist_image(mnist_img_path, ios::in | ios::binary);
     ifstream mnist_label(mnist_label_path, ios::in | ios::binary);
@@ -149,14 +156,14 @@ void load(const string& mnist_img_path, const string& mnist_label_path, vector<M
     mnist_image.read(reinterpret_cast<char*>(&cols), 4);
     cols = swap_endian(cols);
     //读取图像
-    std::cout << "loading..." << std::endl;
+    std::cout << "loading data..." << std::endl;
     for (int i = 0; i != num_items; i++)
     {
         char* pixels = new char[rows * cols];
         mnist_image.read(pixels, rows * cols);
         char label;
         mnist_label.read(&label, 1);
-        auto data = Create2dArray(rows, cols);
+        auto data = Create2dArray<double>(rows, cols);
         for (int m = 0; m != rows; m++)
         {
             for (int n = 0; n != cols; n++)
@@ -171,8 +178,9 @@ void load(const string& mnist_img_path, const string& mnist_label_path, vector<M
         image->width = cols;
         image->height = rows;
         image->data = data;
-        imgs->push_back(image);
+        imgs->push_back(*(new vector<Matrix*>{image}));
         labels->push_back((unsigned int)label);
+        delete[](pixels);
     }
 }
 

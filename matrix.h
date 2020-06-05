@@ -1,23 +1,23 @@
-#ifndef _MATRIX_HPP_
-#define _MATRIX_HPP_
+//
+// Created by Administrator on 2020/6/4.
+//
 
+#ifndef CONVELUTION_MATRIX_H
+#define CONVELUTION_MATRIX_H
 #include <fstream>
 #include <cstdlib>
 #include <memory.h>
+#include <c++/vector>
 
-double **Create2dArray(int row, int col) {
-    double **array = new double *[row];
+template <class Type>
+Type **Create2dArray(int row, int col) {
+    Type **array = new Type*[row];
     for (int i = 0; i < row; ++i) {
-        array[i] = new double[col];
-        memset(array[i], 0, sizeof(double) * col);
+        array[i] = new Type[col];
+        memset(array[i], 0, sizeof(Type) * col);
     }
     return array;
 }
-
-class Matrix;
-
-std::ostream &operator<<(std::ostream &os, Matrix *matrix);
-
 
 class Matrix {
 public:
@@ -39,7 +39,7 @@ public:
     Matrix(const std::initializer_list<std::initializer_list<double >> &inList) {
         this->height = static_cast<int>(inList.size());
         this->width = static_cast<int>(inList.begin()->size());
-        this->data = Create2dArray(this->height, this->width);
+        this->data = Create2dArray<double>(this->height, this->width);
         int i = 0, j = 0;
         for (auto &x :inList) {
             for (auto &y: x) {
@@ -54,7 +54,7 @@ public:
     Matrix(const std::initializer_list<double> &inList) {
         this->width = static_cast<int>(inList.size());
         this->height = 1;
-        this->data = Create2dArray(this->height, this->width);
+        this->data = Create2dArray<double>(this->height, this->width);
         int i = 0;
         for (auto &x :inList) {
             this->data[0][i] = x;
@@ -63,7 +63,7 @@ public:
     }
 
     Matrix(int h, int w, double *_data) {
-        this->data = Create2dArray(h, w);
+        this->data = Create2dArray<double>(h, w);
         for (int j = 0; j < h; ++j) {
             for (int i = 0; i < w; ++i) {
                 this->data[j][i] = _data[w * j + i];
@@ -85,7 +85,7 @@ public:
         auto t = new Matrix;
         t->width = this->width;
         t->height = this->height;
-        t->data = Create2dArray(this->height, this->width);
+        t->data = Create2dArray<double>(this->height, this->width);
         for (int j = 0; j < this->height; ++j) {
             for (int i = 0; i < this->width; ++i) {
                 t->Set(j, i, this->Get(j, i));
@@ -127,7 +127,7 @@ public:
     }
 
     Matrix *T() {
-        auto t = Create2dArray(this->width, this->height);
+        auto t = Create2dArray<double>(this->width, this->height);
         auto t_mat = new Matrix;
         t_mat->height = this->width;
         t_mat->width = this->height;
@@ -166,6 +166,7 @@ public:
             data[i] = this->Get(i, index);
         }
         Matrix *m = new Matrix(this->height, 1, data);
+        delete[](data);
         return m;
     }
 
@@ -196,7 +197,7 @@ public:
 
     Matrix *operator+(Matrix *a) {
         if (a->height == this->height && a->width == this->width) {
-            auto data = Create2dArray(this->height, this->width);
+            auto data = Create2dArray<double>(this->height, this->width);
             for (int i = 0; i < this->height; ++i) {
                 for (int j = 0; j < this->width; ++j) {
                     data[i][j] = this->Get(i, j) + a->Get(i, j);
@@ -226,7 +227,7 @@ public:
     Matrix *operator-(Matrix *a) {
 
         if (a->height == this->height && a->width == this->width) {
-            auto data = Create2dArray(this->height, this->width);
+            auto data = Create2dArray<double>(this->height, this->width);
             for (int i = 0; i < this->height; ++i) {
                 for (int j = 0; j < this->width; ++j) {
                     data[i][j] = this->Get(i, j) - a->Get(i, j);
@@ -259,7 +260,7 @@ public:
             printf("dim not match: %d x %d --- %d x %d", this->height, this->width, m->height, m->width);
             exit(-1);
         }
-        auto data = Create2dArray(this->height, m->width);
+        auto data = Create2dArray<double>(this->height, m->width);
         double sum = 0.0;
         Matrix *row = nullptr;
         Matrix *col = nullptr;
@@ -279,21 +280,38 @@ public:
         Matrix *result = new Matrix(this->height, m->width, data);
         return result;
     }
-};
 
-Matrix *Zeros(int h, int w) {
-    return new Matrix(h, w, Create2dArray(h, w));
-}
+    Matrix *Reshape(int row, int col){
 
-std::ostream &operator<<(std::ostream &os, Matrix *matrix) {
-    for (int i = 0; i < matrix->height; ++i) {
-        for (int j = 0; j < matrix->width; ++j) {
-            os << matrix->Get(i, j) << ", ";
+        if(row == -1){
+            row = (this->width * this->height) / col;
+        } else if(col == -1){
+            col = (this->width * this->height) / row;
         }
-        os << "\n";
+        if(row * col != this->width * this->height){
+            printf("element num is not match!\n");
+            exit(-1);
+        }
+        Matrix *line = nullptr;
+        auto all = new std::vector<double>;
+        for (int i = 0; i < this->height; ++i) {
+            line = this->Row(i);
+            for (int j = 0; j < line->width; ++j) {
+                all->push_back(line->Get(0, j));
+            }
+            delete(line);
+        }
+        int index = 0;
+        auto data = Create2dArray<double>(row, col);
+        for (int i = 0; i < row; ++i) {
+            for (int j = 0; j < col; ++j) {
+                data[i][j] = (*all)[index++];
+            }
+        }
+        delete(all);
+        return new Matrix(row, col, data);
     }
-    return os;
-}
-
-
-#endif
+};
+Matrix *Zeros(int h, int w);
+std::ostream &operator<<(std::ostream &os, Matrix *matrix);
+#endif //CONVELUTION_MATRIX_H

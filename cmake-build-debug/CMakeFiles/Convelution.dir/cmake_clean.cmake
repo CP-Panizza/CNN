@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Convelution.dir/main.cpp.obj"
+  "CMakeFiles/Convelution.dir/matrix.cpp.obj"
+  "CMakeFiles/Convelution.dir/utils.cpp.obj"
   "Convelution.pdb"
   "Convelution.exe"
   "Convelution.exe.manifest"

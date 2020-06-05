@@ -19,26 +19,36 @@ cstdlib
 -
 cinttypes
 -
-matrix.hpp
-C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.hpp
+matrix.h
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.h
 
 C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/main.cpp
 iostream
 -
 cstdlib
 -
-matrix.hpp
-C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.hpp
+matrix.h
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.h
 load_data.hpp
 C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/load_data.hpp
 windows.h
 -
+utils.h
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/utils.h
 
-C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.hpp
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.h
 fstream
 -
 cstdlib
 -
 memory.h
 -
+c++/vector
+-
+
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/utils.h
+vector
+-
+matrix.h
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.h
 

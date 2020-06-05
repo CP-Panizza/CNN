@@ -4,4 +4,12 @@
 CMakeFiles/Convelution.dir/main.cpp.obj
  C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/load_data.hpp
  C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/main.cpp
- C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.hpp
+ C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.h
+ C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/utils.h
+CMakeFiles/Convelution.dir/matrix.cpp.obj
+ C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.cpp
+ C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.h
+CMakeFiles/Convelution.dir/utils.cpp.obj
+ C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.h
+ C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/utils.cpp
+ C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/utils.h

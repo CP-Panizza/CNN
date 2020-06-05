@@ -80,13 +80,25 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/convolution.hpp">
+			<Option target="Convelution"/>
+		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/load_data.hpp">
 			<Option target="Convelution"/>
 		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/main.cpp">
 			<Option target="Convelution"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.hpp">
+		<Unit filename="C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.cpp">
+			<Option target="Convelution"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.h">
+			<Option target="Convelution"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/utils.cpp">
+			<Option target="Convelution"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/utils.h">
 			<Option target="Convelution"/>
 		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/CMakeLists.txt">
