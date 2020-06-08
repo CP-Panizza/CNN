@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/convolution.hpp
+vector
+-
+iostream
+-
+matrix.hpp
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.hpp
+utils.h
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/utils.h
+
 C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/load_data.hpp
 vector
 -
@@ -19,24 +29,28 @@ cstdlib
 -
 cinttypes
 -
-matrix.h
-C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.h
+matrix.hpp
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.hpp
 
 C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/main.cpp
 iostream
 -
 cstdlib
 -
-matrix.h
-C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.h
+matrix.hpp
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.hpp
 load_data.hpp
 C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/load_data.hpp
 windows.h
 -
 utils.h
 C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/utils.h
+convolution.hpp
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/convolution.hpp
+poling.hpp
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/poling.hpp
 
-C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.h
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.hpp
 fstream
 -
 cstdlib
@@ -45,10 +59,20 @@ memory.h
 -
 c++/vector
 -
+c++/iostream
+-
+
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/poling.hpp
+matrix.hpp
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.hpp
+vector
+-
+utils.h
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/utils.h
 
 C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/utils.h
 vector
 -
-matrix.h
-C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.h
+matrix.hpp
+C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.hpp
 

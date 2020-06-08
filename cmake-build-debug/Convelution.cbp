@@ -89,10 +89,10 @@
 		<Unit filename="C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/main.cpp">
 			<Option target="Convelution"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.cpp">
+		<Unit filename="C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.hpp">
 			<Option target="Convelution"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.h">
+		<Unit filename="C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/poling.hpp">
 			<Option target="Convelution"/>
 		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/utils.cpp">

@@ -3,27 +3,27 @@
 
 #include <vector>
 #include <iostream>
-#include "matrix.h"
+#include "matrix.hpp"
 #include "utils.h"
 
 class Convelution {
 public:
-    std::vector<Matrix *> *W;
-    std::vector <std::vector<Matrix *>> *x;
-    Matrix *col;
-    Matrix *col_W;
-    Matrix *b;
+    std::vector<Matrix<double> *> *W;
+    std::vector <std::vector<Matrix<double> *>> *x;
+    Matrix<double> *col;
+    Matrix<double> *col_W;
+    Matrix<double> *b;
     int filter_w;
     int filter_h;
 
-    Convelution(std::vector<Matrix *> *_W, Matrix *_b){
+    Convelution(std::vector<Matrix<double> *> *_W, Matrix<double> *_b){
         this->W = _W;
         this->b = _b;
         this->filter_h = (*_W->begin())->height;
         this->filter_w =  (*_W->begin())->width;
     }
 
-    Matrix *W2FilterMtarix(){
+    Matrix<double> *W2FilterMtarix(){
         int h = this->filter_h*this->filter_w;
         int w = static_cast<int>(this->W->size());
         auto data = Create2dArray<double>(h, w);
@@ -38,22 +38,23 @@ public:
             col++;
             row = 0;
         }
-        return new Matrix(h, w, data);
+        return new Matrix<double>(h, w, data);
     }
 
-    std::vector<std::vector<Matrix *> *> * forward(std::vector <std::vector<Matrix *>> *imgs) {
+    std::vector<std::vector<Matrix<double> *> > * forward(std::vector <std::vector<Matrix<double> *>> *imgs) {
         int N = static_cast<int>(imgs->size()), C = static_cast<int>(((*imgs)[0]).size()), H = ((*imgs)[0])[0]->height, W = ((*imgs)[0])[0]->width;
         int pad = 0;
         int stride = 1;
         int out_h = (H + 2 * 0 - this->filter_h) / stride + 1;
         int out_w = (W + 2 * 0 - this->filter_w) / stride + 1;
 
-        Matrix *col_ = im2col(imgs, this->filter_h, this->filter_w);
-        Matrix *col_W_ = this->W2FilterMtarix();
+        Matrix<double> *col_ = im2col(imgs, this->filter_h, this->filter_w);
+        Matrix<double> *col_W_ = this->W2FilterMtarix();
 //        std::cout<<"col:\n" << col_;
-        Matrix *out = (col_->Dot(col_W_))->operator+(this->b);
+        Matrix<double> *out = (col_->Dot(col_W_))->operator+(this->b);
 //        std::cout << "out:\n"<< out;
-        std::vector<Matrix *> *reshape = new std::vector<Matrix *>;
+        std::vector<Matrix<double> *> *reshape = new std::vector<Matrix<double> *>;
+
 
         int cut = out->height / N;
         for (int i = 0; i < out->height; i += cut) {
@@ -65,12 +66,12 @@ public:
                 }
                 delete (m);
             }
-            reshape->push_back(new Matrix(cut, out->width, data));
+            reshape->push_back(new Matrix<double>(cut, out->width, data));
         }
 
-        std::vector<std::vector<Matrix *> *> * convs = new std::vector<std::vector<Matrix *> *>;
+        std::vector<std::vector<Matrix<double> *> > * convs = new std::vector<std::vector<Matrix<double> *> >;
         for (auto &x:*reshape) {
-            auto *conv_imgs = new std::vector<Matrix *>;
+            auto *conv_imgs = new std::vector<Matrix<double> *>;
             for (int i = 0; i < x->width; ++i) {
                 auto temp = x->Col(i);
                 auto _col = temp->T();
@@ -84,11 +85,10 @@ public:
                         data[m][n] = _col->Get(0, index++);
                     }
                 }
-                auto xx = new Matrix(h, w, data);
-//                std::cout <<"\n" << xx;
-                conv_imgs->push_back(xx);
+                delete(_col);
+                conv_imgs->push_back(new Matrix<double>(h, w, data));
             }
-            convs->push_back(conv_imgs);
+            convs->push_back(*conv_imgs);
         }
         this->x = imgs;
         this->col = col_->Copy();

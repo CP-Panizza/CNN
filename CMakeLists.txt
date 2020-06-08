@@ -3,12 +3,13 @@ project(Convelution)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Convelution
+add_executable(
+        Convelution
         main.cpp
-        matrix.h
-        matrix.cpp
         load_data.hpp
+        matrix.hpp
         utils.cpp
         utils.h
         convolution.hpp
+        poling.hpp
         )

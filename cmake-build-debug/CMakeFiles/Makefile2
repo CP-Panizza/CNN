@@ -70,7 +70,7 @@ CMAKE_BINARY_DIR = C:\Users\Administrator\Desktop\Work_bench\cpp\Convelution\cma
 CMakeFiles/Convelution.dir/all:
 	$(MAKE) -f CMakeFiles\Convelution.dir\build.make CMakeFiles/Convelution.dir/depend
 	$(MAKE) -f CMakeFiles\Convelution.dir\build.make CMakeFiles/Convelution.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Administrator\Desktop\Work_bench\cpp\Convelution\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4 "Built target Convelution"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Administrator\Desktop\Work_bench\cpp\Convelution\cmake-build-debug\CMakeFiles --progress-num=1,2,3 "Built target Convelution"
 .PHONY : CMakeFiles/Convelution.dir/all
 
 # Include target in all.
@@ -80,7 +80,7 @@ all: CMakeFiles/Convelution.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Convelution.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Work_bench\cpp\Convelution\cmake-build-debug\CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Work_bench\cpp\Convelution\cmake-build-debug\CMakeFiles 3
 	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/Convelution.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Work_bench\cpp\Convelution\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/Convelution.dir/rule

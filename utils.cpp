@@ -5,7 +5,7 @@
 #include "utils.h"
 
 
-Matrix *im2col(std::vector<std::vector<Matrix *>> *input_data, int filter_h, int filter_w, int stride, int pad) {
+Matrix<double> *im2col(std::vector<std::vector<Matrix<double> *>> *input_data, int filter_h, int filter_w, int stride, int pad) {
     int N = static_cast<int>(input_data->size()), C = static_cast<int>(((*input_data)[0]).size()), H = ((*input_data)[0])[0]->height, W = ((*input_data)[0])[0]->width;
     int out_h = (H + 2 * pad - filter_h) / stride + 1;
     int out_w = (W + 2 * pad - filter_w) / stride + 1;
@@ -48,10 +48,87 @@ Matrix *im2col(std::vector<std::vector<Matrix *>> *input_data, int filter_h, int
             }
         }
     }
-    return new Matrix(height, width, data);
+    return new Matrix<double>(height, width, data);
 }
 
 
+Matrix<int> *argmax(Matrix<double> *mat, std::string dim){
+    int width = 0;
+    int **data = nullptr;
+    if(dim == "c"){
+        width = mat->width;
+        data = Create2dArray<int>(1,width);
+        Matrix<double>* col = nullptr;
+        for (int i = 0; i < mat->width; ++i) {
+            col = mat->Col(i);
+            double max = col->Get(0,0);
+            int max_index = 0;
+            for (int j = 0; j < col->height; ++j) {
+                if(col->Get(j,0) > max){
+                    max = col->Get(j,0);
+                    max_index = j;
+                }
+            }
+            data[0][i] = max_index;
+            delete(col);
+        }
+    } else if (dim == "r"){
+        width = mat->height;
+        data = Create2dArray<int>(1,width);
+        Matrix<double>* row = nullptr;
+        for (int i = 0; i < mat->height; ++i) {
+            row = mat->Row(i);
+            double max = row->Get(0,0);
+            int max_index = 0;
+            for (int j = 0; j < row->width; ++j) {
+                if(row->Get(0,j) > max){
+                    max = row->Get(0,j);
+                    max_index = j;
+                }
+            }
+            data[0][i] = max_index;
+            delete(row);
+        }
+    }
+    return new Matrix<int>(1, width, data);
+}
+
+Matrix<double> *max(Matrix<double> *mat, std::string dim) {
+    int width = 0;
+    double **data = nullptr;
+    if(dim == "c"){
+        width = mat->width;
+        data = Create2dArray<double>(1,width);
+        Matrix<double>* col = nullptr;
+        for (int i = 0; i < mat->width; ++i) {
+            col = mat->Col(i);
+            double max = col->Get(0,0);
+            for (int j = 0; j < col->height; ++j) {
+                if(col->Get(j,0) > max){
+                    max = col->Get(j,0);
+                }
+            }
+            data[0][i] = max;
+            delete(col);
+        }
+    } else if (dim == "r"){
+        width = mat->height;
+        data = Create2dArray<double>(1,width);
+        Matrix<double>* row = nullptr;
+        for (int i = 0; i < mat->height; ++i) {
+            row = mat->Row(i);
+            double max = row->Get(0,0);
+            for (int j = 0; j < row->width; ++j) {
+                if(row->Get(0,j) > max){
+                    max = row->Get(0,j);
+                }
+            }
+            data[0][i] = max;
+            delete(row);
+        }
+    }
+    return new Matrix<double>(1, width, data);
+}
 //Matrix *Padding(Matrix *data){
 //    Matrix *padding = new Matrix;
 //    int bound = (this->Size - 1) / 2;

@@ -7,7 +7,7 @@
 #include <string>
 #include <cstdlib>
 #include<cinttypes>
-#include "matrix.h"
+#include "matrix.hpp"
 using namespace std;
 
 
@@ -88,7 +88,7 @@ void readAndSave(const string& mnist_img_path, const string& mnist_label_path)
                     data[m][n] = 255;
             }
         }
-        Matrix *image = new Matrix;
+        Matrix<double> *image = new Matrix<double>;
         image->width = cols;
         image->height = rows;
         image->data = data;
@@ -105,7 +105,7 @@ void readAndSave(const string& mnist_img_path, const string& mnist_label_path)
  * @param imgs: vector<Matrix*>
  * @param labels: 标签
  */
-void Load_data(const string& mnist_img_path, const string& mnist_label_path, vector<vector<Matrix*>> *imgs, vector<unsigned int> *labels){
+void Load_data(const string& mnist_img_path, const string& mnist_label_path, vector<vector<Matrix<double>*>> *imgs, vector<unsigned int> *labels){
     //以二进制格式读取mnist数据库中的图像文件和标签文件
     ifstream mnist_image(mnist_img_path, ios::in | ios::binary);
     ifstream mnist_label(mnist_label_path, ios::in | ios::binary);
@@ -174,11 +174,11 @@ void Load_data(const string& mnist_img_path, const string& mnist_label_path, vec
                     data[m][n] = 255;
             }
         }
-        Matrix *image = new Matrix;
+        Matrix<double> *image = new Matrix<double>;
         image->width = cols;
         image->height = rows;
         image->data = data;
-        imgs->push_back(*(new vector<Matrix*>{image}));
+        imgs->push_back(*(new vector<Matrix<double>*>{image}));
         labels->push_back((unsigned int)label);
         delete[](pixels);
     }

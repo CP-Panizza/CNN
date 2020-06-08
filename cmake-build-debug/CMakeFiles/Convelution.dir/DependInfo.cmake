@@ -5,7 +5,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/main.cpp" "C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/cmake-build-debug/CMakeFiles/Convelution.dir/main.cpp.obj"
-  "C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/matrix.cpp" "C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/cmake-build-debug/CMakeFiles/Convelution.dir/matrix.cpp.obj"
   "C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/utils.cpp" "C:/Users/Administrator/Desktop/Work_bench/cpp/Convelution/cmake-build-debug/CMakeFiles/Convelution.dir/utils.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
