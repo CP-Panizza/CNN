@@ -4,15 +4,17 @@
 
 #ifndef CONVELUTION_MATRIX_HPP
 #define CONVELUTION_MATRIX_HPP
+
 #include <fstream>
 #include <cstdlib>
 #include <memory.h>
 #include <c++/vector>
 #include <c++/iostream>
+#include <cmath>
 
-template <class Type>
+template<class Type>
 Type **Create2dArray(int row, int col) {
-    Type **array = new Type*[row];
+    Type **array = new Type *[row];
     for (int i = 0; i < row; ++i) {
         array[i] = new Type[col];
         memset(array[i], 0, sizeof(Type) * col);
@@ -20,7 +22,7 @@ Type **Create2dArray(int row, int col) {
     return array;
 }
 
-template <class Type>
+template<class Type>
 class Matrix {
 public:
     int width;
@@ -35,6 +37,25 @@ public:
             delete[](this->data[i]);
         }
         delete[](this->data);
+    }
+
+    Matrix(int h, int w) {
+        this->data = Create2dArray<Type>(h, w);
+        this->width = w;
+        this->height = h;
+    }
+
+
+    Matrix(const Matrix &mat) {
+        std::cout << "copy run" << std::endl;
+        this->width = mat.width;
+        this->height = mat.height;
+        this->data = Create2dArray<Type>(this->height, this->width);
+        for (int j = 0; j < this->height; ++j) {
+            for (int i = 0; i < this->width; ++i) {
+                this->data[j][i] = mat.Get(j, i);
+            }
+        }
     }
 
     Matrix(const std::initializer_list<std::initializer_list<Type >> &inList) {
@@ -81,7 +102,7 @@ public:
         this->data = _data;
     }
 
-    void Out(){
+    void Out() {
         for (int i = 0; i < this->height; ++i) {
             for (int j = 0; j < this->width; ++j) {
                 std::cout << this->Get(i, j) << ", ";
@@ -130,22 +151,18 @@ public:
         return true;
     }
 
-    Type Get(int row, int col) {
+    Type Get(int row, int col) const {
         if (col > this->width || row > this->height) return -1;
         return this->data[row][col];
     }
 
     Matrix<Type> *T() {
-        auto t = Create2dArray<Type>(this->width, this->height);
-        auto t_mat = new Matrix<Type>;
-        t_mat->height = this->width;
-        t_mat->width = this->height;
+        auto t_mat = new Matrix<Type>(this->width, this->height);
         for (int i = 0; i < this->height; ++i) {
             for (int j = 0; j < this->width; ++j) {
-                t[j][i] = this->Get(i, j);
+                t_mat->data[j][i] = this->Get(i, j);
             }
         }
-        t_mat->data = t;
         return t_mat;
     }
 
@@ -212,12 +229,12 @@ public:
                     data[i][j] = this->Get(i, j) + a->Get(i, j);
                 }
             }
-            Matrix<Type> *t = new Matrix<Type>(this->height, this->width, data);
-            return t;
+            return new Matrix<Type>(this->height, this->width, data);
         }
 
         if (a->height != 1 || a->width != this->width) {
-            printf("dim not match: %d x %d --- %d x %d", this->height, this->width, a->height, a->width);
+            printf("file: %s function: %s line: %d dim not match: %d x %d --- %d x %d", __FILE__, __FUNCTION__,
+                   __LINE__, this->height, this->width, a->height, a->width);
             exit(-1);
         }
         Matrix<Type> *m = this->Copy();
@@ -242,13 +259,13 @@ public:
                     data[i][j] = this->Get(i, j) - a->Get(i, j);
                 }
             }
-            Matrix<Type> *t = new Matrix<Type>(this->height, this->width, data);
-            return t;
+            return new Matrix<Type>(this->height, this->width, data);
         }
 
 
         if (a->height != 1 || a->width != this->width) {
-            printf("dim not match: %d x %d --- %d x %d", this->height, this->width, a->height, a->width);
+            printf("file: %s function: %s line: %d dim not match: %d x %d --- %d x %d", __FILE__, __FUNCTION__,
+                   __LINE__, this->height, this->width, a->height, a->width);
             exit(-1);
         }
         Matrix<Type> *m = this->Copy();
@@ -263,41 +280,84 @@ public:
         return m;
     }
 
-
-    Matrix<Type> *Dot(Matrix<Type> *m) {
-        if (this->width != m->height) {
-            printf("dim not match: %d x %d --- %d x %d", this->height, this->width, m->height, m->width);
-            exit(-1);
-        }
-        auto data = Create2dArray<Type>(this->height, m->width);
-        double sum = 0.0;
-        Matrix<Type> *row = nullptr;
-        Matrix<Type> *col = nullptr;
-        for (int i = 0; i < this->height; ++i) {
-            for (int j = 0; j < m->width; ++j) {
-                row = this->Row(i);
-                col = m->Col(j)->T();
-                for (int k = 0; k < row->width; ++k) {
-                    sum += row->Get(0, k) * col->Get(0, k);
+    Matrix<Type> *operator/(Matrix<Type> *a) {
+        if(a->height == 1 && a->width == this->width){
+            auto data = Create2dArray<double>(this->height, this->width);
+            for (int i = 0; i < this->height; ++i) {
+                for (int j = 0; j < this->width; ++j) {
+                    data[i][j] = this->Get(i, j) / a->Get(0, j);
                 }
-                data[i][j] = sum;
-                sum = 0.0;
-                delete (row);
-                delete (col);
             }
+            return new Matrix<double>(this->height, this->width, data);
+        } else if(a->height == this->height && a->width == this->width){
+            auto out = this->Copy();
+            for (int i = 0; i < this->height; ++i) {
+                for (int j = 0; j < this->width; ++j) {
+                    Type val = a->Get(i,j);
+                    if(val == 0){
+                        printf("file: %s function: %s line: %d div zero.", __FILE__, __FUNCTION__,
+                               __LINE__);
+                        exit(-1);
+                    }
+                    out->data[i][j] = this->Get(i,j) / val;
+                }
+            }
+            return out;
         }
-        Matrix<Type> *result = new Matrix<Type>(this->height, m->width, data);
-        return result;
+        printf("file: %s function: %s line: %d dim not match: %d x %d --- %d x %d", __FILE__, __FUNCTION__,
+               __LINE__, this->height, this->width, a->height, a->width);
+        exit(-1);
     }
 
-    Matrix<Type> *Reshape(int row, int col){
-        if(row == -1){
+    Matrix<Type> *operator/(Type a) {
+        Matrix<Type> *m = this->Copy();
+        for (int i = 0; i < m->height; ++i) {
+            for (int j = 0; j < m->width; ++j) {
+                m->data[i][j] = m->data[i][j] / a;
+            }
+        }
+        return m;
+    }
+
+    Matrix<Type> *mat_pow(double e){
+        auto out = this->Copy();
+        for (int i = 0; i < this->height; ++i) {
+            for (int j = 0; j < this->width; ++j) {
+                out->Set(i, j, pow(this->Get(i,j), e));
+            }
+        }
+        return out;
+    }
+
+    //dot优化
+    Matrix<Type> *Dot(Matrix<Type> *m) {
+        if (this->width != m->height) {
+            printf("file: %s function: %s line: %d dim not match: %d x %d --- %d x %d", __FILE__, __FUNCTION__,
+                   __LINE__, this->height, this->width, m->height, m->width);
+            exit(-1);
+        }
+        auto out = new Matrix<double>(this->height, m->width);
+        for (int i = 0; i < this->height; ++i) {
+            for (int k = 0; k < this->width; ++k) {
+                if(this->data[i][k]!=0){
+                    for (int j = 0; j < m->width; ++j) {
+                        out->data[i][j] += this->data[i][k] * m->data[k][j];
+                    }
+                }
+            }
+        }
+        return out;
+    }
+
+
+    Matrix<Type> *Reshape(int row, int col) {
+        if (row == -1) {
             row = (this->width * this->height) / col;
-        } else if(col == -1){
+        } else if (col == -1) {
             col = (this->width * this->height) / row;
         }
-        if(row * col != this->width * this->height){
-            printf("element num is not match!\n");
+        if (row * col != this->width * this->height) {
+            printf("file: %s function: %s line: %d element num is not match!\n", __FILE__, __FUNCTION__, __LINE__);
             exit(-1);
         }
         Matrix<Type> *line = nullptr;
@@ -307,7 +367,7 @@ public:
             for (int j = 0; j < line->width; ++j) {
                 all->push_back(line->Get(0, j));
             }
-            delete(line);
+            delete (line);
         }
         int index = 0;
         auto data = Create2dArray<Type>(row, col);
@@ -316,13 +376,80 @@ public:
                 data[i][j] = (*all)[index++];
             }
         }
-        delete(all);
+        delete (all);
         return new Matrix<Type>(row, col, data);
+    }
+
+
+    Matrix<Type> *SubMat(int row, int col, int width, int height) {
+        if (row + height > this->height || col + width > this->width) {
+            std::cout << "can not sub mat:(" << this->height << "," << this->width << ")";
+            exit(-1);
+        }
+        auto mat = new Matrix<Type>(height, width);
+        int c = 0, r = 0;
+        for (int i = row; i < row + height; ++i) {
+            c = 0;
+            for (int j = col; j < col + width; ++j) {
+                mat->Set(r, c++, this->Get(i, j));
+            }
+            r++;
+        }
+        return mat;
+    }
+
+    //转成一维数组
+    Type *to_line() {
+        Type *line = new Type[this->height * this->width];
+        std::vector<Type> all;
+        for (int i = 0; i < this->height; ++i) {
+            for (int j = 0; j < this->width; ++j) {
+                all.push_back(this->Get(i, j));
+            }
+        }
+        memcpy(line, all.data(), sizeof(Type) * this->height * this->height);
+        return line;
+    }
+
+    Matrix<Type> *padding(int pad){
+        int width = this->width + (2 * pad);
+        int height = this->height + (2 * pad);
+        auto *pad_mat = new Matrix<Type>(height, width);
+        for (int i = 0; i < height; ++i) {
+            for (int j = 0; j < width; ++j) {
+                if(i>=pad && i<height-pad && j>=pad && j<width-pad){
+                    pad_mat->Set(i, j, this->Get(i-pad, j-pad));
+                }
+            }
+        }
+        return pad_mat;
+    }
+
+    Matrix<Type> *rot180(){
+        auto rot = this->Copy();
+        for (int i = 0; i < this->height; ++i) {
+            for (int j = 0; j < this->width; ++j) {
+                rot->Set(rot->height-1-i, rot->width-1-j, this->Get(i, j));
+            }
+        }
+        return rot;
+    }
+
+
+    //矩阵求和
+    Type mat_sum(){
+        Type sum = 0;
+        for (int i = 0; i < this->height; ++i) {
+            for (int j = 0; j < this->width; ++j) {
+                sum += this->Get(i, j);
+            }
+        }
+        return sum;
     }
 };
 
 
-template <class Type>
+template<class Type>
 std::ostream &operator<<(std::ostream &os, Matrix<Type> *matrix) {
     for (int i = 0; i < matrix->height; ++i) {
         for (int j = 0; j < matrix->width; ++j) {
@@ -332,4 +459,5 @@ std::ostream &operator<<(std::ostream &os, Matrix<Type> *matrix) {
     }
     return os;
 }
+
 #endif //CONVELUTION_MATRIX_HPP

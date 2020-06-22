@@ -47,10 +47,10 @@ RM = "D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Administrator\Desktop\Work_bench\cpp\Convelution
+CMAKE_SOURCE_DIR = C:\Users\Administrator\Desktop\Num-master
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Administrator\Desktop\Work_bench\cpp\Convelution\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\Administrator\Desktop\Num-master\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Work_bench\cpp\Convelution\cmake-build-debug\CMakeFiles C:\Users\Administrator\Desktop\Work_bench\cpp\Convelution\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Num-master\cmake-build-debug\CMakeFiles C:\Users\Administrator\Desktop\Num-master\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Work_bench\cpp\Convelution\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Num-master\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -110,17 +110,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Convelution
+# Target rules for targets named Cnn
 
 # Build rule for target.
-Convelution: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 Convelution
-.PHONY : Convelution
+Cnn: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 Cnn
+.PHONY : Cnn
 
 # fast build rule for target.
-Convelution/fast:
-	$(MAKE) -f CMakeFiles\Convelution.dir\build.make CMakeFiles/Convelution.dir/build
-.PHONY : Convelution/fast
+Cnn/fast:
+	$(MAKE) -f CMakeFiles\Cnn.dir\build.make CMakeFiles/Cnn.dir/build
+.PHONY : Cnn/fast
 
 main.obj: main.cpp.obj
 
@@ -128,7 +128,7 @@ main.obj: main.cpp.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) -f CMakeFiles\Convelution.dir\build.make CMakeFiles/Convelution.dir/main.cpp.obj
+	$(MAKE) -f CMakeFiles\Cnn.dir\build.make CMakeFiles/Cnn.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -137,7 +137,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles\Convelution.dir\build.make CMakeFiles/Convelution.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles\Cnn.dir\build.make CMakeFiles/Cnn.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -146,7 +146,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles\Convelution.dir\build.make CMakeFiles/Convelution.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles\Cnn.dir\build.make CMakeFiles/Cnn.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 utils.obj: utils.cpp.obj
@@ -155,7 +155,7 @@ utils.obj: utils.cpp.obj
 
 # target to build an object file
 utils.cpp.obj:
-	$(MAKE) -f CMakeFiles\Convelution.dir\build.make CMakeFiles/Convelution.dir/utils.cpp.obj
+	$(MAKE) -f CMakeFiles\Cnn.dir\build.make CMakeFiles/Cnn.dir/utils.cpp.obj
 .PHONY : utils.cpp.obj
 
 utils.i: utils.cpp.i
@@ -164,7 +164,7 @@ utils.i: utils.cpp.i
 
 # target to preprocess a source file
 utils.cpp.i:
-	$(MAKE) -f CMakeFiles\Convelution.dir\build.make CMakeFiles/Convelution.dir/utils.cpp.i
+	$(MAKE) -f CMakeFiles\Cnn.dir\build.make CMakeFiles/Cnn.dir/utils.cpp.i
 .PHONY : utils.cpp.i
 
 utils.s: utils.cpp.s
@@ -173,7 +173,7 @@ utils.s: utils.cpp.s
 
 # target to generate assembly for a file
 utils.cpp.s:
-	$(MAKE) -f CMakeFiles\Convelution.dir\build.make CMakeFiles/Convelution.dir/utils.cpp.s
+	$(MAKE) -f CMakeFiles\Cnn.dir\build.make CMakeFiles/Cnn.dir/utils.cpp.s
 .PHONY : utils.cpp.s
 
 # Help Target
@@ -182,7 +182,7 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
-	@echo ... Convelution
+	@echo ... Cnn
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... main.obj

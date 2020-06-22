@@ -1,57 +1,84 @@
 #include <iostream>
 #include <cstdlib>
 #include "matrix.hpp"
-#include "load_data.hpp"
-#include <windows.h>
+#include <ctime>
 #include "utils.h"
-#include "convolution.hpp"
-#include "poling.hpp"
+#include "load_data.hpp"
+#include "conv.hpp"
+#include "conv_relu.hpp"
+#include "pooling.hpp"
+#include "pooling_affine.hpp"
+#include "layers.h"
+#include "cnn.hpp"
+#include "adam.hpp"
 
-template<class Type>
-void DrawImg(Matrix<Type> *mat, int x, int y) {
-    HWND wnd;    //窗口句柄
-    HDC dc;    //绘图设备环境句柄
-    wnd = GetForegroundWindow(); //获取窗口句柄
-    dc = GetDC(wnd);    //获取绘图设备
-    for (int j = 0; j < mat->height; j++) {
-        for (int i = 0; i < mat->width; i++) {
-            Type v = mat->data[j][i];
-            SetPixel(dc, i + x, j + y, RGB(v, v, v)); //画像素点
-        }
-    }
-    std::cout << "any key next..." << std::endl;
-    getchar();
-}
 
 int main() {
 
-    auto data = new vector<vector<Matrix<double>*>>;
-    vector<unsigned int> *labels = new vector<unsigned int>;
-    Load_data(R"(.\data\img_label\t10k-images.idx3-ubyte)",
-         R"(.\data\img_label\t10k-labels.idx1-ubyte)",
-              data,
-            labels
-            );
+
+    std::vector<std::vector< Matrix < double> *> > imgs;
+    std::vector<int> labels;
+
+    std::vector<std::vector< Matrix < double> *> > t_imgs;
+    std::vector<int> t_labels;
+//    load_faces_dataset(imgs, labels);
+    Load_data(
+            R"(C:\Users\Administrator\Desktop\Num-master\cmake-build-debug\data\img_label\train-images.idx3-ubyte)",
+            R"(C:\Users\Administrator\Desktop\Num-master\cmake-build-debug\data\img_label\train-labels.idx1-ubyte)",
+            imgs, labels);
+
+    Load_data(
+            R"(C:\Users\Administrator\Desktop\Num-master\cmake-build-debug\data\img_label\t10k-images.idx3-ubyte)",
+            R"(C:\Users\Administrator\Desktop\Num-master\cmake-build-debug\data\img_label\t10k-labels.idx1-ubyte)",
+            t_imgs, t_labels);
+
+    int batch_size = 50;
+    int epoch = 500;
+    int start;
+    int end;
+    auto cnn = new Cnn(batch_size);
+    srand(static_cast<unsigned int>(time(NULL)));
+    Matrix<double> *la;
+    for (int i = 0; i < epoch; ++i) {
+        std::cout << "epoch:" << i << "\n";
+        start = static_cast<int>(rand() % (imgs.size() - batch_size));
+        end = start + batch_size;
+        std::cout << "start:" << start << " end:" << end << "\n";
+        std::vector<std::vector<Matrix < double> *> > x(imgs.begin() + start, imgs.begin() + end);
+        std::vector<int> label(labels.begin() + start, labels.begin() + end);
+        la = new Matrix<double>(batch_size, 10);
+        for (int j = 0; j < batch_size; ++j) {
+            la->Set(j, label[j], 1);
+        }
+        cnn->train(&x, la);
+        delete (la);
+    }
 
 
-    printf("%d , %d\n", static_cast<int>(data->size()), static_cast<int>(labels->size()));
-
-    auto x = new vector<vector<Matrix<double>*>>(data->begin(), data->begin() + 100);
-    vector<Matrix<double>*> *w = new vector<Matrix<double>*>;
-    w->push_back(new Matrix<double>{{1,1,1},{2,2,2},{3,3,3}});
-    w->push_back(new Matrix<double>{{4,4,4},{5,5,5},{6,6,6}});
-    w->push_back(new Matrix<double>{{7,7,7},{8,8,8},{9,9,9}});
-    auto b = new Matrix<double>{1,2,3};
-    auto conv = new Convelution(w, b);
-    auto out = conv->forward(x);
-    auto pool = new Pooling(2,2,2);
-    pool->forward(out);
-
-
-
-
-
-
+    //用测试集测试
+    int test_num = 20;
+    for (int k = 0; k < test_num; ++k) {
+        start = static_cast<int>(rand() % (imgs.size() - 1));
+        end = start + 1;
+        std::vector<std::vector<Matrix < double> *> > test_x(imgs.begin() + start, imgs.begin() + end);
+        std::vector<int> test_label(labels.begin() + start, labels.begin() + end);
+        auto test_la = new Matrix<double>(1, 10);
+        for (int j = 0; j < 1; ++j) {
+            test_la->Set(j, test_label[j], 1);
+        }
+        test_x[0][0]->WriteImg("test.pgm");
+        std::cout <<"\nNo:"<< k <<"\nlabel:"<< test_label[0] << "\n";
+        auto pre = cnn->predict(&test_x, test_la);
+//        std::cout << "pre:" << pre;
+        auto result = argmax(pre, "r");
+        std::cout << "predict:" << result;
+        delete(test_la);
+        delete(pre);
+        delete(result);
+    }
 
     return 0;
 }
+
+
+

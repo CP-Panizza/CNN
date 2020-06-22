@@ -58,45 +58,45 @@ RM = "D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Administrator\Desktop\Work_bench\cpp\Convelution
+CMAKE_SOURCE_DIR = C:\Users\Administrator\Desktop\Num-master
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Administrator\Desktop\Work_bench\cpp\Convelution\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\Administrator\Desktop\Num-master\cmake-build-debug
 
 #=============================================================================
-# Target rules for target CMakeFiles/Convelution.dir
+# Target rules for target CMakeFiles/Cnn.dir
 
 # All Build rule for target.
-CMakeFiles/Convelution.dir/all:
-	$(MAKE) -f CMakeFiles\Convelution.dir\build.make CMakeFiles/Convelution.dir/depend
-	$(MAKE) -f CMakeFiles\Convelution.dir\build.make CMakeFiles/Convelution.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Administrator\Desktop\Work_bench\cpp\Convelution\cmake-build-debug\CMakeFiles --progress-num=1,2,3 "Built target Convelution"
-.PHONY : CMakeFiles/Convelution.dir/all
+CMakeFiles/Cnn.dir/all:
+	$(MAKE) -f CMakeFiles\Cnn.dir\build.make CMakeFiles/Cnn.dir/depend
+	$(MAKE) -f CMakeFiles\Cnn.dir\build.make CMakeFiles/Cnn.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Administrator\Desktop\Num-master\cmake-build-debug\CMakeFiles --progress-num=1,2,3 "Built target Cnn"
+.PHONY : CMakeFiles/Cnn.dir/all
 
 # Include target in all.
-all: CMakeFiles/Convelution.dir/all
+all: CMakeFiles/Cnn.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Convelution.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Work_bench\cpp\Convelution\cmake-build-debug\CMakeFiles 3
-	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/Convelution.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Work_bench\cpp\Convelution\cmake-build-debug\CMakeFiles 0
-.PHONY : CMakeFiles/Convelution.dir/rule
+CMakeFiles/Cnn.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Num-master\cmake-build-debug\CMakeFiles 3
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/Cnn.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Num-master\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles/Cnn.dir/rule
 
 # Convenience name for target.
-Convelution: CMakeFiles/Convelution.dir/rule
+Cnn: CMakeFiles/Cnn.dir/rule
 
-.PHONY : Convelution
-
-# clean rule for target.
-CMakeFiles/Convelution.dir/clean:
-	$(MAKE) -f CMakeFiles\Convelution.dir\build.make CMakeFiles/Convelution.dir/clean
-.PHONY : CMakeFiles/Convelution.dir/clean
+.PHONY : Cnn
 
 # clean rule for target.
-clean: CMakeFiles/Convelution.dir/clean
+CMakeFiles/Cnn.dir/clean:
+	$(MAKE) -f CMakeFiles\Cnn.dir\build.make CMakeFiles/Cnn.dir/clean
+.PHONY : CMakeFiles/Cnn.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/Cnn.dir/clean
 
 .PHONY : clean
 

@@ -8,6 +8,8 @@
 #include <cstdlib>
 #include<cinttypes>
 #include "matrix.hpp"
+#include "utils.h"
+
 using namespace std;
 
 
@@ -105,7 +107,7 @@ void readAndSave(const string& mnist_img_path, const string& mnist_label_path)
  * @param imgs: vector<Matrix*>
  * @param labels: 标签
  */
-void Load_data(const string& mnist_img_path, const string& mnist_label_path, vector<vector<Matrix<double>*>> *imgs, vector<unsigned int> *labels){
+void Load_data(const string& mnist_img_path, const string& mnist_label_path, vector<vector<Matrix<double>*>> &imgs, vector<int> &labels){
     //以二进制格式读取mnist数据库中的图像文件和标签文件
     ifstream mnist_image(mnist_img_path, ios::in | ios::binary);
     ifstream mnist_label(mnist_label_path, ios::in | ios::binary);
@@ -178,9 +180,40 @@ void Load_data(const string& mnist_img_path, const string& mnist_label_path, vec
         image->width = cols;
         image->height = rows;
         image->data = data;
-        imgs->push_back(*(new vector<Matrix<double>*>{image}));
-        labels->push_back((unsigned int)label);
+        imgs.push_back(vector<Matrix<double>*>{image});
+        labels.push_back(static_cast<int>(label));
         delete[](pixels);
+    }
+}
+
+void load_faces_dataset(std::vector<std::vector< Matrix<double>*> > &imgs, std::vector<int> &labels){
+    ifstream file;
+    file.open("data/faces_dataset/img_db.txt", ios::in);
+    if (!file.is_open())
+        return;
+    std::string strLine;
+    double *data;
+    int label;
+    int height;
+    int width;
+    std::vector<std::string> arr;
+    int index;
+    while (getline(file, strLine)) {
+        if (strLine.empty())
+            continue;
+        arr = split(strLine, " ");
+        label = std::stoi(arr[0]);
+        labels.push_back(label);
+        height = std::stoi(arr[1]);
+        width = std::stoi(arr[2]);
+        data = new double[height * width];
+        index = 0;
+        for (int i = 3; i < arr.size(); ++i) {
+            if (arr[i].empty() || arr[i] == " ") continue;
+            data[index++] = std::stod(arr[i]);
+        }
+        imgs.push_back(std::vector<Matrix<double>*>{new Matrix<double>(height, width, data)});
+        delete[](data);
     }
 }
 

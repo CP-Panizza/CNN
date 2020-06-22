@@ -1,15 +1,22 @@
 cmake_minimum_required(VERSION 3.12)
-project(Convelution)
+project(Cnn)
 
 set(CMAKE_CXX_STANDARD 11)
 
 add_executable(
-        Convelution
+        Cnn
         main.cpp
         load_data.hpp
         matrix.hpp
         utils.cpp
         utils.h
-        convolution.hpp
-        poling.hpp
-        )
+        conv.hpp
+        conv_relu.hpp
+        pooling.hpp
+        pooling_affine.hpp
+        relu.hpp
+        affine.hpp
+        softmax.hpp
+        cnn.hpp
+        adam.hpp
+)
