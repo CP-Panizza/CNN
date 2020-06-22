@@ -210,16 +210,17 @@ Matrix<double> *rand_matrix(int row, int col){
         }
     }
     auto temp = new Matrix<double>(row, col, data);
-    if(min < 0){
-        auto temp1 = temp->operator+(-min);
-        sum = temp1->mat_sum();
-        auto out = temp1->operator/(sum);
-        delete(temp);
-        delete(temp1);
-        return out;
-    }
-    sum = temp->mat_sum();
-    return temp->operator/(sum);
+    return temp;
+//    if(min < 0){
+//        auto temp1 = temp->operator+(-min);
+//        sum = temp1->mat_sum();
+//        auto out = temp1->operator/(sum);
+//        delete(temp);
+//        delete(temp1);
+//        return out;
+//    }
+//    sum = temp->mat_sum();
+//    return temp->operator/(sum);
 }
 
 

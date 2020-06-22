@@ -74,10 +74,11 @@
     <session id="1469853599">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="29" />
+          <entry key="project.closed" value="30" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.103" value="1" />
           <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.30" value="1" />
@@ -99,14 +100,14 @@
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.72" value="1" />
           <entry key="project.open.time.94" value="1" />
-          <entry key="project.opened" value="32" />
+          <entry key="project.opened" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="12569" />
+          <entry key="cpp" value="12831" />
           <entry key="h" value="219" />
-          <entry key="hpp" value="19136" />
+          <entry key="hpp" value="19274" />
           <entry key="mm" value="496" />
           <entry key="py" value="1643" />
           <entry key="txt" value="134" />
@@ -116,19 +117,19 @@
         <counts>
           <entry key="CMakeLists.txt" value="52" />
           <entry key="Doxygen file" value="1" />
-          <entry key="ObjectiveC" value="32419" />
+          <entry key="ObjectiveC" value="32819" />
           <entry key="PLAIN_TEXT" value="82" />
           <entry key="Python" value="1643" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="Cnn (disassembly)" value="4" />
+          <entry key="Cnn (disassembly)" value="5" />
           <entry key="Convelution (disassembly)" value="2" />
-          <entry key="cpp" value="21" />
+          <entry key="cpp" value="24" />
           <entry key="h" value="44" />
-          <entry key="hpp" value="126" />
-          <entry key="pgm" value="32" />
+          <entry key="hpp" value="136" />
+          <entry key="pgm" value="33" />
           <entry key="py" value="1" />
           <entry key="txt" value="27" />
         </counts>
@@ -136,9 +137,9 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CMakeLists.txt" value="15" />
-          <entry key="Disassembly" value="6" />
-          <entry key="Image" value="32" />
-          <entry key="ObjectiveC" value="191" />
+          <entry key="Disassembly" value="7" />
+          <entry key="Image" value="33" />
+          <entry key="ObjectiveC" value="204" />
           <entry key="PLAIN_TEXT" value="12" />
           <entry key="Python" value="1" />
         </counts>
@@ -182,8 +183,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
+            <state relative-caret-position="-339">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -194,8 +195,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cnn.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1119">
-              <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
+            <state relative-caret-position="122">
+              <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
               <folding>
                 <element signature="e#38#57#0" expanded="true" />
               </folding>
@@ -204,10 +205,68 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/softmax.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+              <folding>
+                <element signature="e#45#66#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pooling.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1932">
+              <caret line="69" column="39" selection-start-line="69" selection-start-column="39" selection-end-line="69" selection-end-column="39" />
+              <folding>
+                <element signature="e#45#66#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conv_relu.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1316">
+              <caret line="47" column="40" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="40" />
+              <folding>
+                <element signature="e#49#70#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conv.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1736">
-              <caret line="62" selection-start-line="62" selection-end-line="62" />
+            <state relative-caret-position="127">
+              <caret line="32" column="22" lean-forward="true" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="463">
+              <caret line="212" column="16" selection-start-line="212" selection-start-column="16" selection-end-line="212" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/matrix.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2604">
+              <caret line="332" lean-forward="true" selection-start-line="332" selection-end-line="332" />
+              <folding>
+                <element signature="e#111#129#0" expanded="true" />
+                <element signature="e#241#253#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -239,7 +298,6 @@
         <option value="$PROJECT_DIR$/matrix.h" />
         <option value="$PROJECT_DIR$/cmake-build-debug/data/faces_dataset/readme.txt" />
         <option value="$PROJECT_DIR$/relu.hpp" />
-        <option value="$PROJECT_DIR$/load_data.hpp" />
         <option value="$PROJECT_DIR$/convolution.hpp" />
         <option value="$PROJECT_DIR$/poling.hpp" />
         <option value="$PROJECT_DIR$/affine.hpp" />
@@ -252,12 +310,13 @@
         <option value="$PROJECT_DIR$/softmax.hpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/utils.h" />
-        <option value="$PROJECT_DIR$/utils.cpp" />
         <option value="$PROJECT_DIR$/adam.hpp" />
-        <option value="$PROJECT_DIR$/matrix.hpp" />
         <option value="$PROJECT_DIR$/conv.hpp" />
+        <option value="$PROJECT_DIR$/matrix.hpp" />
+        <option value="$PROJECT_DIR$/utils.cpp" />
         <option value="$PROJECT_DIR$/cnn.hpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/load_data.hpp" />
       </list>
     </option>
   </component>
@@ -280,6 +339,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -287,11 +347,15 @@
               <item name="Cnn" type="b2602c69:ProjectViewProjectNode" />
               <item name="Num-master" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Cnn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Num-master" type="462c0819:PsiDirectoryNode" />
+              <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -387,29 +451,31 @@
       <workItem from="1592740228534" duration="3287000" />
       <workItem from="1592783271679" duration="6283000" />
       <workItem from="1592791106056" duration="5910000" />
-      <workItem from="1592800945870" duration="1132000" />
+      <workItem from="1592800945870" duration="4174000" />
+      <workItem from="1592811584096" duration="5763000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="252087000" />
+    <option name="totallyTimeSpent" value="260892000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="25" width="1938" height="1064" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.115879826" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49882904" visible="true" weight="0.15879828" />
+      <window_info id="Structure" order="1" sideWeight="0.50117093" side_tool="true" visible="true" weight="0.15879828" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.54444444" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.46888888" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.66333336" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.60444444" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.41444445" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.49333334" />
+      <window_info active="true" anchor="bottom" id="Messages" order="8" visible="true" weight="0.52555555" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.49333334" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="CMake" order="12" weight="0.36580086" />
@@ -431,13 +497,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/Num" />
     </ignored-roots>
-  </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="CMakeRunConfiguration">
-        <watch expression="params[1].second-&gt;height" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
@@ -537,29 +596,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/load_data.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="213" column="9" lean-forward="true" selection-start-line="213" selection-start-column="9" selection-end-line="213" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/layers.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="13" column="16" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="16" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/relu.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/test.pgm">
-      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://D:/compliler/MinGW64/x86_64-w64-mingw32/include/math.h" />
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
@@ -570,30 +612,6 @@
       </provider>
     </entry>
     <entry file="file://D:/compliler/MinGW64/x86_64-w64-mingw32/include/c++/bits/stl_map.h" />
-    <entry file="file://$PROJECT_DIR$/pooling.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1400">
-          <caret line="50" column="24" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
-          <folding>
-            <element signature="e#45#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conv_relu.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1848">
-          <caret line="88" column="21" selection-start-line="88" selection-start-column="21" selection-end-line="88" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pooling_affine.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/MinGW64/x86_64-w64-mingw32/include/math.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -608,13 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="197" lean-forward="true" selection-start-line="197" selection-end-line="197" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/MinGW64/x86_64-w64-mingw32/include/c++/bits/stl_map.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
@@ -622,58 +633,122 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/matrix.hpp">
+    <entry file="file://$PROJECT_DIR$/affine.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="293" column="52" lean-forward="true" selection-start-line="293" selection-start-column="52" selection-end-line="293" selection-end-column="52" />
+        <state relative-caret-position="924">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="e#43#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/relu.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pooling_affine.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1820">
+          <caret line="65" column="20" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="20" />
+          <folding>
+            <element signature="e#60#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pooling.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1932">
+          <caret line="69" column="39" selection-start-line="69" selection-start-column="39" selection-end-line="69" selection-end-column="39" />
+          <folding>
+            <element signature="e#45#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conv_relu.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1316">
+          <caret line="47" column="40" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="40" />
+          <folding>
+            <element signature="e#49#70#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/softmax.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="728">
-          <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
+        <state relative-caret-position="284">
+          <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+          <folding>
+            <element signature="e#45#66#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/affine.hpp">
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/test.pgm">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conv.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="45" column="9" lean-forward="true" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
+        <state relative-caret-position="127">
+          <caret line="32" column="22" lean-forward="true" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="212" column="16" selection-start-line="212" selection-start-column="16" selection-end-line="212" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/matrix.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2604">
+          <caret line="332" lean-forward="true" selection-start-line="332" selection-end-line="332" />
+          <folding>
+            <element signature="e#111#129#0" expanded="true" />
+            <element signature="e#241#253#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/adam.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+        <state relative-caret-position="309">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
           <folding>
             <element signature="e#39#60#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conv.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1736">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cnn.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1119">
-          <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
+        <state relative-caret-position="122">
+          <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
           <folding>
             <element signature="e#38#57#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/load_data.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2026">
+          <caret line="166" column="9" lean-forward="true" selection-start-line="166" selection-start-column="9" selection-end-line="166" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
+        <state relative-caret-position="-339">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

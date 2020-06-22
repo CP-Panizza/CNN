@@ -79,7 +79,7 @@ public:
                 delete (each_col_reshape);
             }
         }
-        delete(col_dot_w_add_b);
+        delete (col_dot_w_add_b);
 
         return out;
     }
@@ -87,16 +87,16 @@ public:
     std::vector<std::vector<Matrix<double> *> > *backword(std::vector<std::vector<Matrix<double> *>> *dout) {
         //把dout转化成与col_dot_w矩阵相同的矩阵
         int N = static_cast<int>(dout->size()), C = static_cast<int>(((*dout)[0]).size()), H = ((*dout)[0])[0]->height, W = ((*dout)[0])[0]->width;
-        int height = N*H*W;
+        int height = N * H * W;
         int width = C;
         auto dout_mat = new Matrix<double>(height, width);
-        int img_size = H*W;
+        int img_size = H * W;
         double *a_col = nullptr;
         for (int i = 0; i < N; ++i) {
             for (int j = 0; j < C; ++j) {
                 a_col = (*dout)[i][j]->to_line();
                 for (int k = 0; k < img_size; ++k) {
-                    dout_mat->Set(i*img_size+k, j, a_col[k]);
+                    dout_mat->Set(i * img_size + k, j, a_col[k]);
                 }
                 delete[](a_col);
             }
@@ -113,8 +113,8 @@ public:
             delete (this->db);
         }
         this->db = sum(dout_mat, "c");
-        delete(dout_mat);
-        delete(x_t);
+        delete (dout_mat);
+        delete (x_t);
         return nullptr;
     }
 };

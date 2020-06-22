@@ -24,11 +24,11 @@ public:
         int channel = 1;
         int img_w = 28;
         int img_h = 28;
-        int filter_num = 50;
+        int filter_num = 30;
         int filter_size = 5;
         int stride = 1;
-        int pad = 0;
-        int hide_size = 50;
+        int pad = 2;
+        int hide_size = 100;
         conv = new Conv(std_init_whight, batch_size, channel, img_w, img_h, filter_num, filter_size, stride, pad);
         pooling = new Pooling(2, 2, conv->out_shape);
         conv_relu = new ConvRelu;
@@ -78,7 +78,7 @@ public:
 
 
         //参数更新
-        std::vector<std::string> keys = {"fc_w", "fc_b", "fc1_w", "fc1_b", "conv_w", "conv_b",};
+//        std::vector<std::string> keys = {"fc_w", "fc_b", "fc1_w", "fc1_b", "conv_w", "conv_b",};
         auto params = new std::map<string, Matrix<double> *>;
         params->insert(std::pair<string, Matrix<double> *>("fc_w", fc->W->Copy()));
         params->insert(std::pair<string, Matrix<double> *>("fc_b", fc->b->Copy()));
@@ -102,7 +102,7 @@ public:
         this->conv->W = (*params)["conv_w"];
         delete (this->conv->b);
         this->conv->b = (*params)["conv_b"];
-
+//        std::cout << "this->conv->W:\n" << this->conv->W;
 
         delete (this->fc1->W);
         this->fc1->W = (*params)["fc1_w"];

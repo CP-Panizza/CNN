@@ -32,8 +32,8 @@ int main() {
             R"(C:\Users\Administrator\Desktop\Num-master\cmake-build-debug\data\img_label\t10k-labels.idx1-ubyte)",
             t_imgs, t_labels);
 
-    int batch_size = 50;
-    int epoch = 500;
+    int batch_size = 30;
+    int epoch = 200;
     int start;
     int end;
     auto cnn = new Cnn(batch_size);
@@ -54,9 +54,16 @@ int main() {
         delete (la);
     }
 
+//    std::cout <<"cnn->conv->W:\n"<< cnn->conv->W;
+//    std::cout <<"cnn->conv->b:\n"<< cnn->conv->b;
+//    std::cout <<"cnn->fc->W:\n"<< cnn->fc->W;
+//    std::cout <<"cnn->fc->b:\n"<< cnn->fc->b;
+//    std::cout <<"cnn->fc1->W:\n"<< cnn->fc1->W;
+//    std::cout <<"cnn->fc1->b:\n"<< cnn->fc1->b;
+
 
     //用测试集测试
-    int test_num = 20;
+    int test_num = 50;
     for (int k = 0; k < test_num; ++k) {
         start = static_cast<int>(rand() % (imgs.size() - 1));
         end = start + 1;
@@ -69,7 +76,7 @@ int main() {
         test_x[0][0]->WriteImg("test.pgm");
         std::cout <<"\nNo:"<< k <<"\nlabel:"<< test_label[0] << "\n";
         auto pre = cnn->predict(&test_x, test_la);
-//        std::cout << "pre:" << pre;
+        std::cout << "pre:" << pre;
         auto result = argmax(pre, "r");
         std::cout << "predict:" << result;
         delete(test_la);

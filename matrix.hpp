@@ -112,10 +112,7 @@ public:
     }
 
     Matrix<Type> *Copy() {
-        auto t = new Matrix;
-        t->width = this->width;
-        t->height = this->height;
-        t->data = Create2dArray<Type>(this->height, this->width);
+        auto t = new Matrix(this->height, this->width);
         for (int j = 0; j < this->height; ++j) {
             for (int i = 0; i < this->width; ++i) {
                 t->Set(j, i, this->Get(j, i));
@@ -310,6 +307,11 @@ public:
     }
 
     Matrix<Type> *operator/(Type a) {
+        if(a == 0){
+            printf("file: %s function: %s line: %d div zero.", __FILE__, __FUNCTION__,
+                   __LINE__);
+            exit(-1);
+        }
         Matrix<Type> *m = this->Copy();
         for (int i = 0; i < m->height; ++i) {
             for (int j = 0; j < m->width; ++j) {
