@@ -98,6 +98,7 @@ void readAndSave(const string &mnist_img_path, const string &mnist_label_path) {
  * @param imgs: vector<Matrix*>
  * @param labels: 标签
  */
+ //输入数据归一化非常重要
 void Load_data(const string &mnist_img_path, const string &mnist_label_path, vector<vector<Matrix<double> *>> &imgs,
                vector<int> &labels, bool normalize = true) {
     //以二进制格式读取mnist数据库中的图像文件和标签文件

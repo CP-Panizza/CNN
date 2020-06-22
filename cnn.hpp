@@ -4,7 +4,11 @@
 
 #include "layers.h"
 #include "adam.hpp"
+#include "libs/rapidjson/document.h"
+#include "libs/rapidjson/writer.h"
+#include "libs/rapidjson/stringbuffer.h"
 
+using namespace rapidjson;
 
 class Cnn {
 public:
@@ -143,6 +147,152 @@ public:
         return y;
     }
 
+
+
+    void save_param(const std::string &path){
+        rapidjson::StringBuffer s;
+        rapidjson::Writer<rapidjson::StringBuffer> w(s);
+        w.StartObject();
+        w.Key("conv_w");
+        w.StartArray();
+        for (int i = 0; i < this->conv->W->height; ++i) {
+            w.StartArray();
+            for (int j = 0; j < this->conv->W->width; ++j) {
+                w.Double(this->conv->W->Get(i,j));
+            }
+            w.EndArray();
+        }
+        w.EndArray();
+
+        //
+        w.Key("conv_b");
+        w.StartArray();
+        for (int i = 0; i < this->conv->b->height; ++i) {
+            w.StartArray();
+            for (int j = 0; j < this->conv->b->width; ++j) {
+                w.Double(this->conv->b->Get(i,j));
+            }
+            w.EndArray();
+        }
+        w.EndArray();
+
+        //
+        w.Key("fc_w");
+        w.StartArray();
+        for (int i = 0; i < this->fc->W->height; ++i) {
+            w.StartArray();
+            for (int j = 0; j < this->fc->W->width; ++j) {
+                w.Double(this->fc->W->Get(i,j));
+            }
+            w.EndArray();
+        }
+        w.EndArray();
+
+        //
+        w.Key("fc_b");
+        w.StartArray();
+        for (int i = 0; i < this->fc->b->height; ++i) {
+            w.StartArray();
+            for (int j = 0; j < this->fc->b->width; ++j) {
+                w.Double(this->fc->b->Get(i,j));
+            }
+            w.EndArray();
+        }
+        w.EndArray();
+
+        //
+        w.Key("fc1_w");
+        w.StartArray();
+        for (int i = 0; i < this->fc1->W->height; ++i) {
+            w.StartArray();
+            for (int j = 0; j < this->fc1->W->width; ++j) {
+                w.Double(this->fc1->W->Get(i,j));
+            }
+            w.EndArray();
+        }
+        w.EndArray();
+
+        //
+        w.Key("fc1_b");
+        w.StartArray();
+        for (int i = 0; i < this->fc1->b->height; ++i) {
+            w.StartArray();
+            for (int j = 0; j < this->fc1->b->width; ++j) {
+                w.Double(this->fc1->b->Get(i,j));
+            }
+            w.EndArray();
+        }
+        w.EndArray();
+        w.EndObject();
+
+        string data(s.GetString());
+
+        std::ofstream f(path);
+        if (f.is_open()) {
+            f << data;
+        } else {
+            perror("open outfile err!");
+        }
+        f.close();
+    }
+
+    bool load_param(const std::string &path){
+        std::string param = read_file(path);
+        rapidjson::Document d;
+        if(d.Parse(param.c_str()).HasParseError()){
+            printf("parse error!\n");
+            return false;
+        }
+        rapidjson::Document::Array conv_w_ = d["conv_w"].GetArray();
+        for (int i = 0; i < conv_w_.Size(); ++i) {
+            rapidjson::Document::Array row = conv_w_[i].GetArray();
+            for (int j = 0; j < row.Size(); ++j) {
+                this->conv->W->Set(i, j, row[j].GetDouble());
+            }
+        }
+
+        rapidjson::Document::Array conv_b_ = d["conv_b"].GetArray();
+        for (int i = 0; i < conv_b_.Size(); ++i) {
+            rapidjson::Document::Array row = conv_b_[i].GetArray();
+            for (int j = 0; j < row.Size(); ++j) {
+                this->conv->b->Set(i, j, row[j].GetDouble());
+            }
+        }
+
+        rapidjson::Document::Array fc_w_ = d["fc_w"].GetArray();
+        for (int i = 0; i < fc_w_.Size(); ++i) {
+            rapidjson::Document::Array row = fc_w_[i].GetArray();
+            for (int j = 0; j < row.Size(); ++j) {
+                this->fc->W->Set(i, j, row[j].GetDouble());
+            }
+        }
+
+        rapidjson::Document::Array fc_b_ = d["fc_b"].GetArray();
+        for (int i = 0; i < fc_b_.Size(); ++i) {
+            rapidjson::Document::Array row = fc_b_[i].GetArray();
+            for (int j = 0; j < row.Size(); ++j) {
+                this->fc->b->Set(i, j, row[j].GetDouble());
+            }
+        }
+
+        rapidjson::Document::Array fc1_w_ = d["fc1_w"].GetArray();
+        for (int i = 0; i < fc1_w_.Size(); ++i) {
+            rapidjson::Document::Array row = fc1_w_[i].GetArray();
+            for (int j = 0; j < row.Size(); ++j) {
+                this->fc1->W->Set(i, j, row[j].GetDouble());
+            }
+        }
+
+        rapidjson::Document::Array fc1_b_ = d["fc1_b"].GetArray();
+        for (int i = 0; i < fc1_b_.Size(); ++i) {
+            rapidjson::Document::Array row = fc1_b_[i].GetArray();
+            for (int j = 0; j < row.Size(); ++j) {
+                this->fc1->b->Set(i, j, row[j].GetDouble());
+            }
+        }
+
+        return true;
+    }
 };
 
 

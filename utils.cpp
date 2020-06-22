@@ -2,9 +2,10 @@
 // Created by Administrator on 2020/6/3.
 //
 
-#include <c++/ctime>
+#include <ctime>
 #include "utils.h"
 #include <cmath>
+#include <c++/sstream>
 
 Matrix<double> *im2col(std::vector<std::vector<Matrix<double> *>> *input_data, int filter_h, int filter_w, int stride, int pad) {
     int N = static_cast<int>(input_data->size()), C = static_cast<int>(((*input_data)[0]).size()), H = ((*input_data)[0])[0]->height, W = ((*input_data)[0])[0]->width;
@@ -211,16 +212,6 @@ Matrix<double> *rand_matrix(int row, int col){
     }
     auto temp = new Matrix<double>(row, col, data);
     return temp;
-//    if(min < 0){
-//        auto temp1 = temp->operator+(-min);
-//        sum = temp1->mat_sum();
-//        auto out = temp1->operator/(sum);
-//        delete(temp);
-//        delete(temp1);
-//        return out;
-//    }
-//    sum = temp->mat_sum();
-//    return temp->operator/(sum);
 }
 
 
@@ -285,4 +276,12 @@ double gauss_rand(){
     phase = 1 - phase;
 
     return X;
+}
+
+std::string read_file(std::string file) {
+    std::ifstream fin(file);
+    std::stringstream buffer;
+    buffer << fin.rdbuf();
+    std::string str(buffer.str());
+    return str;
 }

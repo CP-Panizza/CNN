@@ -8,8 +8,8 @@
 #include <fstream>
 #include <cstdlib>
 #include <memory.h>
-#include <c++/vector>
-#include <c++/iostream>
+#include <vector>
+#include <iostream>
 #include <cmath>
 
 template<class Type>
