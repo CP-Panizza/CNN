@@ -19,6 +19,7 @@ Matrix<double> *padding(Matrix<double> *src, int pad);
 void free_data(std::vector<std::vector<Matrix<double> *>> *data);
 double gauss_rand();
 std::string read_file(std::string file);
+Matrix<double> *col2im(Matrix<double> *col, int src_w, int src_h, int filter_size, int stride);
 template<class Type>
 void DrawImg(Matrix<Type> *mat, int x, int y) {
     HWND wnd;    //窗口句柄

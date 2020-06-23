@@ -13,8 +13,10 @@ using namespace rapidjson;
 class Cnn {
 public:
     Conv *conv;
-    Pooling *pooling;
     ConvRelu *conv_relu;
+    Pooling *pooling;
+    Conv *conv1;
+    ConvRelu *conv_relu1;
     PoolingAffine *fc;
     Relu *relu;
     Affine *fc1;
@@ -28,15 +30,19 @@ public:
         int channel = 1;
         int img_w = 28;
         int img_h = 28;
-        int filter_num = 30;
+        int filter_num = 20;
         int filter_size = 5;
         int stride = 1;
         int pad = 2;
         int hide_size = 100;
-        conv = new Conv(std_init_whight, batch_size, channel, img_w, img_h, filter_num, filter_size, stride, pad);
-        pooling = new Pooling(2, 2, conv->out_shape);
+        std::vector<int> input_shape{batch_size, channel, img_h, img_w};
+        conv = new Conv(std_init_whight, filter_num, filter_size, stride, pad, input_shape);
         conv_relu = new ConvRelu;
-        fc = new PoolingAffine(pooling->out_shape, hide_size);
+        pooling = new Pooling(2, 2, conv->out_shape);
+        int filter_num1 = 10, filter_size1 = 3, stride1 = 1, pad1 = 0;
+        conv1 = new Conv(std_init_whight, filter_num1, filter_size1, stride1, pad1, pooling->out_shape);
+        conv_relu1 = new ConvRelu;
+        fc = new PoolingAffine(conv1->out_shape, hide_size);
         relu = new Relu;
         fc1 = new Affine(fc->out_shape, 10);
         soft_max = new Softmax;
@@ -49,7 +55,9 @@ public:
         auto conv_out = conv->forward(x);
         auto conv_relu_out = conv_relu->forward(conv_out);
         auto pooling_out = pooling->forward(conv_relu_out);
-        auto fc_out = fc->forward(pooling_out);
+        auto conv1_out = conv1->forward(pooling_out);
+        auto conv_relu1_out = conv_relu1->forward(conv1_out);
+        auto fc_out = fc->forward(conv_relu1_out);
         auto relu_out = relu->forward(fc_out);
         auto fc1_out = fc1->forward(relu_out);
         auto y = soft_max->forward(fc1_out, la);
@@ -58,6 +66,8 @@ public:
         free_data(conv_out);
         free_data(conv_relu_out);
         free_data(pooling_out);
+        free_data(conv1_out);
+        free_data(conv_relu1_out);
         delete (fc_out);
         delete (relu_out);
         delete (fc1_out);
@@ -69,16 +79,22 @@ public:
         auto fc1_dout = fc1->backward(sm_dout);
         auto relu_dout = relu->backward(fc1_dout);
         auto fc_dout = fc->backword(relu_dout);
-        auto pooling_dout = pooling->backword(fc_dout);
+        auto conv_relu1_dout = conv_relu1->backword(fc_dout);
+        auto conv1_dout = conv1->backword(conv_relu1_dout);
+        auto pooling_dout = pooling->backword(conv1_dout);
         auto conv_relu_dout = conv_relu->backword(pooling_dout);
-        conv->backword(conv_relu_dout);
+        auto conv_dout = conv->backword(conv_relu_dout);
+
 
         delete (sm_dout);
         delete (fc1_dout);
         delete (relu_dout);
         free_data(fc_dout);
+        free_data(conv_relu1_dout);
+        free_data(conv1_dout);
         free_data(pooling_dout);
         free_data(conv_relu_dout);
+        free_data(conv_dout);
 
 
         //参数更新
@@ -88,6 +104,8 @@ public:
         params->insert(std::pair<string, Matrix<double> *>("fc_b", fc->b->Copy()));
         params->insert(std::pair<string, Matrix<double> *>("fc1_w", fc1->W->Copy()));
         params->insert(std::pair<string, Matrix<double> *>("fc1_b", fc1->b->Copy()));
+        params->insert(std::pair<string, Matrix<double> *>("conv1_w", conv1->W->Copy()));
+        params->insert(std::pair<string, Matrix<double> *>("conv1_b", conv1->b->Copy()));
         params->insert(std::pair<string, Matrix<double> *>("conv_w", conv->W->Copy()));
         params->insert(std::pair<string, Matrix<double> *>("conv_b", conv->b->Copy()));
 
@@ -96,6 +114,8 @@ public:
         grads->insert(std::pair<string, Matrix<double> *>("fc_b", fc->db));
         grads->insert(std::pair<string, Matrix<double> *>("fc1_w", fc1->dW));
         grads->insert(std::pair<string, Matrix<double> *>("fc1_b", fc1->db));
+        grads->insert(std::pair<string, Matrix<double> *>("conv1_w", conv1->dW));
+        grads->insert(std::pair<string, Matrix<double> *>("conv1_b", conv1->db));
         grads->insert(std::pair<string, Matrix<double> *>("conv_w", conv->dW));
         grads->insert(std::pair<string, Matrix<double> *>("conv_b", conv->db));
 
@@ -106,7 +126,11 @@ public:
         this->conv->W = (*params)["conv_w"];
         delete (this->conv->b);
         this->conv->b = (*params)["conv_b"];
-//        std::cout << "this->conv->W:\n" << this->conv->W;
+
+        delete (this->conv1->W);
+        this->conv1->W = (*params)["conv1_w"];
+        delete (this->conv1->b);
+        this->conv1->b = (*params)["conv1_b"];
 
         delete (this->fc1->W);
         this->fc1->W = (*params)["fc1_w"];
@@ -125,21 +149,28 @@ public:
     Matrix<double> *predict(std::vector<std::vector<Matrix<double> *> > *x, Matrix<double> *la) {
         //前向传播
         auto conv_out = conv->forward(x);
-//        std::cout << "conv_out:\n" << (*conv_out)[0][0];
+
         auto conv_relu_out = conv_relu->forward(conv_out);
-//        std::cout << "conv_relu_out:\n" << (*conv_relu_out)[0][0];
+
         auto pooling_out = pooling->forward(conv_relu_out);
-//        std::cout << "plooling_out:\n" << (*pooling_out)[0][0];
-        auto fc_out = fc->forward(pooling_out);
-//        std::cout << "fc_out:\n" << fc_out;
+
+
+        auto conv1_out = conv1->forward(pooling_out);
+
+        auto conv_relu1_out = conv_relu1->forward(conv1_out);
+
+        auto fc_out = fc->forward(conv_relu1_out);
+
         auto relu_out = relu->forward(fc_out);
-//        std::cout << "relu_out:\n" << relu_out;
+
         auto fc1_out = fc1->forward(relu_out);
-//        std::cout << "fc1_out:\n" << fc1_out;
+
         auto y = soft_max->forward(fc1_out, la);
         free_data(conv_out);
         free_data(conv_relu_out);
         free_data(pooling_out);
+        free_data(conv1_out);
+        free_data(conv_relu1_out);
         delete (fc_out);
         delete (relu_out);
         delete (fc1_out);
@@ -175,6 +206,35 @@ public:
             w.EndArray();
         }
         w.EndArray();
+
+
+
+
+        w.Key("conv1_w");
+        w.StartArray();
+        for (int i = 0; i < this->conv1->W->height; ++i) {
+            w.StartArray();
+            for (int j = 0; j < this->conv1->W->width; ++j) {
+                w.Double(this->conv1->W->Get(i,j));
+            }
+            w.EndArray();
+        }
+        w.EndArray();
+
+        //
+        w.Key("conv1_b");
+        w.StartArray();
+        for (int i = 0; i < this->conv1->b->height; ++i) {
+            w.StartArray();
+            for (int j = 0; j < this->conv1->b->width; ++j) {
+                w.Double(this->conv1->b->Get(i,j));
+            }
+            w.EndArray();
+        }
+        w.EndArray();
+
+
+
 
         //
         w.Key("fc_w");
@@ -256,6 +316,22 @@ public:
             rapidjson::Document::Array row = conv_b_[i].GetArray();
             for (int j = 0; j < row.Size(); ++j) {
                 this->conv->b->Set(i, j, row[j].GetDouble());
+            }
+        }
+
+        rapidjson::Document::Array conv1_w_ = d["conv1_w"].GetArray();
+        for (int i = 0; i < conv1_w_.Size(); ++i) {
+            rapidjson::Document::Array row = conv1_w_[i].GetArray();
+            for (int j = 0; j < row.Size(); ++j) {
+                this->conv1->W->Set(i, j, row[j].GetDouble());
+            }
+        }
+
+        rapidjson::Document::Array conv1_b_ = d["conv1_b"].GetArray();
+        for (int i = 0; i < conv1_b_.Size(); ++i) {
+            rapidjson::Document::Array row = conv1_b_[i].GetArray();
+            for (int j = 0; j < row.Size(); ++j) {
+                this->conv1->b->Set(i, j, row[j].GetDouble());
             }
         }
 

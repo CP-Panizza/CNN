@@ -285,3 +285,36 @@ std::string read_file(std::string file) {
     std::string str(buffer.str());
     return str;
 }
+
+/**
+ * 单张图片的还原
+ * @param col 需要变形回去的矩阵
+ * @param src_w 原始矩阵宽度
+ * @param src_h 原始矩阵高度
+ * @param filter_size 卷积核边长
+ * @param stride 卷积滑动步长
+ * @return
+ */
+Matrix<double> *col2im(Matrix<double> *col, int src_w, int src_h, int filter_size, int stride){
+    auto origin = new Matrix<double>(src_h, src_w);
+    auto mask = new Matrix<double>(src_h, src_w);
+    int num_row = 0; //col矩阵的第几行
+    for (int i = 0; i <= origin->height-filter_size; i+=stride) {
+        for (int j = 0; j <=origin->width-filter_size ; j+=stride) {
+            auto row = col->Row(num_row++);
+            int idx = 0;
+            for (int m = i; m < i+filter_size; ++m) {
+                for (int n = j; n < j+filter_size; ++n) {
+                    if(mask->Get(m,n) == 0){
+                        origin->Set(m,n,row->Get(0,idx++));
+                    } else {
+                        idx++;
+                    }
+                }
+            }
+            delete(row);
+        }
+    }
+    delete(mask);
+    return origin;
+}

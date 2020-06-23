@@ -176,7 +176,7 @@ void Load_data(const string &mnist_img_path, const string &mnist_label_path, vec
     }
 }
 
-void load_faces_dataset(std::vector<std::vector<Matrix<double> *> > &imgs, std::vector<int> &labels) {
+void load_faces_dataset(std::vector<std::vector<Matrix<double> *> > &imgs, std::vector<int> &labels,bool normalize = true) {
     ifstream file;
     file.open("data/faces_dataset/img_db.txt", ios::in);
     if (!file.is_open())
@@ -202,7 +202,14 @@ void load_faces_dataset(std::vector<std::vector<Matrix<double> *> > &imgs, std::
             if (arr[i].empty() || arr[i] == " ") continue;
             data[index++] = std::stod(arr[i]);
         }
-        imgs.push_back(std::vector<Matrix<double> *>{new Matrix<double>(height, width, data)});
+        if(normalize){
+            auto un_normalize = new Matrix<double>(height, width, data);
+            imgs.push_back(std::vector<Matrix<double> *>{un_normalize->operator/(255.0)});
+            delete(un_normalize);
+        } else {
+            imgs.push_back(std::vector<Matrix<double> *>{new Matrix<double>(height, width, data)});
+        }
+
         delete[](data);
     }
 }

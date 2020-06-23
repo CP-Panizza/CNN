@@ -13,7 +13,7 @@ public:
     std::map<std::string, Matrix<double> *> *m = nullptr;
     std::map<std::string, Matrix<double> *> *v = nullptr;
 
-    Adam(double lr = 0.001, double beta1 = 0.9, double beta2 = 0.999) : lr(lr), beta1(beta1), beta2(beta2) {}
+    explicit Adam(double lr = 0.001, double beta1 = 0.9, double beta2 = 0.999) : lr(lr), beta1(beta1), beta2(beta2) {}
 
 
     void update(std::map<std::string, Matrix<double> *> *params, std::map<std::string, Matrix<double> *> *grads) {

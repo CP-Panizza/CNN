@@ -10,7 +10,9 @@ public:
     int _img_w;
     int _img_h;
     int _filter_num;
-    int _filter_size;
+    int _filter_size;  //卷积核边长
+    int _channel;
+    int _batch_size;
     int _stride;
     int _pad;
 
@@ -23,14 +25,17 @@ public:
 
     std::vector<int> out_shape; //输出的维度信息 N,C,H,W
 
-    Conv(double std_init_whight, int batch_size, int channel, int _img_w, int _img_h, int _filter_num, int _filter_size,
-         int _stride, int _pad) : _img_w(_img_w),
-                                  _img_h(_img_h),
+    Conv(double std_init_whight, int _filter_num, int _filter_size,
+         int _stride, int _pad, const std::vector<int> &input_shape) :
                                   _filter_num(_filter_num),
                                   _filter_size(_filter_size),
                                   _stride(_stride),
                                   _pad(_pad) {
-        auto w = rand_matrix(channel * _filter_size * _filter_size, _filter_num);
+        this->_batch_size = input_shape[0];
+        this->_channel = input_shape[1];
+        this->_img_h = input_shape[2];
+        this->_img_w = input_shape[3];
+        auto w = rand_matrix(this->_channel * _filter_size * _filter_size, _filter_num);
         this->W = w->operator*(std_init_whight);
 //        std::cout << "conv_w:\n" << this->W;
         delete (w);
@@ -40,7 +45,8 @@ public:
         delete (_b);
         int out_h = (_img_h + 2 * this->_pad - this->_filter_size) / this->_stride + 1;
         int out_w = (_img_w + 2 * this->_pad - this->_filter_size) / this->_stride + 1;
-        out_shape.push_back(batch_size);
+
+        out_shape.push_back(_batch_size);
         out_shape.push_back(_filter_num);
         out_shape.push_back(out_h);
         out_shape.push_back(out_w);
@@ -102,8 +108,8 @@ public:
             }
         }
 
-//        auto w_t = this->W->T();
-//        auto dx = dout_mat->Dot(w_t);
+        auto w_t = this->W->T();
+        auto dx = dout_mat->Dot(w_t);
         if (this->dW != nullptr) {
             delete (this->dW);
         }
@@ -115,7 +121,42 @@ public:
         this->db = sum(dout_mat, "c");
         delete (dout_mat);
         delete (x_t);
-        return nullptr;
+        delete(w_t);
+
+        //给原始输入图片进行padding后，im2col之后的每张图片高宽
+        int h = 1 + (this->_img_h + (2 * this->_pad) - this->_filter_size) / this->_stride;
+        int w = 1 + (this->_img_w + (2 * this->_pad) - this->_filter_size) / this->_stride;
+
+        int each_width = this->_filter_size * this->_filter_size; //子矩阵宽度
+        int each_height = dx->height / this->_batch_size;        //子矩阵高度
+
+
+        int CHANNEL = dx->width / each_width;
+
+        auto out = new std::vector<std::vector<Matrix<double> *>>;
+        //截取子矩阵，并还原此子矩阵，然后把还原后的子矩阵去除padding
+        for (int i = 0; i < this->_batch_size; ++i) {
+            out->push_back(std::vector<Matrix<double> *>(CHANNEL));
+        }
+
+        //输入的图片进行pad之后的宽高
+        int pad_img_w = this->_img_w + 2 * this->_pad;
+        int pad_img_h = this->_img_h + 2 * this->_pad;
+
+        Matrix<double> *each_mat = nullptr;
+        Matrix<double> *col_mat = nullptr;
+        for (int i = 0; i < this->_batch_size; ++i) {
+            for (int j = 0; j < CHANNEL; ++j) {
+                each_mat = dx->SubMat(i * each_height, j * each_width, each_width, each_height);
+                col_mat = col2im(each_mat, pad_img_w, pad_img_h, this->_filter_size, this->_stride);
+                (*out)[i][j] = col_mat->SubMat(this->_pad, this->_pad, this->_img_w, this->_img_h); //去除padding
+                delete(each_mat);
+                delete(col_mat);
+            }
+        }
+
+        delete(dx);
+        return out;
     }
 };
 

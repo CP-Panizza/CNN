@@ -496,6 +496,41 @@ public:
 
         return out;
     }
+
+    /**
+     * 上下反转矩阵
+     * @return
+     */
+    Matrix<Type> *UD_reversal(){
+        auto ud = this->Copy();
+        for (int i = 0; i < ud->width; ++i) {
+            for (int j = 0; j < ud->height/2; ++j) {
+                Type down = this->Get(this->height - j - 1, i);
+                Type up = ud->Get(j, i);
+                ud->Set(j,i, down);
+                ud->Set(this->height - j - 1, i, up);
+            }
+        }
+        return ud;
+    }
+
+    /**
+     * 矩阵左右反转
+     * @return
+     */
+    Matrix<Type> *LR_reversal(){
+        auto lr = this->Copy();
+        for (int i = 0; i < lr->height; ++i) {
+            for (int j = 0; j < lr->width/2; ++j) {
+                Type right = this->Get(i, this->width - j - 1);
+                Type left = lr->Get(i, j);
+                lr->Set(i, j, right);
+                lr->Set(i,this->width - j - 1, left);
+            }
+        }
+        return lr;
+    }
+
 };
 
 
