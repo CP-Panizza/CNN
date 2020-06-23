@@ -104,6 +104,9 @@
 		<Unit filename="C:/Users/Administrator/Desktop/Num-master/matrix.hpp">
 			<Option target="Cnn"/>
 		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/Num-master/pgmer.hpp">
+			<Option target="Cnn"/>
+		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/Num-master/pooling.hpp">
 			<Option target="Cnn"/>
 		</Unit>

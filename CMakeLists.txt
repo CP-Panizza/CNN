@@ -19,4 +19,5 @@ add_executable(
         softmax.hpp
         cnn.hpp
         adam.hpp
+        pgmer.hpp
 )

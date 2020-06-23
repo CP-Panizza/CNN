@@ -35,6 +35,7 @@ CMakeFiles/Cnn.dir/main.cpp.obj: ../libs/rapidjson/writer.h
 CMakeFiles/Cnn.dir/main.cpp.obj: ../load_data.hpp
 CMakeFiles/Cnn.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/Cnn.dir/main.cpp.obj: ../matrix.hpp
+CMakeFiles/Cnn.dir/main.cpp.obj: ../pgmer.hpp
 CMakeFiles/Cnn.dir/main.cpp.obj: ../pooling.hpp
 CMakeFiles/Cnn.dir/main.cpp.obj: ../pooling_affine.hpp
 CMakeFiles/Cnn.dir/main.cpp.obj: ../relu.hpp

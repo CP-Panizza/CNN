@@ -345,6 +345,8 @@ cnn.hpp
 C:/Users/Administrator/Desktop/Num-master/cnn.hpp
 adam.hpp
 C:/Users/Administrator/Desktop/Num-master/adam.hpp
+pgmer.hpp
+C:/Users/Administrator/Desktop/Num-master/pgmer.hpp
 
 C:/Users/Administrator/Desktop/Num-master/matrix.hpp
 fstream
@@ -359,6 +361,14 @@ iostream
 -
 cmath
 -
+
+C:/Users/Administrator/Desktop/Num-master/pgmer.hpp
+cstdlib
+-
+utils.h
+C:/Users/Administrator/Desktop/Num-master/utils.h
+matrix.hpp
+C:/Users/Administrator/Desktop/Num-master/matrix.hpp
 
 C:/Users/Administrator/Desktop/Num-master/pooling.hpp
 matrix.hpp
