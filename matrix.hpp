@@ -278,7 +278,7 @@ public:
     }
 
     Matrix<Type> *operator/(Matrix<Type> *a) {
-        if(a->height == 1 && a->width == this->width){
+        if (a->height == 1 && a->width == this->width) {
             auto data = Create2dArray<double>(this->height, this->width);
             for (int i = 0; i < this->height; ++i) {
                 for (int j = 0; j < this->width; ++j) {
@@ -286,17 +286,17 @@ public:
                 }
             }
             return new Matrix<double>(this->height, this->width, data);
-        } else if(a->height == this->height && a->width == this->width){
+        } else if (a->height == this->height && a->width == this->width) {
             auto out = this->Copy();
             for (int i = 0; i < this->height; ++i) {
                 for (int j = 0; j < this->width; ++j) {
-                    Type val = a->Get(i,j);
-                    if(val == 0){
+                    Type val = a->Get(i, j);
+                    if (val == 0) {
                         printf("file: %s function: %s line: %d div zero.", __FILE__, __FUNCTION__,
                                __LINE__);
                         exit(-1);
                     }
-                    out->data[i][j] = this->Get(i,j) / val;
+                    out->data[i][j] = this->Get(i, j) / val;
                 }
             }
             return out;
@@ -307,7 +307,7 @@ public:
     }
 
     Matrix<Type> *operator/(Type a) {
-        if(a == 0){
+        if (a == 0) {
             printf("file: %s function: %s line: %d div zero.", __FILE__, __FUNCTION__,
                    __LINE__);
             exit(-1);
@@ -321,11 +321,16 @@ public:
         return m;
     }
 
-    Matrix<Type> *mat_pow(double e){
+    /**
+     * 矩阵求幂次方
+     * @param e
+     * @return
+     */
+    Matrix<Type> *mat_pow(double e) {
         auto out = this->Copy();
         for (int i = 0; i < this->height; ++i) {
             for (int j = 0; j < this->width; ++j) {
-                out->Set(i, j, pow(this->Get(i,j), e));
+                out->Set(i, j, pow(this->Get(i, j), e));
             }
         }
         return out;
@@ -341,7 +346,7 @@ public:
         auto out = new Matrix<double>(this->height, m->width);
         for (int i = 0; i < this->height; ++i) {
             for (int k = 0; k < this->width; ++k) {
-                if(this->data[i][k]!=0){
+                if (this->data[i][k] != 0) {
                     for (int j = 0; j < m->width; ++j) {
                         out->data[i][j] += this->data[i][k] * m->data[k][j];
                     }
@@ -383,6 +388,14 @@ public:
     }
 
 
+    /**
+     * 截取子矩阵
+     * @param row
+     * @param col
+     * @param width
+     * @param height
+     * @return
+     */
     Matrix<Type> *SubMat(int row, int col, int width, int height) {
         if (row + height > this->height || col + width > this->width) {
             std::cout << "can not sub mat:(" << this->height << "," << this->width << ")";
@@ -413,25 +426,31 @@ public:
         return line;
     }
 
-    Matrix<Type> *padding(int pad){
+    /*
+     * 外填充pad圈0
+     */
+    Matrix<Type> *padding(int pad) {
         int width = this->width + (2 * pad);
         int height = this->height + (2 * pad);
         auto *pad_mat = new Matrix<Type>(height, width);
         for (int i = 0; i < height; ++i) {
             for (int j = 0; j < width; ++j) {
-                if(i>=pad && i<height-pad && j>=pad && j<width-pad){
-                    pad_mat->Set(i, j, this->Get(i-pad, j-pad));
+                if (i >= pad && i < height - pad && j >= pad && j < width - pad) {
+                    pad_mat->Set(i, j, this->Get(i - pad, j - pad));
                 }
             }
         }
         return pad_mat;
     }
 
-    Matrix<Type> *rot180(){
+    /*
+     * 矩阵旋转180度
+     */
+    Matrix<Type> *rot180() {
         auto rot = this->Copy();
         for (int i = 0; i < this->height; ++i) {
             for (int j = 0; j < this->width; ++j) {
-                rot->Set(rot->height-1-i, rot->width-1-j, this->Get(i, j));
+                rot->Set(rot->height - 1 - i, rot->width - 1 - j, this->Get(i, j));
             }
         }
         return rot;
@@ -439,7 +458,7 @@ public:
 
 
     //矩阵求和
-    Type mat_sum(){
+    Type mat_sum() {
         Type sum = 0;
         for (int i = 0; i < this->height; ++i) {
             for (int j = 0; j < this->width; ++j) {
@@ -447,6 +466,35 @@ public:
             }
         }
         return sum;
+    }
+
+
+
+    /**
+     * 填充0
+     * @param stride：[h_stride, w_stride],行与列上分别填充的步长
+     * @return
+     */
+    Matrix<Type> *inner_padding(std::vector<int> &stride) {
+        int h_stride = stride[0];
+        int w_stride = stride[1];
+        if(h_stride < 0 || w_stride < 0){
+            perror("stride cannot less than zero.\n");
+            exit(-1);
+        }
+
+        int out_width = this->width * (w_stride + 1) - w_stride;
+        int out_height = this->height * (h_stride + 1) - h_stride;
+
+        auto out = new Matrix<Type>(out_height, out_width);
+        int m,n;
+        for (int i = 0, m = 0; i < out_height; i += h_stride + 1, m++) {
+            for (int j = 0, n = 0; j < out_width; j += w_stride + 1, n++) {
+                out->Set(i,j, this->Get(m,n));
+            }
+        }
+
+        return out;
     }
 };
 

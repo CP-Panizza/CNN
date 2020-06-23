@@ -16,7 +16,6 @@
 int main() {
 
 
-
     std::vector<std::vector< Matrix < double> *> > imgs;
     std::vector<int> labels;
 
