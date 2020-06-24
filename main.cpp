@@ -23,19 +23,20 @@ int main() {
     std::vector<std::vector<Matrix<double> *> > t_imgs;
     std::vector<int> t_labels;
 //    load_faces_dataset(imgs, labels);
+
     Load_data(
-            R"(C:\Users\Administrator\Desktop\CNN\cmake-build-debug\data\img_label\train-images.idx3-ubyte)",
-            R"(C:\Users\Administrator\Desktop\CNN\cmake-build-debug\data\img_label\train-labels.idx1-ubyte)",
+            R"(data/img_label/train-images.idx3-ubyte)",
+            R"(data/img_label/train-labels.idx1-ubyte)",
             imgs, labels);
 
     Load_data(
-            R"(C:\Users\Administrator\Desktop\CNN\cmake-build-debug\data\img_label\t10k-images.idx3-ubyte)",
-            R"(C:\Users\Administrator\Desktop\CNN\cmake-build-debug\data\img_label\t10k-labels.idx1-ubyte)",
+            R"(data/img_label/t10k-images.idx3-ubyte)",
+            R"(data/img_label/t10k-labels.idx1-ubyte)",
             t_imgs, t_labels);
 
     srand(static_cast<unsigned int>(time(nullptr)));
     int batch_size = 30;
-    int epoch = 1000;
+    int epoch = 2000;
     int start;
     int end;
     auto cnn = new Cnn(batch_size);
@@ -52,12 +53,15 @@ int main() {
 //    pgmer->ReadImg("./tow.pgm");
 //    auto data = pgmer->To2DMatrix()->operator/(255.0);
 //    auto x = new std::vector<std::vector<Matrix<double> *>>{std::vector<Matrix<double> *>{data}};
-//    auto test_la = new Matrix<double>(1, 10);
+//
+//    std::vector<std::vector<Matrix < double> *> > xx(imgs.begin() , imgs.begin() + 10);
+//    xx[4][0]->operator*(255)->WriteImg("out.pgm");
+//    auto test_la = new Matrix<double>(1, 2);
 //    for (int j = 0; j < 1; ++j) {
-//        test_la->Set(j, 2, 1);
+//        test_la->Set(j, 1, 1);
 //    }
 //
-//    auto pre = cnn->predict(x, test_la);
+//    auto pre = cnn->predict(&xx, test_la);
 //
 //    auto result = argmax(pre, "r");
 //    std::cout << "predict:" << result;
@@ -84,15 +88,15 @@ int main() {
 
 #endif //TRAIN
     //用测试集测试
-    int test_num = 50;
+    int test_num = 100;
     int right_times = 0;
     for (int k = 0; k < test_num; ++k) {
-        start = static_cast<int>(rand() % (t_imgs.size() - 1));
+        start = static_cast<int>(rand() % (imgs.size() - 1));
         end = start + 1;
 
-        std::vector<std::vector<Matrix<double> *> > test_x(t_imgs.begin() + start, t_imgs.begin() + end);
-        std::vector<int> test_label(t_labels.begin() + start, t_labels.begin() + end);
-        auto test_la = new Matrix<double>(1, 10);
+        std::vector<std::vector<Matrix<double> *> > test_x(imgs.begin() + start, imgs.begin() + end);
+        std::vector<int> test_label(labels.begin() + start, labels.begin() + end);
+        auto test_la = new Matrix<double>(1, 2);
         for (int j = 0; j < 1; ++j) {
             test_la->Set(j, test_label[j], 1);
         }

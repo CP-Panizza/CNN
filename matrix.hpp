@@ -116,7 +116,7 @@ public:
         auto t = new Matrix(this->height, this->width);
         for (int j = 0; j < this->height; ++j) {
             for (int i = 0; i < this->width; ++i) {
-                t->Set(j, i, this->Get(j, i));
+                t->data[j][i] = this->data[j][i];
             }
         }
         return t;
@@ -143,14 +143,19 @@ public:
         f.close();
     }
 
-    bool Set(int row, int col, Type val) {
-        if (col > this->width || row > this->height) return false;
+    void Set(int row, int col, Type val) {
+        if (col > this->width || row > this->height) {
+            perror("function Set beyond matrix bound!");
+            exit(-1);
+        }
         this->data[row][col] = val;
-        return true;
     }
 
     Type Get(int row, int col) const {
-        if (col > this->width || row > this->height) return -1;
+        if (col > this->width || row > this->height){
+            perror("function Get beyond matrix bound!");
+            exit(-1);
+        }
         return this->data[row][col];
     }
 
@@ -158,7 +163,7 @@ public:
         auto t_mat = new Matrix<Type>(this->width, this->height);
         for (int i = 0; i < this->height; ++i) {
             for (int j = 0; j < this->width; ++j) {
-                t_mat->data[j][i] = this->Get(i, j);
+                t_mat->data[j][i] = this->data[i][j];
             }
         }
         return t_mat;
@@ -172,7 +177,7 @@ public:
         auto data = new Type[this->width];
 
         for (int i = 0; i < this->width; ++i) {
-            data[i] = this->Get(index, i);
+            data[i] = this->data[index][i];
         }
         Matrix<Type> *m = new Matrix<Type>(1, this->width, data);
         delete[](data);
@@ -187,7 +192,7 @@ public:
         }
         auto data = new Type[this->height];
         for (int i = 0; i < this->height; ++i) {
-            data[i] = this->Get(i, index);
+            data[i] = this->data[i][index];
         }
         Matrix<Type> *m = new Matrix<Type>(this->height, 1, data);
         delete[](data);
@@ -224,7 +229,7 @@ public:
             auto data = Create2dArray<Type>(this->height, this->width);
             for (int i = 0; i < this->height; ++i) {
                 for (int j = 0; j < this->width; ++j) {
-                    data[i][j] = this->Get(i, j) + a->Get(i, j);
+                    data[i][j] = this->data[i][j] + a->data[i][j];
                 }
             }
             return new Matrix<Type>(this->height, this->width, data);
@@ -240,7 +245,7 @@ public:
         for (int i = 0; i < m->height; ++i) {
             row = m->Row(i);
             for (int j = 0; j < this->width; ++j) {
-                m->data[i][j] = m->Get(i, j) + a->Get(0, j);
+                m->data[i][j] = m->data[i][j] + a->data[0][j];
             }
             delete (row);
         }
@@ -254,7 +259,7 @@ public:
             auto data = Create2dArray<Type>(this->height, this->width);
             for (int i = 0; i < this->height; ++i) {
                 for (int j = 0; j < this->width; ++j) {
-                    data[i][j] = this->Get(i, j) - a->Get(i, j);
+                    data[i][j] = this->data[i][j] - a->data[i][j];
                 }
             }
             return new Matrix<Type>(this->height, this->width, data);
@@ -271,7 +276,7 @@ public:
         for (int i = 0; i < m->height; ++i) {
             row = m->Row(i);
             for (int j = 0; j < this->width; ++j) {
-                m->data[i][j] = m->Get(i, j) - a->Get(0, j);
+                m->data[i][j] = m->data[i][j] - a->data[0][j];
             }
             delete (row);
         }
@@ -283,7 +288,7 @@ public:
             auto data = Create2dArray<double>(this->height, this->width);
             for (int i = 0; i < this->height; ++i) {
                 for (int j = 0; j < this->width; ++j) {
-                    data[i][j] = this->Get(i, j) / a->Get(0, j);
+                    data[i][j] = this->data[i][j] / a->data[0][j];
                 }
             }
             return new Matrix<double>(this->height, this->width, data);
@@ -291,13 +296,13 @@ public:
             auto out = this->Copy();
             for (int i = 0; i < this->height; ++i) {
                 for (int j = 0; j < this->width; ++j) {
-                    Type val = a->Get(i, j);
+                    Type val = a->data[i][j];
                     if (val == 0) {
                         printf("file: %s function: %s line: %d div zero.", __FILE__, __FUNCTION__,
                                __LINE__);
                         exit(-1);
                     }
-                    out->data[i][j] = this->Get(i, j) / val;
+                    out->data[i][j] = this->data[i][j] / val;
                 }
             }
             return out;
@@ -470,7 +475,6 @@ public:
     }
 
 
-
     /**
      * 填充0
      * @param stride：[h_stride, w_stride],行与列上分别填充的步长
@@ -479,7 +483,7 @@ public:
     Matrix<Type> *inner_padding(std::vector<int> &stride) {
         int h_stride = stride[0];
         int w_stride = stride[1];
-        if(h_stride < 0 || w_stride < 0){
+        if (h_stride < 0 || w_stride < 0) {
             perror("stride cannot less than zero.\n");
             exit(-1);
         }
@@ -488,10 +492,10 @@ public:
         int out_height = this->height * (h_stride + 1) - h_stride;
 
         auto out = new Matrix<Type>(out_height, out_width);
-        int m,n;
+        int m, n;
         for (int i = 0, m = 0; i < out_height; i += h_stride + 1, m++) {
             for (int j = 0, n = 0; j < out_width; j += w_stride + 1, n++) {
-                out->Set(i,j, this->Get(m,n));
+                out->Set(i, j, this->Get(m, n));
             }
         }
 
@@ -502,13 +506,13 @@ public:
      * 上下反转矩阵
      * @return
      */
-    Matrix<Type> *UD_reversal(){
+    Matrix<Type> *UD_reversal() {
         auto ud = this->Copy();
         for (int i = 0; i < ud->width; ++i) {
-            for (int j = 0; j < ud->height/2; ++j) {
+            for (int j = 0; j < ud->height / 2; ++j) {
                 Type down = this->Get(this->height - j - 1, i);
                 Type up = ud->Get(j, i);
-                ud->Set(j,i, down);
+                ud->Set(j, i, down);
                 ud->Set(this->height - j - 1, i, up);
             }
         }
@@ -519,14 +523,14 @@ public:
      * 矩阵左右反转
      * @return
      */
-    Matrix<Type> *LR_reversal(){
+    Matrix<Type> *LR_reversal() {
         auto lr = this->Copy();
         for (int i = 0; i < lr->height; ++i) {
-            for (int j = 0; j < lr->width/2; ++j) {
+            for (int j = 0; j < lr->width / 2; ++j) {
                 Type right = this->Get(i, this->width - j - 1);
                 Type left = lr->Get(i, j);
                 lr->Set(i, j, right);
-                lr->Set(i,this->width - j - 1, left);
+                lr->Set(i, this->width - j - 1, left);
             }
         }
         return lr;

@@ -34,7 +34,8 @@ public:
         int filter_size = 5;
         int stride = 1;
         int pad = 2;
-        int hide_size = 100;
+        int hide_size = 150;
+        int output_size = 10;
         std::vector<int> input_shape{batch_size, channel, img_h, img_w};
         conv = new Conv(std_init_whight, filter_num, filter_size, stride, pad, input_shape);
         conv_relu = new ConvRelu;
@@ -44,7 +45,7 @@ public:
         conv_relu1 = new ConvRelu;
         fc = new PoolingAffine(conv1->out_shape, hide_size);
         relu = new Relu;
-        fc1 = new Affine(fc->out_shape, 10);
+        fc1 = new Affine(fc->out_shape, output_size);
         soft_max = new Softmax;
         this->adam = new Adam(this->lr);
     }
