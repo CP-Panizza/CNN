@@ -1,6 +1,7 @@
 #ifndef _CONV_HPP_
 #define _CONV_HPP_
 
+
 #include "matrix.hpp"
 #include <vector>
 #include "utils.h"
@@ -37,11 +38,9 @@ public:
         this->_img_w = input_shape[3];
         auto w = rand_matrix(this->_channel * _filter_size * _filter_size, _filter_num);
         this->W = w->operator*(std_init_whight);
-//        std::cout << "conv_w:\n" << this->W;
         delete (w);
         auto _b = rand_matrix(1, _filter_num);
         this->b = _b->operator*(0);
-//        std::cout << "conv_b:\n" << this->b;
         delete (_b);
         int out_h = (_img_h + 2 * this->_pad - this->_filter_size) / this->_stride + 1;
         int out_w = (_img_w + 2 * this->_pad - this->_filter_size) / this->_stride + 1;

@@ -1,6 +1,7 @@
 #ifndef _ADAM_HPP_
 #define _ADAM_HPP_
 
+
 #include "matrix.hpp"
 #include <map>
 

@@ -1,3 +1,3 @@
-C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/CMakeFiles/Cnn.dir
-C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/Cnn.dir
+C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/rebuild_cache.dir

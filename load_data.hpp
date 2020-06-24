@@ -1,6 +1,7 @@
 #ifndef _LOAD_DATA_
 #define _LOAD_DATA_
 
+
 #include <vector>
 #include <iostream>
 #include <fstream>
@@ -166,11 +167,7 @@ void Load_data(const string &mnist_img_path, const string &mnist_label_path, vec
                 }
             }
         }
-        Matrix<double> *image = new Matrix<double>;
-        image->width = cols;
-        image->height = rows;
-        image->data = data;
-        imgs.push_back(vector<Matrix<double> *>{image});
+        imgs.push_back(vector<Matrix<double> *>{new Matrix<double>(rows, cols, data)});
         labels.push_back(static_cast<int>(label));
         delete[](pixels);
     }

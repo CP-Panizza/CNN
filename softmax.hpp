@@ -1,6 +1,7 @@
 #ifndef _SOFTMAX_HPP_
 #define _SOFTMAX_HPP_
 
+
 #include "matrix.hpp"
 #include "utils.h"
 

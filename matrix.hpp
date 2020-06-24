@@ -5,6 +5,7 @@
 #ifndef CONVELUTION_MATRIX_HPP
 #define CONVELUTION_MATRIX_HPP
 
+
 #include <fstream>
 #include <cstdlib>
 #include <memory.h>

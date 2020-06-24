@@ -8,18 +8,18 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/Administrator/Desktop/Num-master/cmake-build-debug"/>
+				<Option working_dir="C:/Users/Administrator/Desktop/CNN/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Cnn">
-				<Option output="C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Cnn.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Administrator/Desktop/Num-master/cmake-build-debug"/>
+				<Option output="C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Cnn.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Administrator/Desktop/CNN/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -32,15 +32,15 @@
 					<Add directory="D:/MinGW64/lib/gcc/../../x86_64-w64-mingw32/include/c++/backward"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 Cnn"/>
-					<CompileFile command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 Cnn"/>
+					<CompileFile command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Cnn/fast">
-				<Option output="C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Cnn.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Administrator/Desktop/Num-master/cmake-build-debug"/>
+				<Option output="C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Cnn.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Administrator/Desktop/CNN/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -53,79 +53,82 @@
 					<Add directory="D:/MinGW64/lib/gcc/../../x86_64-w64-mingw32/include/c++/backward"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 Cnn/fast"/>
-					<CompileFile command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 Cnn/fast"/>
+					<CompileFile command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/Administrator/Desktop/Num-master/cmake-build-debug"/>
+				<Option working_dir="C:/Users/Administrator/Desktop/CNN/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/Administrator/Desktop/Num-master/cmake-build-debug"/>
+				<Option working_dir="C:/Users/Administrator/Desktop/CNN/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/Num-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Administrator/Desktop/Num-master/adam.hpp">
+		<Unit filename="C:/Users/Administrator/Desktop/CNN/adam.hpp">
 			<Option target="Cnn"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/Num-master/affine.hpp">
+		<Unit filename="C:/Users/Administrator/Desktop/CNN/affine.hpp">
 			<Option target="Cnn"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/Num-master/cnn.hpp">
+		<Unit filename="C:/Users/Administrator/Desktop/CNN/cnn.hpp">
 			<Option target="Cnn"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/Num-master/conv.hpp">
+		<Unit filename="C:/Users/Administrator/Desktop/CNN/conv.hpp">
 			<Option target="Cnn"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/Num-master/conv_relu.hpp">
+		<Unit filename="C:/Users/Administrator/Desktop/CNN/conv_relu.hpp">
 			<Option target="Cnn"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/Num-master/load_data.hpp">
+		<Unit filename="C:/Users/Administrator/Desktop/CNN/debug.h">
 			<Option target="Cnn"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/Num-master/main.cpp">
+		<Unit filename="C:/Users/Administrator/Desktop/CNN/load_data.hpp">
 			<Option target="Cnn"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/Num-master/matrix.hpp">
+		<Unit filename="C:/Users/Administrator/Desktop/CNN/main.cpp">
 			<Option target="Cnn"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/Num-master/pgmer.hpp">
+		<Unit filename="C:/Users/Administrator/Desktop/CNN/matrix.hpp">
 			<Option target="Cnn"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/Num-master/pooling.hpp">
+		<Unit filename="C:/Users/Administrator/Desktop/CNN/pgmer.hpp">
 			<Option target="Cnn"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/Num-master/pooling_affine.hpp">
+		<Unit filename="C:/Users/Administrator/Desktop/CNN/pooling.hpp">
 			<Option target="Cnn"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/Num-master/relu.hpp">
+		<Unit filename="C:/Users/Administrator/Desktop/CNN/pooling_affine.hpp">
 			<Option target="Cnn"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/Num-master/softmax.hpp">
+		<Unit filename="C:/Users/Administrator/Desktop/CNN/relu.hpp">
 			<Option target="Cnn"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/Num-master/utils.cpp">
+		<Unit filename="C:/Users/Administrator/Desktop/CNN/softmax.hpp">
 			<Option target="Cnn"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/Num-master/utils.h">
+		<Unit filename="C:/Users/Administrator/Desktop/CNN/utils.cpp">
 			<Option target="Cnn"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/Num-master/CMakeLists.txt">
+		<Unit filename="C:/Users/Administrator/Desktop/CNN/utils.h">
+			<Option target="Cnn"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/CNN/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

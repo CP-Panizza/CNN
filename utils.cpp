@@ -2,10 +2,11 @@
 // Created by Administrator on 2020/6/3.
 //
 
+
 #include <ctime>
 #include "utils.h"
 #include <cmath>
-#include <c++/sstream>
+#include <sstream>
 
 Matrix<double> *im2col(std::vector<std::vector<Matrix<double> *>> *input_data, int filter_h, int filter_w, int stride, int pad) {
     int N = static_cast<int>(input_data->size()), C = static_cast<int>(((*input_data)[0]).size()), H = ((*input_data)[0])[0]->height, W = ((*input_data)[0])[0]->width;
@@ -42,6 +43,8 @@ Matrix<double> *im2col(std::vector<std::vector<Matrix<double> *>> *input_data, i
             }
             result.push_back(line);
     }
+
+    free_data(input_data_copy);
 
     int width = C * filter_h * filter_w;
     int height = N * (result[0].size() / width);
@@ -299,9 +302,10 @@ Matrix<double> *col2im(Matrix<double> *col, int src_w, int src_h, int filter_siz
     auto origin = new Matrix<double>(src_h, src_w);
     auto mask = new Matrix<double>(src_h, src_w);
     int num_row = 0; //col矩阵的第几行
+    Matrix<double> *row = nullptr;
     for (int i = 0; i <= origin->height-filter_size; i+=stride) {
         for (int j = 0; j <=origin->width-filter_size ; j+=stride) {
-            auto row = col->Row(num_row++);
+            row = col->Row(num_row++);
             int idx = 0;
             for (int m = i; m < i+filter_size; ++m) {
                 for (int n = j; n < j+filter_size; ++n) {

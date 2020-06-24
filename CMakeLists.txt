@@ -20,4 +20,7 @@ add_executable(
         cnn.hpp
         adam.hpp
         pgmer.hpp
+        debug.h
+#        libs/memory_check/DebugMemory.cpp
+#        libs/memory_check/DebugMemory.h
 )

@@ -30,7 +30,7 @@ public:
         int channel = 1;
         int img_w = 28;
         int img_h = 28;
-        int filter_num = 20;
+        int filter_num = 50;
         int filter_size = 5;
         int stride = 1;
         int pad = 2;
@@ -39,7 +39,7 @@ public:
         conv = new Conv(std_init_whight, filter_num, filter_size, stride, pad, input_shape);
         conv_relu = new ConvRelu;
         pooling = new Pooling(2, 2, conv->out_shape);
-        int filter_num1 = 10, filter_size1 = 3, stride1 = 1, pad1 = 0;
+        int filter_num1 = 30, filter_size1 = 3, stride1 = 1, pad1 = 0;
         conv1 = new Conv(std_init_whight, filter_num1, filter_size1, stride1, pad1, pooling->out_shape);
         conv_relu1 = new ConvRelu;
         fc = new PoolingAffine(conv1->out_shape, hide_size);

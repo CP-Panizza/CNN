@@ -2,6 +2,7 @@
 #define _POOLING_AFFINE_HPP_
 
 
+
 #include "matrix.hpp"
 #include "utils.h"
 
