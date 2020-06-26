@@ -168,16 +168,10 @@ void mm_winograd(Dtype *matA, Dtype *matB, Dtype *matC, int M, int N, int K, int
     }
 }
 
-
-
-
 template<class Type>
-Type **Create2dArray(int row, int col) {
-    Type **array = new Type *[row];
-    for (int i = 0; i < row; ++i) {
-        array[i] = new Type[col];
-        memset(array[i], 0, sizeof(Type) * col);
-    }
+Type *CreateArray(int row, int col) {
+    Type *array = new Type[row*col];
+    memset(array,0, sizeof(Type) * col * row);
     return array;
 }
 
@@ -186,20 +180,17 @@ class Matrix {
 public:
     int width;
     int height;
-    Type **data = nullptr;
+    Type *data = nullptr;
 
 
     Matrix() {}
 
     ~Matrix() {
-        for (int i = 0; i < this->height; ++i) {
-            delete[](this->data[i]);
-        }
         delete[](this->data);
     }
 
     Matrix(int h, int w) {
-        this->data = Create2dArray<Type>(h, w);
+        this->data = CreateArray<Type>(h, w);
         this->width = w;
         this->height = h;
     }
@@ -209,10 +200,10 @@ public:
         std::cout << "copy run" << std::endl;
         this->width = mat.width;
         this->height = mat.height;
-        this->data = Create2dArray<Type>(this->height, this->width);
+        this->data = CreateArray<Type>(this->height, this->width);
         for (int j = 0; j < this->height; ++j) {
             for (int i = 0; i < this->width; ++i) {
-                this->data[j][i] = mat.Get(j, i);
+                this->Set(j , i, mat.Get(j, i));
             }
         }
     }
@@ -220,11 +211,11 @@ public:
     Matrix(const std::initializer_list<std::initializer_list<Type >> &inList) {
         this->height = static_cast<int>(inList.size());
         this->width = static_cast<int>(inList.begin()->size());
-        this->data = Create2dArray<Type>(this->height, this->width);
+        this->data = CreateArray<Type>(this->height, this->width);
         int i = 0, j = 0;
         for (auto &x :inList) {
             for (auto &y: x) {
-                this->data[i][j] = y;
+                this->Set(i,j,y);
                 j++;
             }
             j = 0;
@@ -235,27 +226,16 @@ public:
     Matrix(const std::initializer_list<Type> &inList) {
         this->width = static_cast<int>(inList.size());
         this->height = 1;
-        this->data = Create2dArray<Type>(this->height, this->width);
+        this->data = CreateArray<Type>(this->height, this->width);
         int i = 0;
         for (auto &x :inList) {
-            this->data[0][i] = x;
+            this->data[i] = x;
             i++;
         }
     }
 
+
     Matrix(int h, int w, Type *_data) {
-        this->data = Create2dArray<Type>(h, w);
-        for (int j = 0; j < h; ++j) {
-            for (int i = 0; i < w; ++i) {
-                this->data[j][i] = _data[w * j + i];
-            }
-        }
-
-        this->width = w;
-        this->height = h;
-    }
-
-    Matrix(int h, int w, Type **_data) {
         this->width = w;
         this->height = h;
         this->data = _data;
@@ -274,7 +254,7 @@ public:
         auto t = new Matrix(this->height, this->width);
         for (int j = 0; j < this->height; ++j) {
             for (int i = 0; i < this->width; ++i) {
-                t->data[j][i] = this->data[j][i];
+                t->Set(j ,i, this->Get(j,i));
             }
         }
         return t;
@@ -288,9 +268,9 @@ public:
             for (int i = 0; i < this->height; ++i) {
                 for (int j = 0; j < this->width; ++j) {
                     if (k % 10) {
-                        f << this->data[i][j] << " ";
+                        f << this->Get(i,j) << " ";
                     } else {
-                        f << this->data[i][j] << "\n";
+                        f << this->Get(i,j) << "\n";
                     }
                     k++;
                 }
@@ -306,7 +286,7 @@ public:
             perror("function Set beyond matrix bound!");
             exit(-1);
         }
-        this->data[row][col] = val;
+        this->data[row*this->width + col] = val;
     }
 
     Type Get(int row, int col) const {
@@ -314,14 +294,14 @@ public:
             perror("function Get beyond matrix bound!");
             exit(-1);
         }
-        return this->data[row][col];
+        return this->data[row*this->width + col];
     }
 
     Matrix<Type> *T() {
         auto t_mat = new Matrix<Type>(this->width, this->height);
         for (int i = 0; i < this->height; ++i) {
             for (int j = 0; j < this->width; ++j) {
-                t_mat->data[j][i] = this->data[i][j];
+                t_mat->Set(j,i, this->Get(i,j));
             }
         }
         return t_mat;
@@ -333,12 +313,10 @@ public:
             exit(-1);
         }
         auto data = new Type[this->width];
-
         for (int i = 0; i < this->width; ++i) {
-            data[i] = this->data[index][i];
+            data[i] = this->Get(index, i);
         }
         Matrix<Type> *m = new Matrix<Type>(1, this->width, data);
-        delete[](data);
         return m;
     }
 
@@ -350,10 +328,9 @@ public:
         }
         auto data = new Type[this->height];
         for (int i = 0; i < this->height; ++i) {
-            data[i] = this->data[i][index];
+            data[i] = this->Get(i, index);
         }
         Matrix<Type> *m = new Matrix<Type>(this->height, 1, data);
-        delete[](data);
         return m;
     }
 
@@ -365,7 +342,7 @@ public:
         Matrix<Type> *m = this->Copy();
         for (int i = 0; i < m->height; ++i) {
             for (int j = 0; j < m->width; ++j) {
-                m->data[i][j] = m->data[i][j] + a;
+                m->data[i*this->width + j] = m->data[i*this->width + j] + a;
             }
         }
         return m;
@@ -375,7 +352,7 @@ public:
         Matrix<Type> *m = this->Copy();
         for (int i = 0; i < m->height; ++i) {
             for (int j = 0; j < m->width; ++j) {
-                m->data[i][j] = m->data[i][j] * a;
+                m->data[i*this->width + j] = m->data[i*this->width + j] * a;
             }
         }
         return m;
@@ -384,10 +361,10 @@ public:
 
     Matrix<Type> *operator+(Matrix<Type> *a) {
         if (a->height == this->height && a->width == this->width) {
-            auto data = Create2dArray<Type>(this->height, this->width);
+            auto data = CreateArray<Type>(this->height, this->width);
             for (int i = 0; i < this->height; ++i) {
                 for (int j = 0; j < this->width; ++j) {
-                    data[i][j] = this->data[i][j] + a->data[i][j];
+                    data[i*this->width + j] = this->data[i*this->width + j] + a->data[i*this->width + j];
                 }
             }
             return new Matrix<Type>(this->height, this->width, data);
@@ -399,13 +376,10 @@ public:
             exit(-1);
         }
         Matrix<Type> *m = this->Copy();
-        Matrix<Type> *row = nullptr;
         for (int i = 0; i < m->height; ++i) {
-            row = m->Row(i);
             for (int j = 0; j < this->width; ++j) {
-                m->data[i][j] = m->data[i][j] + a->data[0][j];
+                m->data[i*this->width + j] = m->data[i*this->width + j] + a->data[j];
             }
-            delete (row);
         }
         return m;
     }
@@ -414,10 +388,10 @@ public:
     Matrix<Type> *operator-(Matrix<Type> *a) {
 
         if (a->height == this->height && a->width == this->width) {
-            auto data = Create2dArray<Type>(this->height, this->width);
+            auto data = CreateArray<Type>(this->height, this->width);
             for (int i = 0; i < this->height; ++i) {
                 for (int j = 0; j < this->width; ++j) {
-                    data[i][j] = this->data[i][j] - a->data[i][j];
+                    data[i*this->width + j] = this->data[i*this->width + j] - a->data[i*this->width + j];
                 }
             }
             return new Matrix<Type>(this->height, this->width, data);
@@ -430,23 +404,20 @@ public:
             exit(-1);
         }
         Matrix<Type> *m = this->Copy();
-        Matrix<Type> *row = nullptr;
         for (int i = 0; i < m->height; ++i) {
-            row = m->Row(i);
             for (int j = 0; j < this->width; ++j) {
-                m->data[i][j] = m->data[i][j] - a->data[0][j];
+                m->data[i*this->width + j] = m->data[i*this->width + j] - a->data[j];
             }
-            delete (row);
         }
         return m;
     }
 
     Matrix<Type> *operator/(Matrix<Type> *a) {
         if (a->height == 1 && a->width == this->width) {
-            auto data = Create2dArray<double>(this->height, this->width);
+            auto data = CreateArray<double>(this->height, this->width);
             for (int i = 0; i < this->height; ++i) {
                 for (int j = 0; j < this->width; ++j) {
-                    data[i][j] = this->data[i][j] / a->data[0][j];
+                    data[i*this->width + j] = this->data[i*this->width + j] / a->data[j];
                 }
             }
             return new Matrix<double>(this->height, this->width, data);
@@ -454,13 +425,13 @@ public:
             auto out = this->Copy();
             for (int i = 0; i < this->height; ++i) {
                 for (int j = 0; j < this->width; ++j) {
-                    Type val = a->data[i][j];
+                    Type val = a->data[i*this->width + j];
                     if (val == 0) {
                         printf("file: %s function: %s line: %d div zero.", __FILE__, __FUNCTION__,
                                __LINE__);
                         exit(-1);
                     }
-                    out->data[i][j] = this->data[i][j] / val;
+                    out->data[i*this->width + j] = this->data[i*this->width + j] / val;
                 }
             }
             return out;
@@ -479,7 +450,7 @@ public:
         Matrix<Type> *m = this->Copy();
         for (int i = 0; i < m->height; ++i) {
             for (int j = 0; j < m->width; ++j) {
-                m->data[i][j] = m->data[i][j] / a;
+                m->Set(i,j, m->Get(i,j) / a);
             }
         }
         return m;
@@ -511,15 +482,11 @@ public:
                    __LINE__, this->height, this->width, m->height, m->width);
             exit(-1);
         }
-        Type *matA = this->to_line();
-        Type *matB = m->to_line();
-        Type *matC = new Type[this->height * m->width];
+        Type *matA = this->data;
+        Type *matB = m->data;
+        Type *matC = CreateArray<Type>(this->height, m->width);
         mm_winograd<Type>(matA, matB, matC, this->height, m->width, this->width, this->width, m->width, m->width);
-        delete (matA);
-        delete (matB);
-        auto out = new Matrix<Type>(this->height, m->width, matC);
-        delete (matC);
-        return out;
+        return new Matrix<Type>(this->height, m->width, matC);
     }
 
     //普通优化
@@ -534,7 +501,7 @@ public:
             for (int k = 0; k < this->width; ++k) {
                 if (this->data[i][k] != 0) {
                     for (int j = 0; j < m->width; ++j) {
-                        out->data[i][j] += this->data[i][k] * m->data[k][j];
+                        out->data[i*this->width + j] += this->data[i*this->width + k] * m->Get(k,j);
                     }
                 }
             }
@@ -563,10 +530,10 @@ public:
             delete (line);
         }
         int index = 0;
-        auto data = Create2dArray<Type>(row, col);
+        auto data = CreateArray<Type>(row, col);
         for (int i = 0; i < row; ++i) {
             for (int j = 0; j < col; ++j) {
-                data[i][j] = (*all)[index++];
+                data[i * col + j] = (*all)[index++];
             }
         }
         delete (all);
@@ -602,13 +569,7 @@ public:
     //转成一维数组
     Type *to_line() {
         Type *line = new Type[this->height * this->width];
-        std::vector<Type> all;
-        for (int i = 0; i < this->height; ++i) {
-            for (int j = 0; j < this->width; ++j) {
-                all.push_back(this->Get(i, j));
-            }
-        }
-        memcpy(line, all.data(), sizeof(Type) * this->height * this->width);
+        memcpy(line, this->data, sizeof(Type) * this->height * this->width);
         return line;
     }
 

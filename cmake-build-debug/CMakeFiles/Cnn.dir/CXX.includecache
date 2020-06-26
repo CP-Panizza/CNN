@@ -311,7 +311,7 @@ string
 -
 cstdlib
 -
-cinttypes
+c++/cstdint
 -
 matrix.hpp
 C:/Users/Administrator/Desktop/CNN/matrix.hpp
@@ -393,16 +393,6 @@ matrix.hpp
 C:/Users/Administrator/Desktop/CNN/matrix.hpp
 utils.h
 C:/Users/Administrator/Desktop/CNN/utils.h
-
-C:/Users/Administrator/Desktop/CNN/utils.cpp
-ctime
--
-utils.h
-C:/Users/Administrator/Desktop/CNN/utils.h
-cmath
--
-sstream
--
 
 C:/Users/Administrator/Desktop/CNN/utils.h
 vector

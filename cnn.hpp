@@ -155,7 +155,6 @@ public:
 
         auto pooling_out = pooling->forward(conv_relu_out);
 
-
         auto conv1_out = conv1->forward(pooling_out);
 
         auto conv_relu1_out = conv_relu1->forward(conv1_out);

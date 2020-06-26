@@ -44,7 +44,7 @@ void DrawImg(Matrix<Type> *mat, int x, int y) {
     dc = GetDC(wnd);    //获取绘图设备
     for (int j = 0; j < mat->height; j++) {
         for (int i = 0; i < mat->width; i++) {
-            Type v = mat->data[j][i];
+            Type v = mat->data[j*mat->width + i];
             SetPixel(dc, i + x, j + y, RGB(v, v, v)); //画像素点
         }
     }

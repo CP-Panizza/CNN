@@ -7,7 +7,7 @@
 #include <fstream>
 #include <string>
 #include <cstdlib>
-#include<cinttypes>
+#include <c++/cstdint>
 #include "matrix.hpp"
 #include "utils.h"
 
@@ -72,13 +72,13 @@ void readAndSave(const string &mnist_img_path, const string &mnist_label_path) {
         mnist_image.read(pixels, rows * cols);
         char label;
         mnist_label.read(&label, 1);
-        auto data = Create2dArray<double>(rows, cols);
+        auto data = CreateArray<double>(rows, cols);
         for (int m = 0; m != rows; m++) {
             for (int n = 0; n != cols; n++) {
                 if (pixels[m * cols + n] == 0)
-                    data[m][n] = 0;
+                    data[m*cols + n] = 0;
                 else
-                    data[m][n] = 255;
+                    data[m*cols + n] = 255;
             }
         }
         Matrix<double> *image = new Matrix<double>;
@@ -114,11 +114,11 @@ void Load_data(const string &mnist_img_path, const string &mnist_label_path, vec
         return;
     }
 
-    uint32_t magic;//文件中的魔术数(magic number)
-    uint32_t num_items;//mnist图像集文件中的图像数目
-    uint32_t num_label;//mnist标签集文件中的标签数目
-    uint32_t rows;//图像的行数
-    uint32_t cols;//图像的列数
+     uint32_t magic;//文件中的魔术数(magic number)
+     uint32_t num_items;//mnist图像集文件中的图像数目
+     uint32_t num_label;//mnist标签集文件中的标签数目
+     uint32_t rows;//图像的行数
+     uint32_t cols;//图像的列数
     //读魔术数
     mnist_image.read(reinterpret_cast<char *>(&magic), 4);
     magic = swap_endian(magic);
@@ -153,16 +153,16 @@ void Load_data(const string &mnist_img_path, const string &mnist_label_path, vec
         mnist_image.read(pixels, rows * cols);
         char label;
         mnist_label.read(&label, 1);
-        auto data = Create2dArray<double>(rows, cols);
+        auto data = CreateArray<double>(rows, cols);
         for (int m = 0; m != rows; m++) {
             for (int n = 0; n != cols; n++) {
                 if (pixels[m * cols + n] == 0) {
-                    data[m][n] = 0;
+                    data[m * cols + n] = 0;
                 } else {
                     if (normalize) {
-                        data[m][n] = 1;
+                        data[m * cols + n] = 1;
                     } else {
-                        data[m][n] = 255;
+                        data[m * cols + n] = 255;
                     }
                 }
             }
@@ -206,8 +206,6 @@ void load_faces_dataset(std::vector<std::vector<Matrix<double> *> > &imgs, std::
         } else {
             imgs.push_back(std::vector<Matrix<double> *>{new Matrix<double>(height, width, data)});
         }
-
-        delete[](data);
     }
 }
 
