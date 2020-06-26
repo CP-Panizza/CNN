@@ -41,7 +41,7 @@ int main() {
     int start;
     int end;
     auto cnn = new Cnn(batch_size);
-#define TEST
+#define TRAIN
 
 #ifdef TEST
     if (!cnn->load_param("./param.json")) {
@@ -49,21 +49,21 @@ int main() {
     }
 #endif //TEST
 
-    system("Img2PGM2.exe -i test.jpg -o test.pgm");
-    Pgmer *pgmer = new Pgmer;
-    pgmer->ReadImg("./test.pgm");
-    auto data = pgmer->To2DMatrix()->operator/(255.0);
-    auto x = new std::vector<std::vector<Matrix<double> *>>{std::vector<Matrix<double> *>{data}};
-
-    auto test_la = new Matrix<double>(1, 2);
-    for (int j = 0; j < 1; ++j) {
-        test_la->Set(j, 1, 1);
-    }
-
-    auto pre = cnn->predict(x, test_la);
-
-    auto result = argmax(pre, "r");
-    std::cout << "predict:" << result;
+//    system("Img2PGM2.exe -i test.jpg -o test.pgm");
+//    Pgmer *pgmer = new Pgmer;
+//    pgmer->ReadImg("./test.pgm");
+//    auto data = pgmer->To2DMatrix()->operator/(255.0);
+//    auto x = new std::vector<std::vector<Matrix<double> *>>{std::vector<Matrix<double> *>{data}};
+//
+//    auto test_la = new Matrix<double>(1, 2);
+//    for (int j = 0; j < 1; ++j) {
+//        test_la->Set(j, 1, 1);
+//    }
+//
+//    auto pre = cnn->predict(x, test_la);
+//
+//    auto result = argmax(pre, "r");
+//    std::cout << "predict:" << result;
 
 #ifdef TRAIN
 
@@ -83,11 +83,11 @@ int main() {
         delete (la);
     }
 
-    cnn->save_param("./param.json");
+//    cnn->save_param("./param.json");
 
 #endif //TRAIN
     //用测试集测试
-    int test_num = 5000;
+    int test_num = 100;
     int right_times = 0;
     for (int k = 0; k < test_num; ++k) {
         start = static_cast<int>(rand() % (imgs.size() - 1));

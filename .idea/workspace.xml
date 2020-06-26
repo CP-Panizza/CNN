@@ -196,10 +196,10 @@
         <counts>
           <entry key="Cnn (disassembly)" value="1" />
           <entry key="cinttypes" value="1" />
-          <entry key="cpp" value="19" />
+          <entry key="cpp" value="20" />
           <entry key="cstdint" value="2" />
-          <entry key="h" value="21" />
-          <entry key="hpp" value="55" />
+          <entry key="h" value="22" />
+          <entry key="hpp" value="56" />
           <entry key="jpg" value="5" />
           <entry key="json" value="3" />
           <entry key="pgm" value="3" />
@@ -213,14 +213,14 @@
           <entry key="Disassembly" value="1" />
           <entry key="Image" value="8" />
           <entry key="JSON" value="3" />
-          <entry key="ObjectiveC" value="98" />
+          <entry key="ObjectiveC" value="101" />
           <entry key="PLAIN_TEXT" value="9" />
           <entry key="Python" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="659" />
+          <entry key="cpp" value="668" />
           <entry key="h" value="196" />
           <entry key="hpp" value="870" />
           <entry key="mm" value="20" />
@@ -231,7 +231,7 @@
         <counts>
           <entry key="CMakeLists.txt" value="29" />
           <entry key="Doxygen file" value="3" />
-          <entry key="ObjectiveC" value="1742" />
+          <entry key="ObjectiveC" value="1751" />
         </counts>
       </usages-collector>
     </session>
@@ -241,21 +241,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="89" column="23" selection-start-line="89" selection-start-column="23" selection-end-line="89" selection-end-column="23" />
+            <state relative-caret-position="127">
+              <caret line="89" column="22" selection-start-line="89" selection-start-column="22" selection-end-line="89" selection-end-column="22" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
-                <element signature="e#1671#2356#0" expanded="true" />
+                <element signature="e#1040#1103#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/matrix.hpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="483" column="9" lean-forward="true" selection-start-line="483" selection-start-column="9" selection-end-line="483" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -306,11 +297,11 @@
         <option value="$PROJECT_DIR$/softmax.hpp" />
         <option value="$PROJECT_DIR$/conv.hpp" />
         <option value="$PROJECT_DIR$/cmake-build-debug/data/faces_dataset/img_db.txt" />
-        <option value="$PROJECT_DIR$/utils.h" />
         <option value="$PROJECT_DIR$/load_data.hpp" />
-        <option value="$PROJECT_DIR$/utils.cpp" />
         <option value="$PROJECT_DIR$/matrix.hpp" />
         <option value="$PROJECT_DIR$/cnn.hpp" />
+        <option value="$PROJECT_DIR$/utils.h" />
+        <option value="$PROJECT_DIR$/utils.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
@@ -341,11 +332,6 @@
             <path>
               <item name="Cnn" type="b2602c69:ProjectViewProjectNode" />
               <item name="CNN" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Cnn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNN" type="462c0819:PsiDirectoryNode" />
-              <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -445,23 +431,23 @@
       <workItem from="1592885870349" duration="28982000" />
       <workItem from="1592958823524" duration="14750000" />
       <workItem from="1593139637270" duration="1526000" />
-      <workItem from="1593160246832" duration="8580000" />
+      <workItem from="1593160246832" duration="10371000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="329197000" />
+    <option name="totallyTimeSpent" value="330988000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="25" width="1938" height="1064" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.491453" visible="true" weight="0.16738197" />
-      <window_info id="Structure" order="1" sideWeight="0.509636" side_tool="true" weight="0.16094421" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49222222" visible="true" weight="0.21137339" />
+      <window_info id="Structure" order="1" sideWeight="0.50777775" side_tool="true" weight="0.21137339" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.56333333" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.48333332" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4488889" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -683,16 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1372">
-          <caret line="49" column="5" lean-forward="true" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
-          <folding>
-            <element signature="e#105#122#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/conv_relu.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-269">
@@ -766,13 +742,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/conv.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
@@ -787,30 +756,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cnn.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="167" column="29" lean-forward="true" selection-start-line="167" selection-start-column="29" selection-end-line="167" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/test.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/matrix.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="483" column="9" lean-forward="true" selection-start-line="483" selection-start-column="9" selection-end-line="483" selection-end-column="9" />
+        <state relative-caret-position="315">
+          <caret line="677" column="2" lean-forward="true" selection-start-line="677" selection-start-column="2" selection-end-line="677" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cnn.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2128">
+          <caret line="229" column="9" lean-forward="true" selection-start-line="229" selection-start-column="9" selection-end-line="229" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="130" column="13" lean-forward="true" selection-start-line="130" selection-start-column="13" selection-end-line="130" selection-end-column="13" />
+          <folding>
+            <element signature="e#49#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="e#105#122#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="89" column="23" selection-start-line="89" selection-start-column="23" selection-end-line="89" selection-end-column="23" />
+        <state relative-caret-position="127">
+          <caret line="89" column="22" selection-start-line="89" selection-start-column="22" selection-end-line="89" selection-end-column="22" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#1671#2356#0" expanded="true" />
+            <element signature="e#1040#1103#0" expanded="true" />
           </folding>
         </state>
       </provider>

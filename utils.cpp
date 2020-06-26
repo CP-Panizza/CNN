@@ -11,8 +11,8 @@
 Matrix<double> *
 im2col(std::vector<std::vector<Matrix<double> *>> *input_data, int filter_h, int filter_w, int stride, int pad) {
     int N = static_cast<int>(input_data->size()), C = static_cast<int>(((*input_data)[0]).size()), H = ((*input_data)[0])[0]->height, W = ((*input_data)[0])[0]->width;
-    int out_h = (H + 2 * pad - filter_h) / stride + 1;
-    int out_w = (W + 2 * pad - filter_w) / stride + 1;
+//    int out_h = (H + 2 * pad - filter_h) / stride + 1;
+//    int out_w = (W + 2 * pad - filter_w) / stride + 1;
 
     auto input_data_copy = new std::vector<std::vector<Matrix<double> *>>;
     for (int i = 0; i < N; ++i) {
@@ -209,8 +209,7 @@ Matrix<double> *rand_matrix(int row, int col) {
             data[i*col + j] = gauss_rand();
         }
     }
-    auto temp = new Matrix<double>(row, col, data);
-    return temp;
+    return new Matrix<double>(row, col, data);
 }
 
 

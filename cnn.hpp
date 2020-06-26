@@ -179,8 +179,7 @@ public:
     }
 
 
-
-    void save_param(const std::string &path){
+    void save_param(const std::string &path) {
         rapidjson::StringBuffer s;
         rapidjson::Writer<rapidjson::StringBuffer> w(s);
         w.StartObject();
@@ -189,7 +188,7 @@ public:
         for (int i = 0; i < this->conv->W->height; ++i) {
             w.StartArray();
             for (int j = 0; j < this->conv->W->width; ++j) {
-                w.Double(this->conv->W->Get(i,j));
+                w.Double(this->conv->W->Get(i, j));
             }
             w.EndArray();
         }
@@ -201,13 +200,11 @@ public:
         for (int i = 0; i < this->conv->b->height; ++i) {
             w.StartArray();
             for (int j = 0; j < this->conv->b->width; ++j) {
-                w.Double(this->conv->b->Get(i,j));
+                w.Double(this->conv->b->Get(i, j));
             }
             w.EndArray();
         }
         w.EndArray();
-
-
 
 
         w.Key("conv1_w");
@@ -215,7 +212,7 @@ public:
         for (int i = 0; i < this->conv1->W->height; ++i) {
             w.StartArray();
             for (int j = 0; j < this->conv1->W->width; ++j) {
-                w.Double(this->conv1->W->Get(i,j));
+                w.Double(this->conv1->W->Get(i, j));
             }
             w.EndArray();
         }
@@ -227,7 +224,7 @@ public:
         for (int i = 0; i < this->conv1->b->height; ++i) {
             w.StartArray();
             for (int j = 0; j < this->conv1->b->width; ++j) {
-                w.Double(this->conv1->b->Get(i,j));
+                w.Double(this->conv1->b->Get(i, j));
             }
             w.EndArray();
         }
@@ -242,7 +239,7 @@ public:
         for (int i = 0; i < this->fc->W->height; ++i) {
             w.StartArray();
             for (int j = 0; j < this->fc->W->width; ++j) {
-                w.Double(this->fc->W->Get(i,j));
+                w.Double(this->fc->W->Get(i, j));
             }
             w.EndArray();
         }
@@ -254,7 +251,7 @@ public:
         for (int i = 0; i < this->fc->b->height; ++i) {
             w.StartArray();
             for (int j = 0; j < this->fc->b->width; ++j) {
-                w.Double(this->fc->b->Get(i,j));
+                w.Double(this->fc->b->Get(i, j));
             }
             w.EndArray();
         }
@@ -266,7 +263,7 @@ public:
         for (int i = 0; i < this->fc1->W->height; ++i) {
             w.StartArray();
             for (int j = 0; j < this->fc1->W->width; ++j) {
-                w.Double(this->fc1->W->Get(i,j));
+                w.Double(this->fc1->W->Get(i, j));
             }
             w.EndArray();
         }
@@ -278,7 +275,7 @@ public:
         for (int i = 0; i < this->fc1->b->height; ++i) {
             w.StartArray();
             for (int j = 0; j < this->fc1->b->width; ++j) {
-                w.Double(this->fc1->b->Get(i,j));
+                w.Double(this->fc1->b->Get(i, j));
             }
             w.EndArray();
         }
@@ -296,10 +293,10 @@ public:
         f.close();
     }
 
-    bool load_param(const std::string &path){
+    bool load_param(const std::string &path) {
         std::string param = read_file(path);
         rapidjson::Document d;
-        if(d.Parse(param.c_str()).HasParseError()){
+        if (d.Parse(param.c_str()).HasParseError()) {
             printf("parse error!\n");
             return false;
         }
