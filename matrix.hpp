@@ -482,10 +482,8 @@ public:
                    __LINE__, this->height, this->width, m->height, m->width);
             exit(-1);
         }
-        Type *matA = this->data;
-        Type *matB = m->data;
         Type *matC = CreateArray<Type>(this->height, m->width);
-        mm_winograd<Type>(matA, matB, matC, this->height, m->width, this->width, this->width, m->width, m->width);
+        mm_winograd<Type>(this->data, m->data, matC, this->height, m->width, this->width, this->width, m->width, m->width);
         return new Matrix<Type>(this->height, m->width, matC);
     }
 

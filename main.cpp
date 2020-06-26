@@ -87,30 +87,30 @@ int main() {
 
 #endif //TRAIN
     //用测试集测试
-//    int test_num = 100;
-//    int right_times = 0;
-//    for (int k = 0; k < test_num; ++k) {
-//        start = static_cast<int>(rand() % (imgs.size() - 1));
-//        end = start + 1;
-//
-//        std::vector<std::vector<Matrix<double> *> > test_x(imgs.begin() + start, imgs.begin() + end);
-//        std::vector<int> test_label(labels.begin() + start, labels.begin() + end);
-//        auto test_la = new Matrix<double>(1, 10);
-//        for (int j = 0; j < 1; ++j) {
-//            test_la->Set(j, test_label[j], 1);
-//        }
-//        std::cout << "\nNo:" << k << "\n";
-//        std::cout << "start:" << start << " end:" << end << "\n";
-//        auto pre = cnn->predict(&test_x, test_la);
-//        auto result = argmax(pre, "r");
-//        if (result->Get(0, 0) == test_label[0]) {
-//            right_times++;
-//        }
-//        delete (test_la);
-//        delete (pre);
-//        delete (result);
-//    }
-//    std::cout << "right_p:" << (double(right_times) / test_num) * 100.0 << "%";
+    int test_num = 5000;
+    int right_times = 0;
+    for (int k = 0; k < test_num; ++k) {
+        start = static_cast<int>(rand() % (imgs.size() - 1));
+        end = start + 1;
+
+        std::vector<std::vector<Matrix<double> *> > test_x(imgs.begin() + start, imgs.begin() + end);
+        std::vector<int> test_label(labels.begin() + start, labels.begin() + end);
+        auto test_la = new Matrix<double>(1, 10);
+        for (int j = 0; j < 1; ++j) {
+            test_la->Set(j, test_label[j], 1);
+        }
+        std::cout << "\nNo:" << k << "\n";
+        std::cout << "start:" << start << " end:" << end << "\n";
+        auto pre = cnn->predict(&test_x, test_la);
+        auto result = argmax(pre, "r");
+        if (result->Get(0, 0) == test_label[0]) {
+            right_times++;
+        }
+        delete (test_la);
+        delete (pre);
+        delete (result);
+    }
+    std::cout << "right_p:" << (double(right_times) / test_num) * 100.0 << "%";
 
     return 0;
 }
