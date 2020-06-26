@@ -13,6 +13,164 @@
 #include <iostream>
 #include <cmath>
 
+/**
+ * M:第一个矩阵height
+ * N:第二个矩阵width
+ * K:第一个矩阵的width第二个矩阵的height
+ * strideA: 第一个矩阵width
+ * strideB: 第二个矩阵width
+ * strideC: 第三个矩阵width
+ */
+template<class Dtype>
+void mm_generate(Dtype *matA, Dtype *matB, Dtype *matC,
+                 int M, int N, int K,
+                 int strideA, int strideB, int strideC) {
+    for (int i = 0; i < M; i++) {
+        for (int j = 0; j < N; j++) {
+            Dtype sum = 0;
+            for (int k = 0; k < K; k++) {
+                sum += matA[i * strideA + k] * matB[k * strideB + j];
+            }
+            matC[i * strideC + j] = sum;
+        }
+    }
+}
+
+
+
+template<class Dtype>
+void mm_winograd(Dtype *matA, Dtype *matB, Dtype *matC, int M, int N, int K, int strideA,
+                 int strideB, int strideC) {
+    if ((M <= 64) || (M % 2 != 0 || N % 2 != 0 || K % 2 != 0)) {
+        return mm_generate<Dtype>(matA, matB, matC, M, N, K, strideA, strideB, strideC);
+    }
+    memset(matC, 0, M * strideC * sizeof(Dtype));
+    int offset = 0;
+
+    std::vector<Dtype> S1((M / 2) * (K / 2));
+    std::vector<Dtype> S2((M / 2) * (K / 2));
+    std::vector<Dtype> S3((M / 2) * (K / 2));
+    std::vector<Dtype> S4((M / 2) * (K / 2));
+    for (int i = 0; i < M / 2; i++) {
+        for (int j = 0; j < K / 2; j++) {
+            const int idx = i * K / 2 + j;
+            //S1 = A21 + A22
+            S1[idx] = matA[(i + M / 2) * strideA + j] + matA[(i + M / 2) * strideA + j + K / 2];
+            //S2 = S1 - A11
+            S2[idx] = S1[idx] - matA[i * strideA + j];
+            //S3 = A11 - A21
+            S3[idx] = matA[i * strideA + j] - matA[(i + M / 2) * strideA + j];
+            //S4 = A12 - S2
+            S4[idx] = matA[i * strideA + j + K / 2] - S2[idx];
+        }
+    }
+    std::vector<Dtype> T1((K / 2) * (N / 2));
+    std::vector<Dtype> T2((K / 2) * (N / 2));
+    std::vector<Dtype> T3((K / 2) * (N / 2));
+    std::vector<Dtype> T4((K / 2) * (N / 2));
+    for (int i = 0; i < K / 2; i++) {
+        for (int j = 0; j < N / 2; j++) {
+            const int idx = i * N / 2 + j;
+            //T1 = B21 - B11
+            T1[idx] = matB[(i + K / 2) * strideB + j] - matB[i * strideB + j];
+            //T2 = B22 - T1
+            T2[idx] = matB[(i + K / 2) * strideB + j + N / 2] - T1[idx];
+            //T3 = B22 - B12
+            T3[idx] = matB[(i + K / 2) * strideB + j + N / 2] - matB[i * strideB + j + N / 2];
+            //T4 = T2 - B21
+            T4[idx] = T2[idx] - matB[(i + K / 2) * strideB + j];
+        }
+    }
+
+    //M1 = A11*B11
+    std::vector<Dtype> M1((M / 2) * (N / 2));
+    {
+        memset(&M1[0], 0, M1.size() * sizeof(Dtype));
+        mm_winograd<Dtype>(matA, matB, &M1[0], M / 2, N / 2, K / 2,
+                           strideA, strideB, N / 2);
+    }
+
+    //M2 = A12*B21
+    std::vector<Dtype> M2((M / 2) * (N / 2));
+    {
+        memset(&M2[0], 0, M2.size() * sizeof(Dtype));
+        mm_winograd<Dtype>(matA + K / 2, matB + K * strideB / 2, &M2[0], M / 2, N / 2, K / 2,
+                           strideA, strideB, N / 2);
+    }
+
+    //M3 = S4*B22
+    std::vector<Dtype> M3((M / 2) * (N / 2));
+    {
+        memset(&M3[0], 0, M3.size() * sizeof(Dtype));
+        mm_winograd<Dtype>(&S4[0], matB + K * strideB / 2 + N / 2, &M3[0], M / 2, N / 2, K / 2,
+                           K / 2, strideB, N / 2);
+    }
+
+    //M4 = A22*T4
+    std::vector<Dtype> M4((M / 2) * (N / 2));
+    {
+        memset(&M4[0], 0, M4.size() * sizeof(Dtype));
+        mm_winograd<Dtype>(matA + M * strideA / 2 + K / 2, &T4[0], &M4[0], M / 2, N / 2, K / 2,
+                           strideA, N / 2, N / 2);
+    }
+
+    //M5 = S1*T1
+    std::vector<Dtype> M5((M / 2) * (N / 2));
+    {
+        memset(&M5[0], 0, M5.size() * sizeof(Dtype));
+        mm_winograd<Dtype>(&S1[0], &T1[0], &M5[0], M / 2, N / 2, K / 2,
+                           K / 2, N / 2, N / 2);
+    }
+
+    //M6 = S2*T2
+    std::vector<Dtype> M6((M / 2) * (N / 2));
+    {
+        memset(&M6[0], 0, M6.size() * sizeof(Dtype));
+        mm_winograd<Dtype>(&S2[0], &T2[0], &M6[0], M / 2, N / 2, K / 2,
+                           K / 2, N / 2, N / 2);
+    }
+
+    //M7 = S3*T3
+    std::vector<Dtype> M7((M / 2) * (N / 2));
+    {
+        memset(&M7[0], 0, M7.size() * sizeof(Dtype));
+        mm_winograd<Dtype>(&S3[0], &T3[0], &M7[0], M / 2, N / 2, K / 2,
+                           K / 2, N / 2, N / 2);
+    }
+
+    for (int i = 0; i < M / 2; i++) {
+        for (int j = 0; j < N / 2; j++) {
+            const int idx = i * N / 2 + j;
+            //U1 = M1 + M2
+            const auto U1 = M1[idx] + M2[idx];
+            //U2 = M1 + M6
+            const auto U2 = M1[idx] + M6[idx];
+            //U3 = U2 + M7
+            const auto U3 = U2 + M7[idx];
+            //U4 = U2 + M5
+            const auto U4 = U2 + M5[idx];
+            //U5 = U4 + M3
+            const auto U5 = U4 + M3[idx];
+            //U6 = U3 - M4
+            const auto U6 = U3 - M4[idx];
+            //U7 = U3 + M5
+            const auto U7 = U3 + M5[idx];
+
+            //C11 = U1
+            matC[i * strideC + j] = U1;
+            //C12 = U5
+            matC[i * strideC + j + N / 2] = U5;
+            //C21 = U6
+            matC[(i + M / 2) * strideC + j] = U6;
+            //C22 = U7
+            matC[(i + M / 2) * strideC + j + N / 2] = U7;
+        }
+    }
+}
+
+
+
+
 template<class Type>
 Type **Create2dArray(int row, int col) {
     Type **array = new Type *[row];
@@ -152,7 +310,7 @@ public:
     }
 
     Type Get(int row, int col) const {
-        if (col > this->width || row > this->height){
+        if (col > this->width || row > this->height) {
             perror("function Get beyond matrix bound!");
             exit(-1);
         }
@@ -342,8 +500,30 @@ public:
         return out;
     }
 
-    //dot优化
+    /**
+     * winograd算法
+     * @param m
+     * @return
+     */
     Matrix<Type> *Dot(Matrix<Type> *m) {
+        if (this->width != m->height) {
+            printf("file: %s function: %s line: %d dim not match: %d x %d --- %d x %d", __FILE__, __FUNCTION__,
+                   __LINE__, this->height, this->width, m->height, m->width);
+            exit(-1);
+        }
+        Type *matA = this->to_line();
+        Type *matB = m->to_line();
+        Type *matC = new Type[this->height * m->width];
+        mm_winograd<Type>(matA, matB, matC, this->height, m->width, this->width, this->width, m->width, m->width);
+        delete (matA);
+        delete (matB);
+        auto out = new Matrix<Type>(this->height, m->width, matC);
+        delete (matC);
+        return out;
+    }
+
+    //普通优化
+    Matrix<Type> *Dot_(Matrix<Type> *m) {
         if (this->width != m->height) {
             printf("file: %s function: %s line: %d dim not match: %d x %d --- %d x %d", __FILE__, __FUNCTION__,
                    __LINE__, this->height, this->width, m->height, m->width);
@@ -428,7 +608,7 @@ public:
                 all.push_back(this->Get(i, j));
             }
         }
-        memcpy(line, all.data(), sizeof(Type) * this->height * this->height);
+        memcpy(line, all.data(), sizeof(Type) * this->height * this->width);
         return line;
     }
 

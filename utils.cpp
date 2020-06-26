@@ -8,12 +8,13 @@
 #include <cmath>
 #include <sstream>
 
-Matrix<double> *im2col(std::vector<std::vector<Matrix<double> *>> *input_data, int filter_h, int filter_w, int stride, int pad) {
+Matrix<double> *
+im2col(std::vector<std::vector<Matrix<double> *>> *input_data, int filter_h, int filter_w, int stride, int pad) {
     int N = static_cast<int>(input_data->size()), C = static_cast<int>(((*input_data)[0]).size()), H = ((*input_data)[0])[0]->height, W = ((*input_data)[0])[0]->width;
     int out_h = (H + 2 * pad - filter_h) / stride + 1;
     int out_w = (W + 2 * pad - filter_w) / stride + 1;
 
-    auto input_data_copy = new std::vector<std::vector<Matrix<double> *>> ;
+    auto input_data_copy = new std::vector<std::vector<Matrix<double> *>>;
     for (int i = 0; i < N; ++i) {
         input_data_copy->push_back(std::vector<Matrix<double> *>(C));
     }
@@ -29,19 +30,19 @@ Matrix<double> *im2col(std::vector<std::vector<Matrix<double> *>> *input_data, i
     std::vector<std::vector<double>> result;
     int i, j, n, k, m;
     for (auto &vec: *input_data_copy) {
-            std::vector<double> line;
-            for ( i = 0; i <= padded_img_h - filter_h; i += stride) {
-                for ( j = 0; j <= padded_img_w - filter_w; j += stride) {
-                    for ( n = 0; n < vec.size(); n++) {
-                        for ( k = 0; k < filter_h; ++k) {
-                            for ( m = 0; m < filter_w; ++m) {
-                                line.push_back(vec[n]->Get(i + k, j + m));
-                            }
+        std::vector<double> line;
+        for (i = 0; i <= padded_img_h - filter_h; i += stride) {
+            for (j = 0; j <= padded_img_w - filter_w; j += stride) {
+                for (n = 0; n < vec.size(); n++) {
+                    for (k = 0; k < filter_h; ++k) {
+                        for (m = 0; m < filter_w; ++m) {
+                            line.push_back(vec[n]->Get(i + k, j + m));
                         }
                     }
                 }
             }
-            result.push_back(line);
+        }
+        result.push_back(line);
     }
 
     free_data(input_data_copy);
@@ -55,15 +56,15 @@ Matrix<double> *im2col(std::vector<std::vector<Matrix<double> *>> *input_data, i
     int length;
     for (auto &v: result) {
         length = static_cast<int>(v.size());
-        if(row != 0){
+        if (row != 0) {
             row++;
         }
         for (i = 0; i < length; ++i) {
-            if(i != 0 && i % width == 0){
+            if (i != 0 && i % width == 0) {
                 row++;
             }
             data[row][col++] = v[i];
-            if(col == width){
+            if (col == width) {
                 col = 0;
             }
         }
@@ -72,42 +73,42 @@ Matrix<double> *im2col(std::vector<std::vector<Matrix<double> *>> *input_data, i
 }
 
 
-Matrix<int> *argmax(Matrix<double> *mat, std::string dim){
+Matrix<int> *argmax(Matrix<double> *mat, std::string dim) {
     int width = 0;
     int **data = nullptr;
-    if(dim == "c"){
+    if (dim == "c") {
         width = mat->width;
-        data = Create2dArray<int>(1,width);
-        Matrix<double>* col = nullptr;
+        data = Create2dArray<int>(1, width);
+        Matrix<double> *col = nullptr;
         for (int i = 0; i < mat->width; ++i) {
             col = mat->Col(i);
-            double max = col->Get(0,0);
+            double max = col->Get(0, 0);
             int max_index = 0;
             for (int j = 0; j < col->height; ++j) {
-                if(col->Get(j,0) > max){
-                    max = col->Get(j,0);
+                if (col->Get(j, 0) > max) {
+                    max = col->Get(j, 0);
                     max_index = j;
                 }
             }
             data[0][i] = max_index;
-            delete(col);
+            delete (col);
         }
-    } else if (dim == "r"){
+    } else if (dim == "r") {
         width = mat->height;
-        data = Create2dArray<int>(1,width);
-        Matrix<double>* row = nullptr;
+        data = Create2dArray<int>(1, width);
+        Matrix<double> *row = nullptr;
         for (int i = 0; i < mat->height; ++i) {
             row = mat->Row(i);
-            double max = row->Get(0,0);
+            double max = row->Get(0, 0);
             int max_index = 0;
             for (int j = 0; j < row->width; ++j) {
-                if(row->Get(0,j) > max){
-                    max = row->Get(0,j);
+                if (row->Get(0, j) > max) {
+                    max = row->Get(0, j);
                     max_index = j;
                 }
             }
             data[0][i] = max_index;
-            delete(row);
+            delete (row);
         }
     }
     return new Matrix<int>(1, width, data);
@@ -116,35 +117,35 @@ Matrix<int> *argmax(Matrix<double> *mat, std::string dim){
 Matrix<double> *max(Matrix<double> *mat, std::string dim) {
     int width = 0;
     double **data = nullptr;
-    if(dim == "c"){
+    if (dim == "c") {
         width = mat->width;
-        data = Create2dArray<double>(1,width);
-        Matrix<double>* col = nullptr;
+        data = Create2dArray<double>(1, width);
+        Matrix<double> *col = nullptr;
         for (int i = 0; i < mat->width; ++i) {
             col = mat->Col(i);
-            double max = col->Get(0,0);
+            double max = col->Get(0, 0);
             for (int j = 0; j < col->height; ++j) {
-                if(col->Get(j,0) > max){
-                    max = col->Get(j,0);
+                if (col->Get(j, 0) > max) {
+                    max = col->Get(j, 0);
                 }
             }
             data[0][i] = max;
-            delete(col);
+            delete (col);
         }
-    } else if (dim == "r"){
+    } else if (dim == "r") {
         width = mat->height;
-        data = Create2dArray<double>(1,width);
-        Matrix<double>* row = nullptr;
+        data = Create2dArray<double>(1, width);
+        Matrix<double> *row = nullptr;
         for (int i = 0; i < mat->height; ++i) {
             row = mat->Row(i);
-            double max = row->Get(0,0);
+            double max = row->Get(0, 0);
             for (int j = 0; j < row->width; ++j) {
-                if(row->Get(0,j) > max){
-                    max = row->Get(0,j);
+                if (row->Get(0, j) > max) {
+                    max = row->Get(0, j);
                 }
             }
             data[0][i] = max;
-            delete(row);
+            delete (row);
         }
     }
     return new Matrix<double>(1, width, data);
@@ -153,10 +154,10 @@ Matrix<double> *max(Matrix<double> *mat, std::string dim) {
 Matrix<double> *sum(Matrix<double> *mat, std::string dim) {
     int width = 0;
     double **data = nullptr;
-    if(dim == "c"){
+    if (dim == "c") {
         width = mat->width;
-        data = Create2dArray<double>(1,width);
-        Matrix<double>* col = nullptr;
+        data = Create2dArray<double>(1, width);
+        Matrix<double> *col = nullptr;
         for (int i = 0; i < mat->width; ++i) {
             col = mat->Col(i);
             double sum = 0;
@@ -164,12 +165,12 @@ Matrix<double> *sum(Matrix<double> *mat, std::string dim) {
                 sum += col->Get(j, 0);
             }
             data[0][i] = sum;
-            delete(col);
+            delete (col);
         }
-    } else if (dim == "r"){
+    } else if (dim == "r") {
         width = mat->height;
-        data = Create2dArray<double>(1,width);
-        Matrix<double>* row = nullptr;
+        data = Create2dArray<double>(1, width);
+        Matrix<double> *row = nullptr;
         for (int i = 0; i < mat->height; ++i) {
             row = mat->Row(i);
             double sum = 0;
@@ -177,7 +178,7 @@ Matrix<double> *sum(Matrix<double> *mat, std::string dim) {
                 sum += row->Get(0, j);
             }
             data[0][i] = sum;
-            delete(row);
+            delete (row);
         }
     }
     return new Matrix<double>(1, width, data);
@@ -201,14 +202,14 @@ std::vector<std::string> split(std::string str, std::string pattern) {
 }
 
 
-Matrix<double> *rand_matrix(int row, int col){
+Matrix<double> *rand_matrix(int row, int col) {
     auto data = Create2dArray<double>(row, col);
     double min = 0;
     double sum = 0;
     for (int i = 0; i < row; ++i) {
         for (int j = 0; j < col; ++j) {
             data[i][j] = gauss_rand();
-            if(data[i][j] < min){
+            if (data[i][j] < min) {
                 min = data[i][j];
             }
         }
@@ -218,7 +219,7 @@ Matrix<double> *rand_matrix(int row, int col){
 }
 
 
-Matrix<double> *mat_exp(Matrix<double> *x){
+Matrix<double> *mat_exp(Matrix<double> *x) {
     auto data = Create2dArray<double>(x->height, x->width);
     double v;
     for (int i = 0; i < x->height; ++i) {
@@ -231,22 +232,19 @@ Matrix<double> *mat_exp(Matrix<double> *x){
 }
 
 
-
-
-Matrix<double> *padding(Matrix<double> *src, int pad){
+Matrix<double> *padding(Matrix<double> *src, int pad) {
     int width = src->width + (2 * pad);
     int height = src->height + (2 * pad);
     auto *pad_mat = new Matrix<double>(height, width);
     for (int i = 0; i < height; ++i) {
         for (int j = 0; j < width; ++j) {
-            if(i>=pad && i<height-pad && j>=pad && j<width-pad){
-                pad_mat->Set(i, j, src->Get(i-pad, j-pad));
+            if (i >= pad && i < height - pad && j >= pad && j < width - pad) {
+                pad_mat->Set(i, j, src->Get(i - pad, j - pad));
             }
         }
     }
     return pad_mat;
 }
-
 
 
 void free_data(std::vector<std::vector<Matrix<double> *>> *data) {
@@ -260,21 +258,21 @@ void free_data(std::vector<std::vector<Matrix<double> *>> *data) {
 
 
 //产生高斯分布随机数
-double gauss_rand(){
+double gauss_rand() {
     static double V1, V2, S;
     static int phase = 0;
     double X;
-    if(phase == 0){
-        do{
-            double U1 = (double)rand() / RAND_MAX;
-            double U2 = (double)rand() / RAND_MAX;
+    if (phase == 0) {
+        do {
+            double U1 = (double) rand() / RAND_MAX;
+            double U2 = (double) rand() / RAND_MAX;
             V1 = 2 * U1 - 1;
             V2 = 2 * U2 - 1;
-            S = V1*V1 + V2*V2;
-        }while(S>=1 || S==0);
-        X = V1 *sqrt(-2 * log(S) / S);
+            S = V1 * V1 + V2 * V2;
+        } while (S >= 1 || S == 0);
+        X = V1 * sqrt(-2 * log(S) / S);
     } else {
-        X = V2 *sqrt(-2 * log(S) / S);
+        X = V2 * sqrt(-2 * log(S) / S);
     }
     phase = 1 - phase;
 
@@ -298,28 +296,28 @@ std::string read_file(std::string file) {
  * @param stride 卷积滑动步长
  * @return
  */
-Matrix<double> *col2im(Matrix<double> *col, int src_w, int src_h, int filter_size, int stride){
+Matrix<double> *col2im(Matrix<double> *col, int src_w, int src_h, int filter_size, int stride) {
     auto origin = new Matrix<double>(src_h, src_w);
     auto mask = new Matrix<double>(src_h, src_w);
     int num_row = 0; //col矩阵的第几行
     Matrix<double> *row = nullptr;
-    for (int i = 0; i <= origin->height-filter_size; i+=stride) {
-        for (int j = 0; j <=origin->width-filter_size ; j+=stride) {
+    for (int i = 0; i <= origin->height - filter_size; i += stride) {
+        for (int j = 0; j <= origin->width - filter_size; j += stride) {
             row = col->Row(num_row++);
             int idx = 0;
-            for (int m = i; m < i+filter_size; ++m) {
-                for (int n = j; n < j+filter_size; ++n) {
-                    if(mask->Get(m,n) == 0){
-                        origin->Set(m,n,row->Get(0,idx++));
+            for (int m = i; m < i + filter_size; ++m) {
+                for (int n = j; n < j + filter_size; ++n) {
+                    if (mask->Get(m, n) == 0) {
+                        origin->Set(m, n, row->Get(0, idx++));
                     } else {
                         idx++;
                     }
                 }
             }
-            delete(row);
+            delete (row);
         }
     }
-    delete(mask);
+    delete (mask);
     return origin;
 }
 

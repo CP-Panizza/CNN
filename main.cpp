@@ -17,6 +17,7 @@
 
 int main() {
 
+
     std::vector<std::vector<Matrix<double> *> > imgs;
     std::vector<int> labels;
 
@@ -36,7 +37,7 @@ int main() {
 
     srand(static_cast<unsigned int>(time(nullptr)));
     int batch_size = 30;
-    int epoch = 2000;
+    int epoch = 100;
     int start;
     int end;
     auto cnn = new Cnn(batch_size);
@@ -48,20 +49,18 @@ int main() {
     }
 #endif //TEST
 
-//    system("Img2PGM2.exe -i tow.jpg -o tow.pgm");
+//    system("Img2PGM2.exe -i test.jpg -o test.pgm");
 //    Pgmer *pgmer = new Pgmer;
-//    pgmer->ReadImg("./tow.pgm");
+//    pgmer->ReadImg("./test.pgm");
 //    auto data = pgmer->To2DMatrix()->operator/(255.0);
 //    auto x = new std::vector<std::vector<Matrix<double> *>>{std::vector<Matrix<double> *>{data}};
 //
-//    std::vector<std::vector<Matrix < double> *> > xx(imgs.begin() , imgs.begin() + 10);
-//    xx[4][0]->operator*(255)->WriteImg("out.pgm");
 //    auto test_la = new Matrix<double>(1, 2);
 //    for (int j = 0; j < 1; ++j) {
 //        test_la->Set(j, 1, 1);
 //    }
 //
-//    auto pre = cnn->predict(&xx, test_la);
+//    auto pre = cnn->predict(x, test_la);
 //
 //    auto result = argmax(pre, "r");
 //    std::cout << "predict:" << result;
@@ -96,7 +95,7 @@ int main() {
 
         std::vector<std::vector<Matrix<double> *> > test_x(imgs.begin() + start, imgs.begin() + end);
         std::vector<int> test_label(labels.begin() + start, labels.begin() + end);
-        auto test_la = new Matrix<double>(1, 2);
+        auto test_la = new Matrix<double>(1, 10);
         for (int j = 0; j < 1; ++j) {
             test_la->Set(j, test_label[j], 1);
         }
