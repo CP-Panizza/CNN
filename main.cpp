@@ -18,6 +18,20 @@
 int main() {
 
 
+    auto aa = new Matrix<double>{{1,2,3},{4,5,6},{9,0,0}};
+
+    auto bb = aa->T();
+    time_t s,e;
+    s = clock();
+    std::cout << aa->Dot(bb);
+    e = clock();
+
+    auto sec = (e - s) / 1000;
+    std::cout << "Dot():" << sec <<std::endl;
+
+    return 0;
+
+
     std::vector<std::vector<Matrix<double> *> > imgs;
     std::vector<int> labels;
 
@@ -79,7 +93,12 @@ int main() {
         for (int j = 0; j < batch_size; ++j) {
             la->Set(j, label[j], 1);
         }
+        time_t s,e;
+        s = clock();
         cnn->train(&x, la);
+        e = clock();
+        double sec = (e - s) / 1000.0;
+        std::cout << "time:" << sec <<std::endl;
         delete (la);
     }
 

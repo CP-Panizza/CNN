@@ -33,10 +33,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f
+RM = "D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,28 +59,28 @@ include CMakeFiles/Cnn.dir/flags.make
 CMakeFiles/Cnn.dir/main.cpp.obj: CMakeFiles/Cnn.dir/flags.make
 CMakeFiles/Cnn.dir/main.cpp.obj: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\CNN\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Cnn.dir/main.cpp.obj"
-	D:\MinGW64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Cnn.dir\main.cpp.obj -c C:\Users\Administrator\Desktop\CNN\main.cpp
+	D:\compliler\MinGW64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Cnn.dir\main.cpp.obj -c C:\Users\Administrator\Desktop\CNN\main.cpp
 
 CMakeFiles/Cnn.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Cnn.dir/main.cpp.i"
-	D:\MinGW64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\CNN\main.cpp > CMakeFiles\Cnn.dir\main.cpp.i
+	D:\compliler\MinGW64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\CNN\main.cpp > CMakeFiles\Cnn.dir\main.cpp.i
 
 CMakeFiles/Cnn.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Cnn.dir/main.cpp.s"
-	D:\MinGW64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\CNN\main.cpp -o CMakeFiles\Cnn.dir\main.cpp.s
+	D:\compliler\MinGW64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\CNN\main.cpp -o CMakeFiles\Cnn.dir\main.cpp.s
 
 CMakeFiles/Cnn.dir/utils.cpp.obj: CMakeFiles/Cnn.dir/flags.make
 CMakeFiles/Cnn.dir/utils.cpp.obj: ../utils.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\CNN\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Cnn.dir/utils.cpp.obj"
-	D:\MinGW64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Cnn.dir\utils.cpp.obj -c C:\Users\Administrator\Desktop\CNN\utils.cpp
+	D:\compliler\MinGW64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Cnn.dir\utils.cpp.obj -c C:\Users\Administrator\Desktop\CNN\utils.cpp
 
 CMakeFiles/Cnn.dir/utils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Cnn.dir/utils.cpp.i"
-	D:\MinGW64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\CNN\utils.cpp > CMakeFiles\Cnn.dir\utils.cpp.i
+	D:\compliler\MinGW64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\CNN\utils.cpp > CMakeFiles\Cnn.dir\utils.cpp.i
 
 CMakeFiles/Cnn.dir/utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Cnn.dir/utils.cpp.s"
-	D:\MinGW64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\CNN\utils.cpp -o CMakeFiles\Cnn.dir\utils.cpp.s
+	D:\compliler\MinGW64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\CNN\utils.cpp -o CMakeFiles\Cnn.dir\utils.cpp.s
 
 # Object files for target Cnn
 Cnn_OBJECTS = \

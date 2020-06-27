@@ -1,6 +1,6 @@
 The system is: Windows - 6.1.7601 - AMD64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
-Compiler: D:/MinGW64/bin/gcc.exe 
+Compiler: D:/compliler/MinGW64/bin/gcc.exe 
 Build flags: 
 Id flags:  
 
@@ -13,7 +13,7 @@ Compilation of the C compiler identification source "CMakeCCompilerId.c" produce
 The C compiler identification is GNU, found in "C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/3.12.0/CompilerIdC/a.exe"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-Compiler: D:/MinGW64/bin/g++.exe 
+Compiler: D:/compliler/MinGW64/bin/g++.exe 
 Build flags: 
 Id flags:  
 
@@ -28,43 +28,43 @@ The CXX compiler identification is GNU, found in "C:/Users/Administrator/Desktop
 Determining if the C compiler works passed with the following output:
 Change Dir: C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:/MinGW64/bin/mingw32-make.exe" "cmTC_b0c7f/fast"
-D:/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_b0c7f.dir\build.make CMakeFiles/cmTC_b0c7f.dir/build
+Run Build Command:"D:/compliler/MinGW64/bin/mingw32-make.exe" "cmTC_1a3ae/fast"
+D:/compliler/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_1a3ae.dir\build.make CMakeFiles/cmTC_1a3ae.dir/build
 mingw32-make.exe[1]: Entering directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_b0c7f.dir/testCCompiler.c.obj
-D:\MinGW64\bin\gcc.exe    -o CMakeFiles\cmTC_b0c7f.dir\testCCompiler.c.obj   -c C:\Users\Administrator\Desktop\CNN\cmake-build-debug\CMakeFiles\CMakeTmp\testCCompiler.c
-Linking C executable cmTC_b0c7f.exe
-"D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_b0c7f.dir\link.txt --verbose=1
-"D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_b0c7f.dir/objects.a
-D:\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_b0c7f.dir/objects.a @CMakeFiles\cmTC_b0c7f.dir\objects1.rsp
-D:\MinGW64\bin\gcc.exe      -Wl,--whole-archive CMakeFiles\cmTC_b0c7f.dir/objects.a -Wl,--no-whole-archive  -o cmTC_b0c7f.exe -Wl,--out-implib,libcmTC_b0c7f.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_b0c7f.dir\linklibs.rsp
+Building C object CMakeFiles/cmTC_1a3ae.dir/testCCompiler.c.obj
+D:\compliler\MinGW64\bin\gcc.exe    -o CMakeFiles\cmTC_1a3ae.dir\testCCompiler.c.obj   -c C:\Users\Administrator\Desktop\CNN\cmake-build-debug\CMakeFiles\CMakeTmp\testCCompiler.c
+Linking C executable cmTC_1a3ae.exe
+"D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_1a3ae.dir\link.txt --verbose=1
+"D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_1a3ae.dir/objects.a
+D:\compliler\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_1a3ae.dir/objects.a @CMakeFiles\cmTC_1a3ae.dir\objects1.rsp
+D:\compliler\MinGW64\bin\gcc.exe      -Wl,--whole-archive CMakeFiles\cmTC_1a3ae.dir/objects.a -Wl,--no-whole-archive  -o cmTC_1a3ae.exe -Wl,--out-implib,libcmTC_1a3ae.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_1a3ae.dir\linklibs.rsp
 mingw32-make.exe[1]: Leaving directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:/MinGW64/bin/mingw32-make.exe" "cmTC_60f68/fast"
-D:/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_60f68.dir\build.make CMakeFiles/cmTC_60f68.dir/build
+Run Build Command:"D:/compliler/MinGW64/bin/mingw32-make.exe" "cmTC_a6cb0/fast"
+D:/compliler/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_a6cb0.dir\build.make CMakeFiles/cmTC_a6cb0.dir/build
 mingw32-make.exe[1]: Entering directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_60f68.dir/CMakeCCompilerABI.c.obj
-D:\MinGW64\bin\gcc.exe    -o CMakeFiles\cmTC_60f68.dir\CMakeCCompilerABI.c.obj   -c "D:\CLion 2018.2\bin\cmake\win\share\cmake-3.12\Modules\CMakeCCompilerABI.c"
-Linking C executable cmTC_60f68.exe
-"D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_60f68.dir\link.txt --verbose=1
-"D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_60f68.dir/objects.a
-D:\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_60f68.dir/objects.a @CMakeFiles\cmTC_60f68.dir\objects1.rsp
-D:\MinGW64\bin\gcc.exe     -v -Wl,--whole-archive CMakeFiles\cmTC_60f68.dir/objects.a -Wl,--no-whole-archive  -o cmTC_60f68.exe -Wl,--out-implib,libcmTC_60f68.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+Building C object CMakeFiles/cmTC_a6cb0.dir/CMakeCCompilerABI.c.obj
+D:\compliler\MinGW64\bin\gcc.exe    -o CMakeFiles\cmTC_a6cb0.dir\CMakeCCompilerABI.c.obj   -c "D:\compliler\CLion 2018.2\bin\cmake\win\share\cmake-3.12\Modules\CMakeCCompilerABI.c"
+Linking C executable cmTC_a6cb0.exe
+"D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_a6cb0.dir\link.txt --verbose=1
+"D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_a6cb0.dir/objects.a
+D:\compliler\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_a6cb0.dir/objects.a @CMakeFiles\cmTC_a6cb0.dir\objects1.rsp
+D:\compliler\MinGW64\bin\gcc.exe     -v -Wl,--whole-archive CMakeFiles\cmTC_a6cb0.dir/objects.a -Wl,--no-whole-archive  -o cmTC_a6cb0.exe -Wl,--out-implib,libcmTC_a6cb0.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
 Using built-in specs.
-COLLECT_GCC=D:\MinGW64\bin\gcc.exe
-COLLECT_LTO_WRAPPER=D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe
+COLLECT_GCC=D:\compliler\MinGW64\bin\gcc.exe
+COLLECT_LTO_WRAPPER=D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe
 Target: x86_64-w64-mingw32
 Configured with: ../../../src/gcc-4.9.2/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64 --with-gxx-include-dir=/mingw64/x86_64-w64-mingw32/include/c++ --enable-shared --enable-static --disable-multilib --enable-languages=ada,c,c++,fortran,objc,obj-c++,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --disable-isl-version-check --disable-cloog-version-check --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw492/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw492/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw492/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw492/prerequisites/x86_64-w64-mingw32-static --with-cloog=/c/mingw492/prerequisites/x86_64-w64-mingw32-static --enable-cloog-backend=isl --with-pkgversion='x86_64-posix-seh-rev1, Built by MinGW-W64 project' --with-bugurl=http://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -I/c/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64/opt/include -I/c/mingw492/prerequisites/x86_64-zlib-static/include -I/c/mingw492/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -I/c/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64/opt/include -I/c/mingw492/prerequisites/x86_64-zlib-static/include -I/c/mingw492/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS= LDFLAGS='-pipe -L/c/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64/opt/lib -L/c/mingw492/prerequisites/x86_64-zlib-static/lib -L/c/mingw492/prerequisites/x86_64-w64-mingw32-static/lib '
 Thread model: posix
 gcc version 4.9.2 (x86_64-posix-seh-rev1, Built by MinGW-W64 project) 
-COMPILER_PATH=D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/;D:/MinGW64/bin/../libexec/gcc/;D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/bin/
-LIBRARY_PATH=D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/;D:/MinGW64/bin/../lib/gcc/;D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/;D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib/;D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/;D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_60f68.exe' '-mtune=core2' '-march=nocona'
- D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/collect2.exe -plugin D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/liblto_plugin-0.dll -plugin-opt=D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\ADMINI~1\AppData\Local\Temp\ccIwIYZa.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64 -m i386pep -Bdynamic -o cmTC_60f68.exe D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtbegin.o -LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2 -LD:/MinGW64/bin/../lib/gcc -LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib -LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib -LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib -LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../.. --whole-archive CMakeFiles\cmTC_60f68.dir/objects.a --no-whole-archive --out-implib libcmTC_60f68.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtend.o
+COMPILER_PATH=D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/;D:/compliler/MinGW64/bin/../libexec/gcc/;D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/bin/
+LIBRARY_PATH=D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/;D:/compliler/MinGW64/bin/../lib/gcc/;D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/;D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib/;D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/;D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a6cb0.exe' '-mtune=core2' '-march=nocona'
+ D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/collect2.exe -plugin D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/liblto_plugin-0.dll -plugin-opt=D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\ADMINI~1\AppData\Local\Temp\ccr8fhjJ.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64 -m i386pep -Bdynamic -o cmTC_a6cb0.exe D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtbegin.o -LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2 -LD:/compliler/MinGW64/bin/../lib/gcc -LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib -LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib -LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib -LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../.. --whole-archive CMakeFiles\cmTC_a6cb0.dir/objects.a --no-whole-archive --out-implib libcmTC_a6cb0.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtend.o
 mingw32-make.exe[1]: Leaving directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
@@ -72,39 +72,39 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"D:/MinGW64/bin/mingw32-make.exe" "cmTC_60f68/fast"]
-  ignore line: [D:/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_60f68.dir\build.make CMakeFiles/cmTC_60f68.dir/build]
+  ignore line: [Run Build Command:"D:/compliler/MinGW64/bin/mingw32-make.exe" "cmTC_a6cb0/fast"]
+  ignore line: [D:/compliler/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_a6cb0.dir\build.make CMakeFiles/cmTC_a6cb0.dir/build]
   ignore line: [mingw32-make.exe[1]: Entering directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_60f68.dir/CMakeCCompilerABI.c.obj]
-  ignore line: [D:\MinGW64\bin\gcc.exe    -o CMakeFiles\cmTC_60f68.dir\CMakeCCompilerABI.c.obj   -c "D:\CLion 2018.2\bin\cmake\win\share\cmake-3.12\Modules\CMakeCCompilerABI.c"]
-  ignore line: [Linking C executable cmTC_60f68.exe]
-  ignore line: ["D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_60f68.dir\link.txt --verbose=1]
-  ignore line: ["D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_60f68.dir/objects.a]
-  ignore line: [D:\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_60f68.dir/objects.a @CMakeFiles\cmTC_60f68.dir\objects1.rsp]
-  ignore line: [D:\MinGW64\bin\gcc.exe     -v -Wl,--whole-archive CMakeFiles\cmTC_60f68.dir/objects.a -Wl,--no-whole-archive  -o cmTC_60f68.exe -Wl,--out-implib,libcmTC_60f68.dll.a -Wl,--major-image-version,0,--minor-image-version,0 ]
+  ignore line: [Building C object CMakeFiles/cmTC_a6cb0.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [D:\compliler\MinGW64\bin\gcc.exe    -o CMakeFiles\cmTC_a6cb0.dir\CMakeCCompilerABI.c.obj   -c "D:\compliler\CLion 2018.2\bin\cmake\win\share\cmake-3.12\Modules\CMakeCCompilerABI.c"]
+  ignore line: [Linking C executable cmTC_a6cb0.exe]
+  ignore line: ["D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_a6cb0.dir\link.txt --verbose=1]
+  ignore line: ["D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_a6cb0.dir/objects.a]
+  ignore line: [D:\compliler\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_a6cb0.dir/objects.a @CMakeFiles\cmTC_a6cb0.dir\objects1.rsp]
+  ignore line: [D:\compliler\MinGW64\bin\gcc.exe     -v -Wl,--whole-archive CMakeFiles\cmTC_a6cb0.dir/objects.a -Wl,--no-whole-archive  -o cmTC_a6cb0.exe -Wl,--out-implib,libcmTC_a6cb0.dll.a -Wl,--major-image-version,0,--minor-image-version,0 ]
   ignore line: [Using built-in specs.]
-  ignore line: [COLLECT_GCC=D:\MinGW64\bin\gcc.exe]
-  ignore line: [COLLECT_LTO_WRAPPER=D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe]
+  ignore line: [COLLECT_GCC=D:\compliler\MinGW64\bin\gcc.exe]
+  ignore line: [COLLECT_LTO_WRAPPER=D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe]
   ignore line: [Target: x86_64-w64-mingw32]
   ignore line: [Configured with: ../../../src/gcc-4.9.2/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64 --with-gxx-include-dir=/mingw64/x86_64-w64-mingw32/include/c++ --enable-shared --enable-static --disable-multilib --enable-languages=ada,c,c++,fortran,objc,obj-c++,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --disable-isl-version-check --disable-cloog-version-check --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw492/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw492/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw492/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw492/prerequisites/x86_64-w64-mingw32-static --with-cloog=/c/mingw492/prerequisites/x86_64-w64-mingw32-static --enable-cloog-backend=isl --with-pkgversion='x86_64-posix-seh-rev1, Built by MinGW-W64 project' --with-bugurl=http://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -I/c/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64/opt/include -I/c/mingw492/prerequisites/x86_64-zlib-static/include -I/c/mingw492/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -I/c/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64/opt/include -I/c/mingw492/prerequisites/x86_64-zlib-static/include -I/c/mingw492/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS= LDFLAGS='-pipe -L/c/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64/opt/lib -L/c/mingw492/prerequisites/x86_64-zlib-static/lib -L/c/mingw492/prerequisites/x86_64-w64-mingw32-static/lib ']
   ignore line: [Thread model: posix]
   ignore line: [gcc version 4.9.2 (x86_64-posix-seh-rev1, Built by MinGW-W64 project) ]
-  ignore line: [COMPILER_PATH=D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/]
-  ignore line: [D:/MinGW64/bin/../libexec/gcc/]
-  ignore line: [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/bin/]
-  ignore line: [LIBRARY_PATH=D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/]
-  ignore line: [D:/MinGW64/bin/../lib/gcc/]
-  ignore line: [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/]
-  ignore line: [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib/]
-  ignore line: [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/]
-  ignore line: [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_60f68.exe' '-mtune=core2' '-march=nocona']
-  link line: [ D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/collect2.exe -plugin D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/liblto_plugin-0.dll -plugin-opt=D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\ADMINI~1\AppData\Local\Temp\ccIwIYZa.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64 -m i386pep -Bdynamic -o cmTC_60f68.exe D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtbegin.o -LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2 -LD:/MinGW64/bin/../lib/gcc -LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib -LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib -LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib -LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../.. --whole-archive CMakeFiles\cmTC_60f68.dir/objects.a --no-whole-archive --out-implib libcmTC_60f68.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtend.o]
-    arg [D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/collect2.exe] ==> ignore
+  ignore line: [COMPILER_PATH=D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/]
+  ignore line: [D:/compliler/MinGW64/bin/../libexec/gcc/]
+  ignore line: [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/bin/]
+  ignore line: [LIBRARY_PATH=D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/]
+  ignore line: [D:/compliler/MinGW64/bin/../lib/gcc/]
+  ignore line: [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/]
+  ignore line: [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib/]
+  ignore line: [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/]
+  ignore line: [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a6cb0.exe' '-mtune=core2' '-march=nocona']
+  link line: [ D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/collect2.exe -plugin D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/liblto_plugin-0.dll -plugin-opt=D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\ADMINI~1\AppData\Local\Temp\ccr8fhjJ.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64 -m i386pep -Bdynamic -o cmTC_a6cb0.exe D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtbegin.o -LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2 -LD:/compliler/MinGW64/bin/../lib/gcc -LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib -LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib -LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib -LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../.. --whole-archive CMakeFiles\cmTC_a6cb0.dir/objects.a --no-whole-archive --out-implib libcmTC_a6cb0.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtend.o]
+    arg [D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/collect2.exe] ==> ignore
     arg [-plugin] ==> ignore
-    arg [D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/liblto_plugin-0.dll] ==> ignore
-    arg [-plugin-opt=D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe] ==> ignore
-    arg [-plugin-opt=-fresolution=C:\Users\ADMINI~1\AppData\Local\Temp\ccIwIYZa.res] ==> ignore
+    arg [D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/liblto_plugin-0.dll] ==> ignore
+    arg [-plugin-opt=D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe] ==> ignore
+    arg [-plugin-opt=-fresolution=C:\Users\ADMINI~1\AppData\Local\Temp\ccr8fhjJ.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_eh] ==> ignore
@@ -128,20 +128,20 @@ Parsed C implicit link information from above output:
     arg [i386pep] ==> ignore
     arg [-Bdynamic] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_60f68.exe] ==> ignore
-    arg [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o] ==> ignore
-    arg [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtbegin.o] ==> ignore
-    arg [-LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2] ==> dir [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2]
-    arg [-LD:/MinGW64/bin/../lib/gcc] ==> dir [D:/MinGW64/bin/../lib/gcc]
-    arg [-LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib] ==> dir [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib]
-    arg [-LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib] ==> dir [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib]
-    arg [-LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib] ==> dir [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib]
-    arg [-LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../..] ==> dir [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../..]
+    arg [cmTC_a6cb0.exe] ==> ignore
+    arg [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o] ==> ignore
+    arg [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtbegin.o] ==> ignore
+    arg [-LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2] ==> dir [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2]
+    arg [-LD:/compliler/MinGW64/bin/../lib/gcc] ==> dir [D:/compliler/MinGW64/bin/../lib/gcc]
+    arg [-LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib] ==> dir [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib]
+    arg [-LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib] ==> dir [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib]
+    arg [-LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib] ==> dir [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib]
+    arg [-LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../..] ==> dir [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../..]
     arg [--whole-archive] ==> ignore
-    arg [CMakeFiles\cmTC_60f68.dir/objects.a] ==> ignore
+    arg [CMakeFiles\cmTC_a6cb0.dir/objects.a] ==> ignore
     arg [--no-whole-archive] ==> ignore
     arg [--out-implib] ==> ignore
-    arg [libcmTC_60f68.dll.a] ==> ignore
+    arg [libcmTC_a6cb0.dll.a] ==> ignore
     arg [--major-image-version] ==> ignore
     arg [0] ==> ignore
     arg [--minor-image-version] ==> ignore
@@ -164,19 +164,19 @@ Parsed C implicit link information from above output:
     arg [-lmoldname] ==> lib [moldname]
     arg [-lmingwex] ==> lib [mingwex]
     arg [-lmsvcrt] ==> lib [msvcrt]
-    arg [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtend.o] ==> ignore
+    arg [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtend.o] ==> ignore
   remove lib [gcc_eh]
   remove lib [msvcrt]
   remove lib [gcc_eh]
   remove lib [msvcrt]
-  collapse library dir [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2] ==> [D:/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2]
-  collapse library dir [D:/MinGW64/bin/../lib/gcc] ==> [D:/MinGW64/lib/gcc]
-  collapse library dir [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib] ==> [D:/MinGW64/x86_64-w64-mingw32/lib]
-  collapse library dir [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib] ==> [D:/MinGW64/lib]
-  collapse library dir [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib] ==> [D:/MinGW64/x86_64-w64-mingw32/lib]
-  collapse library dir [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../..] ==> [D:/MinGW64/lib]
+  collapse library dir [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2] ==> [D:/compliler/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2]
+  collapse library dir [D:/compliler/MinGW64/bin/../lib/gcc] ==> [D:/compliler/MinGW64/lib/gcc]
+  collapse library dir [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib] ==> [D:/compliler/MinGW64/x86_64-w64-mingw32/lib]
+  collapse library dir [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib] ==> [D:/compliler/MinGW64/lib]
+  collapse library dir [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib] ==> [D:/compliler/MinGW64/x86_64-w64-mingw32/lib]
+  collapse library dir [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../..] ==> [D:/compliler/MinGW64/lib]
   implicit libs: [mingw32;gcc;moldname;mingwex;pthread;advapi32;shell32;user32;kernel32;iconv;mingw32;gcc;moldname;mingwex]
-  implicit dirs: [D:/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2;D:/MinGW64/lib/gcc;D:/MinGW64/x86_64-w64-mingw32/lib;D:/MinGW64/lib]
+  implicit dirs: [D:/compliler/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2;D:/compliler/MinGW64/lib/gcc;D:/compliler/MinGW64/x86_64-w64-mingw32/lib;D:/compliler/MinGW64/lib]
   implicit fwks: []
 
 
@@ -185,16 +185,16 @@ Parsed C implicit link information from above output:
 Detecting C [-std=c11] compiler features compiled with the following output:
 Change Dir: C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:/MinGW64/bin/mingw32-make.exe" "cmTC_9714d/fast"
-D:/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_9714d.dir\build.make CMakeFiles/cmTC_9714d.dir/build
+Run Build Command:"D:/compliler/MinGW64/bin/mingw32-make.exe" "cmTC_1e947/fast"
+D:/compliler/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_1e947.dir\build.make CMakeFiles/cmTC_1e947.dir/build
 mingw32-make.exe[1]: Entering directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_9714d.dir/feature_tests.c.obj
-D:\MinGW64\bin\gcc.exe   -std=c11 -o CMakeFiles\cmTC_9714d.dir\feature_tests.c.obj   -c C:\Users\Administrator\Desktop\CNN\cmake-build-debug\CMakeFiles\feature_tests.c
-Linking C executable cmTC_9714d.exe
-"D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_9714d.dir\link.txt --verbose=1
-"D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_9714d.dir/objects.a
-D:\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_9714d.dir/objects.a @CMakeFiles\cmTC_9714d.dir\objects1.rsp
-D:\MinGW64\bin\gcc.exe      -Wl,--whole-archive CMakeFiles\cmTC_9714d.dir/objects.a -Wl,--no-whole-archive  -o cmTC_9714d.exe -Wl,--out-implib,libcmTC_9714d.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_9714d.dir\linklibs.rsp
+Building C object CMakeFiles/cmTC_1e947.dir/feature_tests.c.obj
+D:\compliler\MinGW64\bin\gcc.exe   -std=c11 -o CMakeFiles\cmTC_1e947.dir\feature_tests.c.obj   -c C:\Users\Administrator\Desktop\CNN\cmake-build-debug\CMakeFiles\feature_tests.c
+Linking C executable cmTC_1e947.exe
+"D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_1e947.dir\link.txt --verbose=1
+"D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_1e947.dir/objects.a
+D:\compliler\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_1e947.dir/objects.a @CMakeFiles\cmTC_1e947.dir\objects1.rsp
+D:\compliler\MinGW64\bin\gcc.exe      -Wl,--whole-archive CMakeFiles\cmTC_1e947.dir/objects.a -Wl,--no-whole-archive  -o cmTC_1e947.exe -Wl,--out-implib,libcmTC_1e947.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_1e947.dir\linklibs.rsp
 mingw32-make.exe[1]: Leaving directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
@@ -207,16 +207,16 @@ mingw32-make.exe[1]: Leaving directory 'C:/Users/Administrator/Desktop/CNN/cmake
 Detecting C [-std=c99] compiler features compiled with the following output:
 Change Dir: C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:/MinGW64/bin/mingw32-make.exe" "cmTC_07029/fast"
-D:/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_07029.dir\build.make CMakeFiles/cmTC_07029.dir/build
+Run Build Command:"D:/compliler/MinGW64/bin/mingw32-make.exe" "cmTC_51f3b/fast"
+D:/compliler/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_51f3b.dir\build.make CMakeFiles/cmTC_51f3b.dir/build
 mingw32-make.exe[1]: Entering directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_07029.dir/feature_tests.c.obj
-D:\MinGW64\bin\gcc.exe   -std=c99 -o CMakeFiles\cmTC_07029.dir\feature_tests.c.obj   -c C:\Users\Administrator\Desktop\CNN\cmake-build-debug\CMakeFiles\feature_tests.c
-Linking C executable cmTC_07029.exe
-"D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_07029.dir\link.txt --verbose=1
-"D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_07029.dir/objects.a
-D:\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_07029.dir/objects.a @CMakeFiles\cmTC_07029.dir\objects1.rsp
-D:\MinGW64\bin\gcc.exe      -Wl,--whole-archive CMakeFiles\cmTC_07029.dir/objects.a -Wl,--no-whole-archive  -o cmTC_07029.exe -Wl,--out-implib,libcmTC_07029.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_07029.dir\linklibs.rsp
+Building C object CMakeFiles/cmTC_51f3b.dir/feature_tests.c.obj
+D:\compliler\MinGW64\bin\gcc.exe   -std=c99 -o CMakeFiles\cmTC_51f3b.dir\feature_tests.c.obj   -c C:\Users\Administrator\Desktop\CNN\cmake-build-debug\CMakeFiles\feature_tests.c
+Linking C executable cmTC_51f3b.exe
+"D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_51f3b.dir\link.txt --verbose=1
+"D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_51f3b.dir/objects.a
+D:\compliler\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_51f3b.dir/objects.a @CMakeFiles\cmTC_51f3b.dir\objects1.rsp
+D:\compliler\MinGW64\bin\gcc.exe      -Wl,--whole-archive CMakeFiles\cmTC_51f3b.dir/objects.a -Wl,--no-whole-archive  -o cmTC_51f3b.exe -Wl,--out-implib,libcmTC_51f3b.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_51f3b.dir\linklibs.rsp
 mingw32-make.exe[1]: Leaving directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
@@ -229,16 +229,16 @@ mingw32-make.exe[1]: Leaving directory 'C:/Users/Administrator/Desktop/CNN/cmake
 Detecting C [-std=c90] compiler features compiled with the following output:
 Change Dir: C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:/MinGW64/bin/mingw32-make.exe" "cmTC_b8902/fast"
-D:/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_b8902.dir\build.make CMakeFiles/cmTC_b8902.dir/build
+Run Build Command:"D:/compliler/MinGW64/bin/mingw32-make.exe" "cmTC_25b89/fast"
+D:/compliler/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_25b89.dir\build.make CMakeFiles/cmTC_25b89.dir/build
 mingw32-make.exe[1]: Entering directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_b8902.dir/feature_tests.c.obj
-D:\MinGW64\bin\gcc.exe   -std=c90 -o CMakeFiles\cmTC_b8902.dir\feature_tests.c.obj   -c C:\Users\Administrator\Desktop\CNN\cmake-build-debug\CMakeFiles\feature_tests.c
-Linking C executable cmTC_b8902.exe
-"D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_b8902.dir\link.txt --verbose=1
-"D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_b8902.dir/objects.a
-D:\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_b8902.dir/objects.a @CMakeFiles\cmTC_b8902.dir\objects1.rsp
-D:\MinGW64\bin\gcc.exe      -Wl,--whole-archive CMakeFiles\cmTC_b8902.dir/objects.a -Wl,--no-whole-archive  -o cmTC_b8902.exe -Wl,--out-implib,libcmTC_b8902.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_b8902.dir\linklibs.rsp
+Building C object CMakeFiles/cmTC_25b89.dir/feature_tests.c.obj
+D:\compliler\MinGW64\bin\gcc.exe   -std=c90 -o CMakeFiles\cmTC_25b89.dir\feature_tests.c.obj   -c C:\Users\Administrator\Desktop\CNN\cmake-build-debug\CMakeFiles\feature_tests.c
+Linking C executable cmTC_25b89.exe
+"D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_25b89.dir\link.txt --verbose=1
+"D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_25b89.dir/objects.a
+D:\compliler\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_25b89.dir/objects.a @CMakeFiles\cmTC_25b89.dir\objects1.rsp
+D:\compliler\MinGW64\bin\gcc.exe      -Wl,--whole-archive CMakeFiles\cmTC_25b89.dir/objects.a -Wl,--no-whole-archive  -o cmTC_25b89.exe -Wl,--out-implib,libcmTC_25b89.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_25b89.dir\linklibs.rsp
 mingw32-make.exe[1]: Leaving directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
@@ -249,43 +249,43 @@ mingw32-make.exe[1]: Leaving directory 'C:/Users/Administrator/Desktop/CNN/cmake
 Determining if the CXX compiler works passed with the following output:
 Change Dir: C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:/MinGW64/bin/mingw32-make.exe" "cmTC_9fdd6/fast"
-D:/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_9fdd6.dir\build.make CMakeFiles/cmTC_9fdd6.dir/build
+Run Build Command:"D:/compliler/MinGW64/bin/mingw32-make.exe" "cmTC_011a0/fast"
+D:/compliler/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_011a0.dir\build.make CMakeFiles/cmTC_011a0.dir/build
 mingw32-make.exe[1]: Entering directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_9fdd6.dir/testCXXCompiler.cxx.obj
-D:\MinGW64\bin\g++.exe     -o CMakeFiles\cmTC_9fdd6.dir\testCXXCompiler.cxx.obj -c C:\Users\Administrator\Desktop\CNN\cmake-build-debug\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
-Linking CXX executable cmTC_9fdd6.exe
-"D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_9fdd6.dir\link.txt --verbose=1
-"D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_9fdd6.dir/objects.a
-D:\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_9fdd6.dir/objects.a @CMakeFiles\cmTC_9fdd6.dir\objects1.rsp
-D:\MinGW64\bin\g++.exe      -Wl,--whole-archive CMakeFiles\cmTC_9fdd6.dir/objects.a -Wl,--no-whole-archive  -o cmTC_9fdd6.exe -Wl,--out-implib,libcmTC_9fdd6.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_9fdd6.dir\linklibs.rsp
+Building CXX object CMakeFiles/cmTC_011a0.dir/testCXXCompiler.cxx.obj
+D:\compliler\MinGW64\bin\g++.exe     -o CMakeFiles\cmTC_011a0.dir\testCXXCompiler.cxx.obj -c C:\Users\Administrator\Desktop\CNN\cmake-build-debug\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
+Linking CXX executable cmTC_011a0.exe
+"D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_011a0.dir\link.txt --verbose=1
+"D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_011a0.dir/objects.a
+D:\compliler\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_011a0.dir/objects.a @CMakeFiles\cmTC_011a0.dir\objects1.rsp
+D:\compliler\MinGW64\bin\g++.exe      -Wl,--whole-archive CMakeFiles\cmTC_011a0.dir/objects.a -Wl,--no-whole-archive  -o cmTC_011a0.exe -Wl,--out-implib,libcmTC_011a0.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_011a0.dir\linklibs.rsp
 mingw32-make.exe[1]: Leaving directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:/MinGW64/bin/mingw32-make.exe" "cmTC_b31d4/fast"
-D:/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_b31d4.dir\build.make CMakeFiles/cmTC_b31d4.dir/build
+Run Build Command:"D:/compliler/MinGW64/bin/mingw32-make.exe" "cmTC_0bc03/fast"
+D:/compliler/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_0bc03.dir\build.make CMakeFiles/cmTC_0bc03.dir/build
 mingw32-make.exe[1]: Entering directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_b31d4.dir/CMakeCXXCompilerABI.cpp.obj
-D:\MinGW64\bin\g++.exe     -o CMakeFiles\cmTC_b31d4.dir\CMakeCXXCompilerABI.cpp.obj -c "D:\CLion 2018.2\bin\cmake\win\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp"
-Linking CXX executable cmTC_b31d4.exe
-"D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_b31d4.dir\link.txt --verbose=1
-"D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_b31d4.dir/objects.a
-D:\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_b31d4.dir/objects.a @CMakeFiles\cmTC_b31d4.dir\objects1.rsp
-D:\MinGW64\bin\g++.exe     -v -Wl,--whole-archive CMakeFiles\cmTC_b31d4.dir/objects.a -Wl,--no-whole-archive  -o cmTC_b31d4.exe -Wl,--out-implib,libcmTC_b31d4.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+Building CXX object CMakeFiles/cmTC_0bc03.dir/CMakeCXXCompilerABI.cpp.obj
+D:\compliler\MinGW64\bin\g++.exe     -o CMakeFiles\cmTC_0bc03.dir\CMakeCXXCompilerABI.cpp.obj -c "D:\compliler\CLion 2018.2\bin\cmake\win\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp"
+Linking CXX executable cmTC_0bc03.exe
+"D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_0bc03.dir\link.txt --verbose=1
+"D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_0bc03.dir/objects.a
+D:\compliler\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_0bc03.dir/objects.a @CMakeFiles\cmTC_0bc03.dir\objects1.rsp
+D:\compliler\MinGW64\bin\g++.exe     -v -Wl,--whole-archive CMakeFiles\cmTC_0bc03.dir/objects.a -Wl,--no-whole-archive  -o cmTC_0bc03.exe -Wl,--out-implib,libcmTC_0bc03.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
 Using built-in specs.
-COLLECT_GCC=D:\MinGW64\bin\g++.exe
-COLLECT_LTO_WRAPPER=D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe
+COLLECT_GCC=D:\compliler\MinGW64\bin\g++.exe
+COLLECT_LTO_WRAPPER=D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe
 Target: x86_64-w64-mingw32
 Configured with: ../../../src/gcc-4.9.2/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64 --with-gxx-include-dir=/mingw64/x86_64-w64-mingw32/include/c++ --enable-shared --enable-static --disable-multilib --enable-languages=ada,c,c++,fortran,objc,obj-c++,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --disable-isl-version-check --disable-cloog-version-check --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw492/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw492/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw492/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw492/prerequisites/x86_64-w64-mingw32-static --with-cloog=/c/mingw492/prerequisites/x86_64-w64-mingw32-static --enable-cloog-backend=isl --with-pkgversion='x86_64-posix-seh-rev1, Built by MinGW-W64 project' --with-bugurl=http://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -I/c/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64/opt/include -I/c/mingw492/prerequisites/x86_64-zlib-static/include -I/c/mingw492/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -I/c/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64/opt/include -I/c/mingw492/prerequisites/x86_64-zlib-static/include -I/c/mingw492/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS= LDFLAGS='-pipe -L/c/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64/opt/lib -L/c/mingw492/prerequisites/x86_64-zlib-static/lib -L/c/mingw492/prerequisites/x86_64-w64-mingw32-static/lib '
 Thread model: posix
 gcc version 4.9.2 (x86_64-posix-seh-rev1, Built by MinGW-W64 project) 
-COMPILER_PATH=D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/;D:/MinGW64/bin/../libexec/gcc/;D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/bin/
-LIBRARY_PATH=D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/;D:/MinGW64/bin/../lib/gcc/;D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/;D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib/;D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/;D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_b31d4.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona'
- D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/collect2.exe -plugin D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/liblto_plugin-0.dll -plugin-opt=D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\ADMINI~1\AppData\Local\Temp\ccPbyD8T.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64 -m i386pep -Bdynamic -o cmTC_b31d4.exe D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtbegin.o -LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2 -LD:/MinGW64/bin/../lib/gcc -LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib -LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib -LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib -LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../.. --whole-archive CMakeFiles\cmTC_b31d4.dir/objects.a --no-whole-archive --out-implib libcmTC_b31d4.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtend.o
+COMPILER_PATH=D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/;D:/compliler/MinGW64/bin/../libexec/gcc/;D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/bin/
+LIBRARY_PATH=D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/;D:/compliler/MinGW64/bin/../lib/gcc/;D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/;D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib/;D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/;D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0bc03.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona'
+ D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/collect2.exe -plugin D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/liblto_plugin-0.dll -plugin-opt=D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\ADMINI~1\AppData\Local\Temp\ccvlSuMk.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64 -m i386pep -Bdynamic -o cmTC_0bc03.exe D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtbegin.o -LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2 -LD:/compliler/MinGW64/bin/../lib/gcc -LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib -LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib -LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib -LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../.. --whole-archive CMakeFiles\cmTC_0bc03.dir/objects.a --no-whole-archive --out-implib libcmTC_0bc03.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtend.o
 mingw32-make.exe[1]: Leaving directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
@@ -293,39 +293,39 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"D:/MinGW64/bin/mingw32-make.exe" "cmTC_b31d4/fast"]
-  ignore line: [D:/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_b31d4.dir\build.make CMakeFiles/cmTC_b31d4.dir/build]
+  ignore line: [Run Build Command:"D:/compliler/MinGW64/bin/mingw32-make.exe" "cmTC_0bc03/fast"]
+  ignore line: [D:/compliler/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_0bc03.dir\build.make CMakeFiles/cmTC_0bc03.dir/build]
   ignore line: [mingw32-make.exe[1]: Entering directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_b31d4.dir/CMakeCXXCompilerABI.cpp.obj]
-  ignore line: [D:\MinGW64\bin\g++.exe     -o CMakeFiles\cmTC_b31d4.dir\CMakeCXXCompilerABI.cpp.obj -c "D:\CLion 2018.2\bin\cmake\win\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp"]
-  ignore line: [Linking CXX executable cmTC_b31d4.exe]
-  ignore line: ["D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_b31d4.dir\link.txt --verbose=1]
-  ignore line: ["D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_b31d4.dir/objects.a]
-  ignore line: [D:\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_b31d4.dir/objects.a @CMakeFiles\cmTC_b31d4.dir\objects1.rsp]
-  ignore line: [D:\MinGW64\bin\g++.exe     -v -Wl,--whole-archive CMakeFiles\cmTC_b31d4.dir/objects.a -Wl,--no-whole-archive  -o cmTC_b31d4.exe -Wl,--out-implib,libcmTC_b31d4.dll.a -Wl,--major-image-version,0,--minor-image-version,0 ]
+  ignore line: [Building CXX object CMakeFiles/cmTC_0bc03.dir/CMakeCXXCompilerABI.cpp.obj]
+  ignore line: [D:\compliler\MinGW64\bin\g++.exe     -o CMakeFiles\cmTC_0bc03.dir\CMakeCXXCompilerABI.cpp.obj -c "D:\compliler\CLion 2018.2\bin\cmake\win\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp"]
+  ignore line: [Linking CXX executable cmTC_0bc03.exe]
+  ignore line: ["D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_0bc03.dir\link.txt --verbose=1]
+  ignore line: ["D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_0bc03.dir/objects.a]
+  ignore line: [D:\compliler\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_0bc03.dir/objects.a @CMakeFiles\cmTC_0bc03.dir\objects1.rsp]
+  ignore line: [D:\compliler\MinGW64\bin\g++.exe     -v -Wl,--whole-archive CMakeFiles\cmTC_0bc03.dir/objects.a -Wl,--no-whole-archive  -o cmTC_0bc03.exe -Wl,--out-implib,libcmTC_0bc03.dll.a -Wl,--major-image-version,0,--minor-image-version,0 ]
   ignore line: [Using built-in specs.]
-  ignore line: [COLLECT_GCC=D:\MinGW64\bin\g++.exe]
-  ignore line: [COLLECT_LTO_WRAPPER=D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe]
+  ignore line: [COLLECT_GCC=D:\compliler\MinGW64\bin\g++.exe]
+  ignore line: [COLLECT_LTO_WRAPPER=D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe]
   ignore line: [Target: x86_64-w64-mingw32]
   ignore line: [Configured with: ../../../src/gcc-4.9.2/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64 --with-gxx-include-dir=/mingw64/x86_64-w64-mingw32/include/c++ --enable-shared --enable-static --disable-multilib --enable-languages=ada,c,c++,fortran,objc,obj-c++,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --disable-isl-version-check --disable-cloog-version-check --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw492/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw492/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw492/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw492/prerequisites/x86_64-w64-mingw32-static --with-cloog=/c/mingw492/prerequisites/x86_64-w64-mingw32-static --enable-cloog-backend=isl --with-pkgversion='x86_64-posix-seh-rev1, Built by MinGW-W64 project' --with-bugurl=http://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -I/c/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64/opt/include -I/c/mingw492/prerequisites/x86_64-zlib-static/include -I/c/mingw492/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -I/c/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64/opt/include -I/c/mingw492/prerequisites/x86_64-zlib-static/include -I/c/mingw492/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS= LDFLAGS='-pipe -L/c/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64/opt/lib -L/c/mingw492/prerequisites/x86_64-zlib-static/lib -L/c/mingw492/prerequisites/x86_64-w64-mingw32-static/lib ']
   ignore line: [Thread model: posix]
   ignore line: [gcc version 4.9.2 (x86_64-posix-seh-rev1, Built by MinGW-W64 project) ]
-  ignore line: [COMPILER_PATH=D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/]
-  ignore line: [D:/MinGW64/bin/../libexec/gcc/]
-  ignore line: [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/bin/]
-  ignore line: [LIBRARY_PATH=D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/]
-  ignore line: [D:/MinGW64/bin/../lib/gcc/]
-  ignore line: [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/]
-  ignore line: [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib/]
-  ignore line: [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/]
-  ignore line: [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_b31d4.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona']
-  link line: [ D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/collect2.exe -plugin D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/liblto_plugin-0.dll -plugin-opt=D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\ADMINI~1\AppData\Local\Temp\ccPbyD8T.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64 -m i386pep -Bdynamic -o cmTC_b31d4.exe D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtbegin.o -LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2 -LD:/MinGW64/bin/../lib/gcc -LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib -LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib -LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib -LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../.. --whole-archive CMakeFiles\cmTC_b31d4.dir/objects.a --no-whole-archive --out-implib libcmTC_b31d4.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtend.o]
-    arg [D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/collect2.exe] ==> ignore
+  ignore line: [COMPILER_PATH=D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/]
+  ignore line: [D:/compliler/MinGW64/bin/../libexec/gcc/]
+  ignore line: [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/bin/]
+  ignore line: [LIBRARY_PATH=D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/]
+  ignore line: [D:/compliler/MinGW64/bin/../lib/gcc/]
+  ignore line: [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/]
+  ignore line: [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib/]
+  ignore line: [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/]
+  ignore line: [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0bc03.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona']
+  link line: [ D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/collect2.exe -plugin D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/liblto_plugin-0.dll -plugin-opt=D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\ADMINI~1\AppData\Local\Temp\ccvlSuMk.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw492/x86_64-492-posix-seh-rt_v3-rev1/mingw64 -m i386pep -Bdynamic -o cmTC_0bc03.exe D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtbegin.o -LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2 -LD:/compliler/MinGW64/bin/../lib/gcc -LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib -LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib -LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib -LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../.. --whole-archive CMakeFiles\cmTC_0bc03.dir/objects.a --no-whole-archive --out-implib libcmTC_0bc03.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtend.o]
+    arg [D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/collect2.exe] ==> ignore
     arg [-plugin] ==> ignore
-    arg [D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/liblto_plugin-0.dll] ==> ignore
-    arg [-plugin-opt=D:/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe] ==> ignore
-    arg [-plugin-opt=-fresolution=C:\Users\ADMINI~1\AppData\Local\Temp\ccPbyD8T.res] ==> ignore
+    arg [D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/liblto_plugin-0.dll] ==> ignore
+    arg [-plugin-opt=D:/compliler/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe] ==> ignore
+    arg [-plugin-opt=-fresolution=C:\Users\ADMINI~1\AppData\Local\Temp\ccvlSuMk.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
@@ -349,20 +349,20 @@ Parsed CXX implicit link information from above output:
     arg [i386pep] ==> ignore
     arg [-Bdynamic] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_b31d4.exe] ==> ignore
-    arg [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o] ==> ignore
-    arg [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtbegin.o] ==> ignore
-    arg [-LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2] ==> dir [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2]
-    arg [-LD:/MinGW64/bin/../lib/gcc] ==> dir [D:/MinGW64/bin/../lib/gcc]
-    arg [-LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib] ==> dir [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib]
-    arg [-LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib] ==> dir [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib]
-    arg [-LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib] ==> dir [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib]
-    arg [-LD:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../..] ==> dir [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../..]
+    arg [cmTC_0bc03.exe] ==> ignore
+    arg [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o] ==> ignore
+    arg [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtbegin.o] ==> ignore
+    arg [-LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2] ==> dir [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2]
+    arg [-LD:/compliler/MinGW64/bin/../lib/gcc] ==> dir [D:/compliler/MinGW64/bin/../lib/gcc]
+    arg [-LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib] ==> dir [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib]
+    arg [-LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib] ==> dir [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib]
+    arg [-LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib] ==> dir [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib]
+    arg [-LD:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../..] ==> dir [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../..]
     arg [--whole-archive] ==> ignore
-    arg [CMakeFiles\cmTC_b31d4.dir/objects.a] ==> ignore
+    arg [CMakeFiles\cmTC_0bc03.dir/objects.a] ==> ignore
     arg [--no-whole-archive] ==> ignore
     arg [--out-implib] ==> ignore
-    arg [libcmTC_b31d4.dll.a] ==> ignore
+    arg [libcmTC_0bc03.dll.a] ==> ignore
     arg [--major-image-version] ==> ignore
     arg [0] ==> ignore
     arg [--minor-image-version] ==> ignore
@@ -386,17 +386,17 @@ Parsed CXX implicit link information from above output:
     arg [-lmoldname] ==> lib [moldname]
     arg [-lmingwex] ==> lib [mingwex]
     arg [-lmsvcrt] ==> lib [msvcrt]
-    arg [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtend.o] ==> ignore
+    arg [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtend.o] ==> ignore
   remove lib [msvcrt]
   remove lib [msvcrt]
-  collapse library dir [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2] ==> [D:/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2]
-  collapse library dir [D:/MinGW64/bin/../lib/gcc] ==> [D:/MinGW64/lib/gcc]
-  collapse library dir [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib] ==> [D:/MinGW64/x86_64-w64-mingw32/lib]
-  collapse library dir [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib] ==> [D:/MinGW64/lib]
-  collapse library dir [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib] ==> [D:/MinGW64/x86_64-w64-mingw32/lib]
-  collapse library dir [D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../..] ==> [D:/MinGW64/lib]
+  collapse library dir [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2] ==> [D:/compliler/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2]
+  collapse library dir [D:/compliler/MinGW64/bin/../lib/gcc] ==> [D:/compliler/MinGW64/lib/gcc]
+  collapse library dir [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib] ==> [D:/compliler/MinGW64/x86_64-w64-mingw32/lib]
+  collapse library dir [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib] ==> [D:/compliler/MinGW64/lib]
+  collapse library dir [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib] ==> [D:/compliler/MinGW64/x86_64-w64-mingw32/lib]
+  collapse library dir [D:/compliler/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../..] ==> [D:/compliler/MinGW64/lib]
   implicit libs: [stdc++;mingw32;gcc_s;gcc;moldname;mingwex;pthread;advapi32;shell32;user32;kernel32;iconv;mingw32;gcc_s;gcc;moldname;mingwex]
-  implicit dirs: [D:/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2;D:/MinGW64/lib/gcc;D:/MinGW64/x86_64-w64-mingw32/lib;D:/MinGW64/lib]
+  implicit dirs: [D:/compliler/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2;D:/compliler/MinGW64/lib/gcc;D:/compliler/MinGW64/x86_64-w64-mingw32/lib;D:/compliler/MinGW64/lib]
   implicit fwks: []
 
 
@@ -405,16 +405,16 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
 Change Dir: C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:/MinGW64/bin/mingw32-make.exe" "cmTC_13dc9/fast"
-D:/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_13dc9.dir\build.make CMakeFiles/cmTC_13dc9.dir/build
+Run Build Command:"D:/compliler/MinGW64/bin/mingw32-make.exe" "cmTC_d4ed8/fast"
+D:/compliler/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_d4ed8.dir\build.make CMakeFiles/cmTC_d4ed8.dir/build
 mingw32-make.exe[1]: Entering directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_13dc9.dir/feature_tests.cxx.obj
-D:\MinGW64\bin\g++.exe    -std=c++14 -o CMakeFiles\cmTC_13dc9.dir\feature_tests.cxx.obj -c C:\Users\Administrator\Desktop\CNN\cmake-build-debug\CMakeFiles\feature_tests.cxx
-Linking CXX executable cmTC_13dc9.exe
-"D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_13dc9.dir\link.txt --verbose=1
-"D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_13dc9.dir/objects.a
-D:\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_13dc9.dir/objects.a @CMakeFiles\cmTC_13dc9.dir\objects1.rsp
-D:\MinGW64\bin\g++.exe      -Wl,--whole-archive CMakeFiles\cmTC_13dc9.dir/objects.a -Wl,--no-whole-archive  -o cmTC_13dc9.exe -Wl,--out-implib,libcmTC_13dc9.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_13dc9.dir\linklibs.rsp
+Building CXX object CMakeFiles/cmTC_d4ed8.dir/feature_tests.cxx.obj
+D:\compliler\MinGW64\bin\g++.exe    -std=c++14 -o CMakeFiles\cmTC_d4ed8.dir\feature_tests.cxx.obj -c C:\Users\Administrator\Desktop\CNN\cmake-build-debug\CMakeFiles\feature_tests.cxx
+Linking CXX executable cmTC_d4ed8.exe
+"D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_d4ed8.dir\link.txt --verbose=1
+"D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_d4ed8.dir/objects.a
+D:\compliler\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_d4ed8.dir/objects.a @CMakeFiles\cmTC_d4ed8.dir\objects1.rsp
+D:\compliler\MinGW64\bin\g++.exe      -Wl,--whole-archive CMakeFiles\cmTC_d4ed8.dir/objects.a -Wl,--no-whole-archive  -o cmTC_d4ed8.exe -Wl,--out-implib,libcmTC_d4ed8.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_d4ed8.dir\linklibs.rsp
 mingw32-make.exe[1]: Leaving directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
@@ -480,16 +480,16 @@ mingw32-make.exe[1]: Leaving directory 'C:/Users/Administrator/Desktop/CNN/cmake
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:/MinGW64/bin/mingw32-make.exe" "cmTC_776fe/fast"
-D:/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_776fe.dir\build.make CMakeFiles/cmTC_776fe.dir/build
+Run Build Command:"D:/compliler/MinGW64/bin/mingw32-make.exe" "cmTC_7b050/fast"
+D:/compliler/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_7b050.dir\build.make CMakeFiles/cmTC_7b050.dir/build
 mingw32-make.exe[1]: Entering directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_776fe.dir/feature_tests.cxx.obj
-D:\MinGW64\bin\g++.exe    -std=c++11 -o CMakeFiles\cmTC_776fe.dir\feature_tests.cxx.obj -c C:\Users\Administrator\Desktop\CNN\cmake-build-debug\CMakeFiles\feature_tests.cxx
-Linking CXX executable cmTC_776fe.exe
-"D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_776fe.dir\link.txt --verbose=1
-"D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_776fe.dir/objects.a
-D:\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_776fe.dir/objects.a @CMakeFiles\cmTC_776fe.dir\objects1.rsp
-D:\MinGW64\bin\g++.exe      -Wl,--whole-archive CMakeFiles\cmTC_776fe.dir/objects.a -Wl,--no-whole-archive  -o cmTC_776fe.exe -Wl,--out-implib,libcmTC_776fe.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_776fe.dir\linklibs.rsp
+Building CXX object CMakeFiles/cmTC_7b050.dir/feature_tests.cxx.obj
+D:\compliler\MinGW64\bin\g++.exe    -std=c++11 -o CMakeFiles\cmTC_7b050.dir\feature_tests.cxx.obj -c C:\Users\Administrator\Desktop\CNN\cmake-build-debug\CMakeFiles\feature_tests.cxx
+Linking CXX executable cmTC_7b050.exe
+"D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_7b050.dir\link.txt --verbose=1
+"D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_7b050.dir/objects.a
+D:\compliler\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_7b050.dir/objects.a @CMakeFiles\cmTC_7b050.dir\objects1.rsp
+D:\compliler\MinGW64\bin\g++.exe      -Wl,--whole-archive CMakeFiles\cmTC_7b050.dir/objects.a -Wl,--no-whole-archive  -o cmTC_7b050.exe -Wl,--out-implib,libcmTC_7b050.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_7b050.dir\linklibs.rsp
 mingw32-make.exe[1]: Leaving directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
@@ -555,16 +555,16 @@ mingw32-make.exe[1]: Leaving directory 'C:/Users/Administrator/Desktop/CNN/cmake
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:/MinGW64/bin/mingw32-make.exe" "cmTC_00dca/fast"
-D:/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_00dca.dir\build.make CMakeFiles/cmTC_00dca.dir/build
+Run Build Command:"D:/compliler/MinGW64/bin/mingw32-make.exe" "cmTC_9ea0e/fast"
+D:/compliler/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_9ea0e.dir\build.make CMakeFiles/cmTC_9ea0e.dir/build
 mingw32-make.exe[1]: Entering directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_00dca.dir/feature_tests.cxx.obj
-D:\MinGW64\bin\g++.exe    -std=c++98 -o CMakeFiles\cmTC_00dca.dir\feature_tests.cxx.obj -c C:\Users\Administrator\Desktop\CNN\cmake-build-debug\CMakeFiles\feature_tests.cxx
-Linking CXX executable cmTC_00dca.exe
-"D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_00dca.dir\link.txt --verbose=1
-"D:\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_00dca.dir/objects.a
-D:\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_00dca.dir/objects.a @CMakeFiles\cmTC_00dca.dir\objects1.rsp
-D:\MinGW64\bin\g++.exe      -Wl,--whole-archive CMakeFiles\cmTC_00dca.dir/objects.a -Wl,--no-whole-archive  -o cmTC_00dca.exe -Wl,--out-implib,libcmTC_00dca.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_00dca.dir\linklibs.rsp
+Building CXX object CMakeFiles/cmTC_9ea0e.dir/feature_tests.cxx.obj
+D:\compliler\MinGW64\bin\g++.exe    -std=c++98 -o CMakeFiles\cmTC_9ea0e.dir\feature_tests.cxx.obj -c C:\Users\Administrator\Desktop\CNN\cmake-build-debug\CMakeFiles\feature_tests.cxx
+Linking CXX executable cmTC_9ea0e.exe
+"D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_9ea0e.dir\link.txt --verbose=1
+"D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_9ea0e.dir/objects.a
+D:\compliler\MinGW64\bin\ar.exe cr CMakeFiles\cmTC_9ea0e.dir/objects.a @CMakeFiles\cmTC_9ea0e.dir\objects1.rsp
+D:\compliler\MinGW64\bin\g++.exe      -Wl,--whole-archive CMakeFiles\cmTC_9ea0e.dir/objects.a -Wl,--no-whole-archive  -o cmTC_9ea0e.exe -Wl,--out-implib,libcmTC_9ea0e.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_9ea0e.dir\linklibs.rsp
 mingw32-make.exe[1]: Leaving directory 'C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
