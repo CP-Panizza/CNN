@@ -12,13 +12,6 @@
 #include "cnn.hpp"
 #include "adam.hpp"
 #include "pgmer.hpp"
-#include <windows.h>
-
-
-
-
-
-
 
 
 //minats手写数字训练
@@ -48,10 +41,8 @@ void train(){
 
     Matrix<double> *la;
     for (int i = 0; i < epoch; ++i) {
-        std::cout << "epoch:" << i << "\n";
         start = static_cast<int>(rand() % (imgs.size() - batch_size));
         end = start + batch_size;
-        std::cout << "start:" << start << " end:" << end << "\n";
         std::vector<std::vector<Matrix < double> *> > x(imgs.begin() + start, imgs.begin() + end);
         std::vector<int> label(labels.begin() + start, labels.begin() + end);
         la = new Matrix<double>(batch_size, 10);
@@ -63,11 +54,11 @@ void train(){
         cnn->train(&x, la);
         e = clock();
         double sec = (e - s) / 1000.0;
-        std::cout << "time:" << sec <<std::endl;
+        progress_bar(i, epoch, sec);
         delete (la);
     }
 
-    cnn->save_param("./param.json");
+//    cnn->save_param("./param.json");
 }
 
 
@@ -91,7 +82,6 @@ void test(){
 
     srand(static_cast<unsigned int>(time(nullptr)));
     int batch_size = 30;
-    int epoch = 100;
     int start;
     int end;
     auto cnn = new Cnn(batch_size);
@@ -147,9 +137,7 @@ void test_jpg(){
 
 
 int main() {
-
-    process_bar_test();
-
+    train();
     return 0;
 }
 

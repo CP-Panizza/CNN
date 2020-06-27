@@ -333,7 +333,7 @@ std::string &replace_all(std::string &str, const std::string &old_value, const s
  */
 const char *ponit[]={"\x20\x20", "\xA8\x87", "\xA8\x86", "\xA8\x84", "\xA8\x83", "\xA8\x80"};//  ▏▎▍▊█
 
-void progress_bar(int per, int totle)
+void progress_bar(int per, int totle, double time )
 {
     int i=0;
     int num0=0;
@@ -362,11 +362,9 @@ void progress_bar(int per, int totle)
     {
         printf("%s", ponit[0]);
     }
-
-    printf("] %2.f%%", double(per)/double(totle) * 100.0);
-
-    if(per == totle)
-    {
-        printf("\n");
+    if(time == -1){
+        printf("] %2.f%%", double(per)/double(totle) * 100.0);
+    } else {
+        printf("] %2.f%% time: %2.fsec", double(per)/double(totle) * 100.0, time);
     }
 }

@@ -107,11 +107,11 @@ void Load_data(const string &mnist_img_path, const string &mnist_label_path, vec
     ifstream mnist_label(mnist_label_path, ios::in | ios::binary);
     if (!mnist_image.is_open()) {
         cout << "open mnist image file error!" << endl;
-        return;
+        exit(-1);
     }
     if (!mnist_label.is_open()) {
         cout << "open mnist label file error!" << endl;
-        return;
+        exit(-1);
     }
 
      uint32_t magic;//文件中的魔术数(magic number)
@@ -124,13 +124,13 @@ void Load_data(const string &mnist_img_path, const string &mnist_label_path, vec
     magic = swap_endian(magic);
     if (magic != 2051) {
         cout << "this is not the mnist image file" << endl;
-        return;
+        exit(-1);
     }
     mnist_label.read(reinterpret_cast<char *>(&magic), 4);
     magic = swap_endian(magic);
     if (magic != 2049) {
         cout << "this is not the mnist label file" << endl;
-        return;
+        exit(-1);
     }
     //读图像/标签数
     mnist_image.read(reinterpret_cast<char *>(&num_items), 4);
@@ -140,6 +140,7 @@ void Load_data(const string &mnist_img_path, const string &mnist_label_path, vec
     //判断两种标签数是否相等
     if (num_items != num_label) {
         cout << "the image file and label file are not a pair" << endl;
+        exit(-1);
     }
     //读图像行数、列数
     mnist_image.read(reinterpret_cast<char *>(&rows), 4);
@@ -147,7 +148,7 @@ void Load_data(const string &mnist_img_path, const string &mnist_label_path, vec
     mnist_image.read(reinterpret_cast<char *>(&cols), 4);
     cols = swap_endian(cols);
     //读取图像
-    std::cout << "loading data..." << std::endl;
+    std::cout << "loading data...";
     for (int i = 0; i != num_items; i++) {
         char *pixels = new char[rows * cols];
         mnist_image.read(pixels, rows * cols);
