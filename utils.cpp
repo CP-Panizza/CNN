@@ -363,8 +363,8 @@ void progress_bar(int per, int totle, double time )
         printf("%s", ponit[0]);
     }
     if(time == -1){
-        printf("] %2.f%%", double(per)/double(totle) * 100.0);
+        printf("] %2.f%% (%d/%d)", double(per)/double(totle) * 100.0, per, totle);
     } else {
-        printf("] %2.f%% time: %2.fsec", double(per)/double(totle) * 100.0, time);
+        printf("] %2.f%% (%d/%d) |time: %2.fsec", double(per)/double(totle) * 100.0,per, totle, time);
     }
 }
