@@ -7,7 +7,7 @@
 #include <fstream>
 #include <string>
 #include <cstdlib>
-#include <c++/cstdint>
+#include <cstdint>
 #include "matrix.hpp"
 #include "utils.h"
 

@@ -6,6 +6,7 @@
 #include <ctime>
 #include "utils.h"
 #include <cmath>
+#include <stdio.h>
 #include <sstream>
 
 Matrix<double> *
@@ -335,13 +336,11 @@ const char *ponit[]={"\x20\x20", "\xA8\x87", "\xA8\x86", "\xA8\x84", "\xA8\x83",
 
 void progress_bar(int per, int totle, double time )
 {
+#ifdef _WIN32
+
     int i=0;
     int num0=0;
-#ifdef _WIN32
     system("cls");
-#else
-    system("clear");
-#endif
     printf("\r  [");
 
     num0  = (totle-per)/5;
@@ -367,4 +366,17 @@ void progress_bar(int per, int totle, double time )
     } else {
         printf("] %2.f%% (%d/%d) |time: %2.fsec", double(per)/double(totle) * 100.0,per, totle, time);
     }
+#else
+
+    char bar[101];
+    int done = static_cast<int>((double(per) / double(totle)) * 100);
+    int i;
+    for (i = 0; i < done; ++i) {
+        bar[i] = '#';
+    }
+    bar[i] = 0;
+    printf("[%-100s][%.f%%][%d/%d][time: %2.f]\r", bar, double(per)/double(totle)*100.0,per, totle, time);
+    fflush(stdout);
+#endif
+
 }

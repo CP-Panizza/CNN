@@ -1,4 +1,4 @@
-"D:\compliler\CLion 2018.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\Administrator\Desktop\CNN
+/home/cmj/cmake-3.11.4/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/usr/bin/make -DCMAKE_C_COMPILER=/usr/bin/gcc -DCMAKE_CXX_COMPILER=/usr/bin/g++ -G "CodeBlocks - Unix Makefiles" /home/cmj/CNN
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/Administrator/Desktop/CNN/cmake-build-debug
+-- Build files have been written to: /home/cmj/CNN/cmake-build-debug

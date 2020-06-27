@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.11)
 project(Cnn)
 
 set(CMAKE_CXX_STANDARD 11)
@@ -20,6 +20,4 @@ add_executable(
         cnn.hpp
         adam.hpp
         pgmer.hpp
-#        libs/memory_check/DebugMemory.cpp
-#        libs/memory_check/DebugMemory.h
 )

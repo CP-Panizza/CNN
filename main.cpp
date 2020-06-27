@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include "matrix.hpp"
 #include <ctime>
+#include <zconf.h>
 #include "utils.h"
 #include "load_data.hpp"
 #include "conv.hpp"
@@ -126,7 +127,7 @@ void test_jpg(){
         test_la->Set(j, 1, 1);
     }
     auto cnn = new Cnn(100);
-
+    cnn->load_param("./param.json");
     auto pre = cnn->predict(x, test_la);
 
     auto result = argmax(pre, "r");
@@ -137,7 +138,7 @@ void test_jpg(){
 
 
 int main() {
-    train();
+   train();
     return 0;
 }
 
