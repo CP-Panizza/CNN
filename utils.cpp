@@ -368,14 +368,14 @@ void progress_bar(int per, int totle, double time )
     }
 #else
 
-    char bar[101];
-    int done = static_cast<int>((double(per) / double(totle)) * 100);
+    char bar[51];
+    int done = static_cast<int>((double(per) / double(totle)) * 50);
     int i;
     for (i = 0; i < done; ++i) {
         bar[i] = '#';
     }
     bar[i] = 0;
-    printf("[%-100s][%.f%%][%d/%d][time: %2.f]\r", bar, double(per)/double(totle)*100.0,per, totle, time);
+    printf("[%-50s][%.f%%][%d/%d][time: %2.f]\r", bar, double(per)/double(totle)*100.0,per, totle, time);
     fflush(stdout);
 #endif
 

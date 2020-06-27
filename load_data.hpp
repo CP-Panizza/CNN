@@ -197,7 +197,7 @@ void load_faces_dataset(std::vector<std::vector<Matrix<double> *> > &imgs, std::
         data = new double[height * width];
         index = 0;
         for (int i = 3; i < arr.size(); ++i) {
-            if (arr[i].empty() || arr[i] == " ") continue;
+            if (arr[i].empty() || arr[i] == " " || arr[i] == "\r") continue;
             data[index++] = std::stod(arr[i]);
         }
         if(normalize){

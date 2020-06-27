@@ -28,14 +28,14 @@ public:
     Cnn(int batch_size) {
         double std_init_whight = 0.01;
         int channel = 1;
-        int img_w = 28;
-        int img_h = 28;
+        int img_w = 20;
+        int img_h = 20;
         int filter_num = 50;
         int filter_size = 5;
         int stride = 1;
         int pad = 2;
         int hide_size = 150;
-        int output_size = 10;
+        int output_size = 2;
         std::vector<int> input_shape{batch_size, channel, img_h, img_w};
         conv = new Conv(std_init_whight, filter_num, filter_size, stride, pad, input_shape);
         conv_relu = new ConvRelu;
