@@ -12,18 +12,22 @@
 #include "cnn.hpp"
 #include "adam.hpp"
 #include "pgmer.hpp"
+#include <windows.h>
 
 
 
-int main() {
 
 
+
+
+
+//minats手写数字训练
+void train(){
     std::vector<std::vector<Matrix<double> *> > imgs;
     std::vector<int> labels;
 
     std::vector<std::vector<Matrix<double> *> > t_imgs;
     std::vector<int> t_labels;
-//    load_faces_dataset(imgs, labels);
 
     Load_data(
             R"(data/img_label/train-images.idx3-ubyte)",
@@ -41,31 +45,6 @@ int main() {
     int start;
     int end;
     auto cnn = new Cnn(batch_size);
-#define TRAIN
-
-#ifdef TEST
-    if (!cnn->load_param("./param.json")) {
-        exit(-1);
-    }
-#endif //TEST
-
-//    system("Img2PGM2.exe -i test.jpg -o test.pgm");
-//    Pgmer *pgmer = new Pgmer;
-//    pgmer->ReadImg("./test.pgm");
-//    auto data = pgmer->To2DMatrix()->operator/(255.0);
-//    auto x = new std::vector<std::vector<Matrix<double> *>>{std::vector<Matrix<double> *>{data}};
-//
-//    auto test_la = new Matrix<double>(1, 2);
-//    for (int j = 0; j < 1; ++j) {
-//        test_la->Set(j, 1, 1);
-//    }
-//
-//    auto pre = cnn->predict(x, test_la);
-//
-//    auto result = argmax(pre, "r");
-//    std::cout << "predict:" << result;
-
-#ifdef TRAIN
 
     Matrix<double> *la;
     for (int i = 0; i < epoch; ++i) {
@@ -88,11 +67,36 @@ int main() {
         delete (la);
     }
 
-//    cnn->save_param("./param.json");
+    cnn->save_param("./param.json");
+}
 
-#endif //TRAIN
-    //用测试集测试
-    int test_num = 100;
+
+
+void test(){
+    std::vector<std::vector<Matrix<double> *> > imgs;
+    std::vector<int> labels;
+
+    std::vector<std::vector<Matrix<double> *> > t_imgs;
+    std::vector<int> t_labels;
+
+    Load_data(
+            R"(data/img_label/train-images.idx3-ubyte)",
+            R"(data/img_label/train-labels.idx1-ubyte)",
+            imgs, labels);
+
+    Load_data(
+            R"(data/img_label/t10k-images.idx3-ubyte)",
+            R"(data/img_label/t10k-labels.idx1-ubyte)",
+            t_imgs, t_labels);
+
+    srand(static_cast<unsigned int>(time(nullptr)));
+    int batch_size = 30;
+    int epoch = 100;
+    int start;
+    int end;
+    auto cnn = new Cnn(batch_size);
+
+    int test_num = 200;
     int right_times = 0;
     for (int k = 0; k < test_num; ++k) {
         start = static_cast<int>(rand() % (imgs.size() - 1));
@@ -116,6 +120,35 @@ int main() {
         delete (result);
     }
     std::cout << "right_p:" << (double(right_times) / test_num) * 100.0 << "%";
+
+}
+
+
+void test_jpg(){
+    system("Img2PGM2.exe -i test.jpg -o test.pgm");
+    Pgmer *pgmer = new Pgmer;
+    pgmer->ReadImg("./test.pgm");
+    auto data = pgmer->To2DMatrix()->operator/(255.0);
+    auto x = new std::vector<std::vector<Matrix<double> *>>{std::vector<Matrix<double> *>{data}};
+
+    auto test_la = new Matrix<double>(1, 2);
+    for (int j = 0; j < 1; ++j) {
+        test_la->Set(j, 1, 1);
+    }
+    auto cnn = new Cnn(100);
+
+    auto pre = cnn->predict(x, test_la);
+
+    auto result = argmax(pre, "r");
+    std::cout << "predict:" << result;
+}
+
+
+
+
+int main() {
+
+    process_bar_test();
 
     return 0;
 }

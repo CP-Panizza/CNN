@@ -35,7 +35,7 @@ Matrix<double> *col2im(Matrix<double> *col, int src_w, int src_h, int filter_siz
 
 std::string &replace_all(std::string &str, const std::string &old_value, const std::string &new_value);
 
-
+void progress_bar(int per, int totle);
 //template<class Type>
 //void DrawImg(Matrix<Type> *mat, int x, int y) {
 //    HWND wnd;    //窗口句柄

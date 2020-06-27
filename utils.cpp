@@ -325,3 +325,48 @@ std::string &replace_all(std::string &str, const std::string &old_value, const s
     }
     return str;
 }
+
+/**
+ *
+ * @param per 当前第几个
+ * @param totle 总共多少个
+ */
+const char *ponit[]={"\x20\x20", "\xA8\x87", "\xA8\x86", "\xA8\x84", "\xA8\x83", "\xA8\x80"};//  ▏▎▍▊█
+
+void progress_bar(int per, int totle)
+{
+    int i=0;
+    int num0=0;
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+    printf("\r  [");
+
+    num0  = (totle-per)/5;
+
+    i = per;
+    while(i>5)
+    {
+        printf("%s", ponit[5]);
+        i -= 5;
+    }
+
+    if(i)
+    {
+        printf("%s", ponit[i]);
+    }
+
+    for(i=0;i<num0;i++)
+    {
+        printf("%s", ponit[0]);
+    }
+
+    printf("] %2.f%%", double(per)/double(totle) * 100.0);
+
+    if(per == totle)
+    {
+        printf("\n");
+    }
+}

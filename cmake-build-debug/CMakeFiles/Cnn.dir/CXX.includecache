@@ -347,6 +347,8 @@ adam.hpp
 C:/Users/Administrator/Desktop/CNN/adam.hpp
 pgmer.hpp
 C:/Users/Administrator/Desktop/CNN/pgmer.hpp
+windows.h
+-
 
 C:/Users/Administrator/Desktop/CNN/matrix.hpp
 fstream
@@ -393,16 +395,6 @@ matrix.hpp
 C:/Users/Administrator/Desktop/CNN/matrix.hpp
 utils.h
 C:/Users/Administrator/Desktop/CNN/utils.h
-
-C:/Users/Administrator/Desktop/CNN/utils.cpp
-ctime
--
-utils.h
-C:/Users/Administrator/Desktop/CNN/utils.h
-cmath
--
-sstream
--
 
 C:/Users/Administrator/Desktop/CNN/utils.h
 vector
