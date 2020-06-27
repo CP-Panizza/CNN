@@ -18,20 +18,6 @@
 int main() {
 
 
-    auto aa = new Matrix<double>{{1,2,3},{4,5,6},{9,0,0}};
-
-    auto bb = aa->T();
-    time_t s,e;
-    s = clock();
-    std::cout << aa->Dot(bb);
-    e = clock();
-
-    auto sec = (e - s) / 1000;
-    std::cout << "Dot():" << sec <<std::endl;
-
-    return 0;
-
-
     std::vector<std::vector<Matrix<double> *> > imgs;
     std::vector<int> labels;
 
