@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/cmj/CNN/main.cpp" "/home/cmj/CNN/cmake-build-debug/CMakeFiles/Cnn.dir/main.cpp.o"
-  "/home/cmj/CNN/utils.cpp" "/home/cmj/CNN/cmake-build-debug/CMakeFiles/Cnn.dir/utils.cpp.o"
+  "C:/Users/Administrator/Desktop/CNN/main.cpp" "C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/Cnn.dir/main.cpp.obj"
+  "C:/Users/Administrator/Desktop/CNN/utils.cpp" "C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/Cnn.dir/utils.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

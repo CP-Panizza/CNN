@@ -332,42 +332,10 @@ std::string &replace_all(std::string &str, const std::string &old_value, const s
  * @param per 当前第几个
  * @param totle 总共多少个
  */
-const char *ponit[]={"\x20\x20", "\xA8\x87", "\xA8\x86", "\xA8\x84", "\xA8\x83", "\xA8\x80"};//  ▏▎▍▊█
+//const char *ponit[]={"\x20\x20", "\xA8\x87", "\xA8\x86", "\xA8\x84", "\xA8\x83", "\xA8\x80"};//  ▏▎▍▊█
 
 void progress_bar(int per, int totle, double time )
 {
-#ifdef _WIN32
-
-    int i=0;
-    int num0=0;
-    system("cls");
-    printf("\r  [");
-
-    num0  = (totle-per)/5;
-
-    i = per;
-    while(i>5)
-    {
-        printf("%s", ponit[5]);
-        i -= 5;
-    }
-
-    if(i)
-    {
-        printf("%s", ponit[i]);
-    }
-
-    for(i=0;i<num0;i++)
-    {
-        printf("%s", ponit[0]);
-    }
-    if(time == -1){
-        printf("] %2.f%% (%d/%d)", double(per)/double(totle) * 100.0, per, totle);
-    } else {
-        printf("] %2.f%% (%d/%d) |time: %2.fsec", double(per)/double(totle) * 100.0,per, totle, time);
-    }
-#else
-
     char bar[51];
     int done = static_cast<int>((double(per) / double(totle)) * 50);
     int i;
@@ -377,6 +345,4 @@ void progress_bar(int per, int totle, double time )
     bar[i] = 0;
     printf("[%-50s][%.f%%][%d/%d][time: %2.f]\r", bar, double(per)/double(totle)*100.0,per, totle, time);
     fflush(stdout);
-#endif
-
 }

@@ -1,8 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Cnn.dir/main.cpp.o"
-  "CMakeFiles/Cnn.dir/utils.cpp.o"
+  "CMakeFiles/Cnn.dir/main.cpp.obj"
+  "CMakeFiles/Cnn.dir/utils.cpp.obj"
   "Cnn.pdb"
-  "Cnn"
+  "Cnn.exe"
+  "Cnn.exe.manifest"
+  "libCnn.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
