@@ -1,4 +1,4 @@
-#ifndef _CNN_HPP_
+﻿#ifndef _CNN_HPP_
 #define _CNN_HPP_
 
 
@@ -28,8 +28,8 @@ public:
     Cnn(int batch_size) {
         double std_init_whight = 0.01;
         int channel = 1;
-        int img_w = 20;
-        int img_h = 20;
+        int img_w = 40;
+        int img_h = 40;
         int filter_num = 50;
         int filter_size = 5;
         int stride = 1;
