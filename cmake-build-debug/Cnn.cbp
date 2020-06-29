@@ -95,6 +95,12 @@
 		<Unit filename="C:/Users/Administrator/Desktop/CNN/conv_relu.hpp">
 			<Option target="Cnn"/>
 		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/CNN/deep_cnn.hpp">
+			<Option target="Cnn"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/CNN/dropout.hpp">
+			<Option target="Cnn"/>
+		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/CNN/load_data.hpp">
 			<Option target="Cnn"/>
 		</Unit>

@@ -30,7 +30,7 @@ public:
     Matrix<double> *t = nullptr;
     Matrix<double> *y = nullptr;
     Softmax(){}
-    Matrix<double> * forward(Matrix<double> *_x, Matrix<double> *_t){
+    double forward(Matrix<double> *_x, Matrix<double> *_t){
         if(this->t != nullptr){
             delete(this->t);
         }
@@ -39,7 +39,8 @@ public:
             delete(this->y);
         }
         this->y = softmax(_x);
-        return this->y->Copy();
+        double loss = cross_entropy_error(this->y, this->t);
+        return loss;
     }
 
     Matrix<double> *backward(){

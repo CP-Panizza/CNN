@@ -563,6 +563,30 @@ public:
         return m;
     }
 
+    Matrix<Type> *operator*(Matrix<Type> *a) {
+        if(this->width == a->width && this->height == a->height){
+            Matrix<Type> *m = this->Copy();
+            for (int i = 0; i < m->height; ++i) {
+                for (int j = 0; j < m->width; ++j) {
+                    m->data[i*this->width + j] = m->data[i*this->width + j] * a->data[i*this->width + j];
+                }
+            }
+            return m;
+        } else if(a->width == this->width){
+            Matrix<Type> *m = this->Copy();
+            for (int i = 0; i < m->height; ++i) {
+                for (int j = 0; j < m->width; ++j) {
+                    m->data[i*this->width + j] = m->data[i*this->width + j] * a->data[j];
+                }
+            }
+            return m;
+        }
+
+        printf("file: %s function: %s line: %d dim not match: %d x %d --- %d x %d", __FILE__, __FUNCTION__,
+               __LINE__, this->height, this->width, a->height, a->width);
+        exit(-1);
+    }
+
 
     Matrix<Type> *operator+(Matrix<Type> *a) {
         if (a->height == this->height && a->width == this->width) {

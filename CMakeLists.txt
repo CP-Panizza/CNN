@@ -16,6 +16,8 @@ add_executable(
         pooling_affine.hpp
         relu.hpp
         affine.hpp
+        dropout.hpp
+        deep_cnn.hpp
         softmax.hpp
         cnn.hpp
         adam.hpp

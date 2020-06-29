@@ -12,5 +12,7 @@
 #include "pooling_affine.hpp"
 #include "relu.hpp"
 #include "affine.hpp"
+#include "dropout.hpp"
 #include "softmax.hpp"
+#include "adam.hpp"
 #endif //CONVELUTION_LAYERS_H

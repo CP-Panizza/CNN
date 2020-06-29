@@ -50,6 +50,16 @@ vector
 utils.h
 C:/Users/Administrator/Desktop/CNN/utils.h
 
+C:/Users/Administrator/Desktop/CNN/deep_cnn.hpp
+layers.h
+C:/Users/Administrator/Desktop/CNN/layers.h
+
+C:/Users/Administrator/Desktop/CNN/dropout.hpp
+matrix.hpp
+C:/Users/Administrator/Desktop/CNN/matrix.hpp
+utils.h
+C:/Users/Administrator/Desktop/CNN/utils.h
+
 C:/Users/Administrator/Desktop/CNN/layers.h
 conv.hpp
 C:/Users/Administrator/Desktop/CNN/conv.hpp
@@ -63,8 +73,12 @@ relu.hpp
 C:/Users/Administrator/Desktop/CNN/relu.hpp
 affine.hpp
 C:/Users/Administrator/Desktop/CNN/affine.hpp
+dropout.hpp
+C:/Users/Administrator/Desktop/CNN/dropout.hpp
 softmax.hpp
 C:/Users/Administrator/Desktop/CNN/softmax.hpp
+adam.hpp
+C:/Users/Administrator/Desktop/CNN/adam.hpp
 
 C:/Users/Administrator/Desktop/CNN/libs/rapidjson/allocators.h
 rapidjson.h
@@ -355,6 +369,8 @@ adam.hpp
 C:/Users/Administrator/Desktop/CNN/adam.hpp
 pgmer.hpp
 C:/Users/Administrator/Desktop/CNN/pgmer.hpp
+deep_cnn.hpp
+C:/Users/Administrator/Desktop/CNN/deep_cnn.hpp
 
 C:/Users/Administrator/Desktop/CNN/matrix.hpp
 fstream

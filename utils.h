@@ -23,6 +23,8 @@ Matrix<double> *rand_matrix(int row, int col);
 
 Matrix<double> *mat_exp(Matrix<double> *x);
 
+Matrix<double> *mat_log(Matrix<double> *x);
+
 Matrix<double> *padding(Matrix<double> *src, int pad);
 
 void free_data(std::vector<std::vector<Matrix<double> *>> *data);
@@ -35,11 +37,13 @@ Matrix<double> *col2im(Matrix<double> *col, int src_w, int src_h, int filter_siz
 
 std::string &replace_all(std::string &str, const std::string &old_value, const std::string &new_value);
 
-void progress_bar(int per, int totle, double time = -1);
+void progress_bar(int per, int totle, double time, char *info);
 
 double cubic_coeff(double x);
 
 Matrix<double> *ReSize(Matrix<double> *src, double sigma);
+
+double cross_entropy_error(Matrix<double> *y, Matrix<double> *t);
 //template<class Type>
 //void DrawImg(Matrix<Type> *mat, int x, int y) {
 //    HWND wnd;    //窗口句柄

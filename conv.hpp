@@ -40,7 +40,7 @@ public:
         this->W = w->operator*(std_init_whight);
         delete (w);
         auto _b = rand_matrix(1, _filter_num);
-        this->b = _b->operator*(0);
+        this->b = _b->operator*(0.0);
         delete (_b);
         int out_h = (_img_h + 2 * this->_pad - this->_filter_size) / this->_stride + 1;
         int out_w = (_img_w + 2 * this->_pad - this->_filter_size) / this->_stride + 1;

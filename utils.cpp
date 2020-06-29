@@ -239,6 +239,18 @@ Matrix<double> *mat_exp(Matrix<double> *x) {
     return new Matrix<double>(x->height, x->width, data);
 }
 
+Matrix<double> *mat_log(Matrix<double> *x) {
+    auto data = CreateArray<double>(x->height, x->width);
+    double v;
+    for (int i = 0; i < x->height; ++i) {
+        for (int j = 0; j < x->width; ++j) {
+            v = x->Get(i, j);
+            data[i * x->width + j] = log(v);
+        }
+    }
+    return new Matrix<double>(x->height, x->width, data);
+}
+
 
 Matrix<double> *padding(Matrix<double> *src, int pad) {
     int width = src->width + (2 * pad);
@@ -347,7 +359,7 @@ std::string &replace_all(std::string &str, const std::string &old_value, const s
  */
 //const char *ponit[]={"\x20\x20", "\xA8\x87", "\xA8\x86", "\xA8\x84", "\xA8\x83", "\xA8\x80"};//  ▏▎▍▊█
 
-void progress_bar(int per, int totle, double time) {
+void progress_bar(int per, int totle, double time, char *info) {
     char bar[51];
     int done = static_cast<int>((double(per) / double(totle)) * 50);
     int i;
@@ -355,7 +367,7 @@ void progress_bar(int per, int totle, double time) {
         bar[i] = '#';
     }
     bar[i] = 0;
-    printf("[%-50s][%.f%%][%d/%d][time: %2.f]\r", bar, double(per) / double(totle) * 100.0, per, totle, time);
+    printf("[%-50s][%.f%%][%d/%d][time: %2.f][info:%s]\r", bar, double(per) / double(totle) * 100.0, per, totle, time, info);
     fflush(stdout);
 }
 
@@ -451,5 +463,22 @@ Matrix<double> *ReSize(Matrix<double> *src, double sigma) {
     auto out = one->operator*(255.0); //复原亮度
     delete (dest);
     delete (one);
+    return out;
+}
+
+
+double cross_entropy_error(Matrix<double> *y, Matrix<double> *t){
+//    batch_size = y.shape[0]
+//    print(np.log(y+delta))
+//    print(t*np.log(y+delta))
+//    return -np.sum(t*np.log(y+1e-7))/batch_size
+    int batch_size = y->height;
+    auto _y = y->operator+(1e-7);
+    auto _matlog = mat_log(_y);
+    auto mul = t->operator*(_matlog);
+    double out = -1 * mul->mat_sum() / batch_size;
+    delete(_y);
+    delete(_matlog);
+    delete(mul);
     return out;
 }

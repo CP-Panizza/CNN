@@ -13,13 +13,13 @@ public:
     Matrix<double> *db = nullptr;
 
     std::vector<int> out_shape; //h, w
-    Affine(std::vector<int> &input_shape, int out_size){
+    Affine(double std_init_whight,std::vector<int> &input_shape, int out_size){
         int height = input_shape[0];
         int width = input_shape[1];
         auto rand_mat = rand_matrix(width, out_size);
-        this->W = rand_mat->operator*(0.1);
+        this->W = rand_mat->operator*(std_init_whight);
         auto r_b = rand_matrix(1, out_size);
-        this->b = r_b->operator*(0);
+        this->b = r_b->operator*(0.0);
         delete(rand_mat);
         delete(r_b);
         this->out_shape.push_back(height);

@@ -30,7 +30,7 @@ public:
         double std_init_whight = 0.01;
 
         int hide_size = 200;
-        int output_size = 2;
+        int output_size = 10;
 
         conv = new Conv(std_init_whight, filter_num, filter_size, stride, pad, input_shape);
         conv_relu = new ConvRelu;
@@ -38,15 +38,15 @@ public:
         int filter_num1 = 30, filter_size1 = 3, stride1 = 1, pad1 = 0;
         conv1 = new Conv(std_init_whight, filter_num1, filter_size1, stride1, pad1, pooling->out_shape);
         conv_relu1 = new ConvRelu;
-        fc = new PoolingAffine(conv1->out_shape, hide_size);
+        fc = new PoolingAffine(0.1,conv1->out_shape, hide_size);
         relu = new Relu;
-        fc1 = new Affine(fc->out_shape, output_size);
+        fc1 = new Affine(0.1,fc->out_shape, output_size);
         soft_max = new Softmax;
         this->adam = new Adam(this->lr);
     }
 
 
-    void train(std::vector<std::vector<Matrix<double> *> > *x, Matrix<double> *la) {
+    double train(std::vector<std::vector<Matrix<double> *> > *x, Matrix<double> *la) {
         //前向传播
         auto conv_out = conv->forward(x);
         auto conv_relu_out = conv_relu->forward(conv_out);
@@ -56,7 +56,7 @@ public:
         auto fc_out = fc->forward(conv_relu1_out);
         auto relu_out = relu->forward(fc_out);
         auto fc1_out = fc1->forward(relu_out);
-        auto y = soft_max->forward(fc1_out, la);
+        auto loss = soft_max->forward(fc1_out, la);
 
 
         free_data(conv_out);
@@ -67,7 +67,7 @@ public:
         delete (fc_out);
         delete (relu_out);
         delete (fc1_out);
-        delete (y);
+
 
 
         //反向传播
@@ -140,6 +140,7 @@ public:
         this->fc->b = (*params)["fc_b"];
         delete (params);
         delete (grads);
+        return loss;
     }
 
     Matrix<double> *predict(std::vector<std::vector<Matrix<double> *> > *x, Matrix<double> *la) {
@@ -170,7 +171,7 @@ public:
         delete (relu_out);
         delete (fc1_out);
 
-        return y;
+        return soft_max->y->Copy();
     }
 
 
