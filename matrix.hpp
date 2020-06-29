@@ -472,9 +472,9 @@ public:
             for (int i = 0; i < this->height; ++i) {
                 for (int j = 0; j < this->width; ++j) {
                     if (k % 10) {
-                        f << this->Get(i,j) << " ";
+                        f << int(this->Get(i,j)) << " ";
                     } else {
-                        f << this->Get(i,j) << "\n";
+                        f << int(this->Get(i,j)) << "\n";
                     }
                     k++;
                 }

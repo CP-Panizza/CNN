@@ -174,11 +174,14 @@ void Load_data(const string &mnist_img_path, const string &mnist_label_path, vec
     }
 }
 
-void load_faces_dataset(std::vector<std::vector<Matrix<double> *> > &imgs, std::vector<int> &labels,bool normalize = true) {
+void load_faces_dataset(const std::string &file_path, std::vector<std::vector<Matrix<double> *> > &imgs, std::vector<int> &labels,bool normalize = true) {
     ifstream file;
-    file.open("data/faces_dataset/img_db.txt", ios::in);
-    if (!file.is_open())
-        return;
+    file.open(file_path, ios::in);
+    if (!file.is_open()){
+        cout << "open file error!" << endl;
+        exit(-1);
+    }
+    std::cout << "loading data...\n";
     std::string strLine;
     double *data;
     int label;

@@ -204,13 +204,26 @@ std::vector<std::string> split(std::string str, std::string pattern) {
 
 
 Matrix<double> *rand_matrix(int row, int col) {
-    auto data = CreateArray<double>(row, col);
+    auto data = new Matrix<double>(row, col);
+    double min = 0.0;
+    double max = 0.0;
     for (int i = 0; i < row; ++i) {
         for (int j = 0; j < col; ++j) {
-            data[i*col + j] = gauss_rand();
+            double val = gauss_rand();
+            max = val > max ? val : max;
+            min = val < min ? val : min;
+            data->Set(i, j, val);
         }
     }
-    return new Matrix<double>(row, col, data);
+    if (min < 0) {
+        auto than_zero = data->operator+(fabs(min));
+        auto out = than_zero->operator/(max+fabs(min));
+        delete(than_zero);
+        return out;
+    }
+    auto out = data->operator/(max);
+    delete(data);
+    return out;
 }
 
 
@@ -220,7 +233,7 @@ Matrix<double> *mat_exp(Matrix<double> *x) {
     for (int i = 0; i < x->height; ++i) {
         for (int j = 0; j < x->width; ++j) {
             v = x->Get(i, j);
-            data[i*x->width + j] = exp(v);
+            data[i * x->width + j] = exp(v);
         }
     }
     return new Matrix<double>(x->height, x->width, data);
@@ -334,8 +347,7 @@ std::string &replace_all(std::string &str, const std::string &old_value, const s
  */
 //const char *ponit[]={"\x20\x20", "\xA8\x87", "\xA8\x86", "\xA8\x84", "\xA8\x83", "\xA8\x80"};//  ▏▎▍▊█
 
-void progress_bar(int per, int totle, double time )
-{
+void progress_bar(int per, int totle, double time) {
     char bar[51];
     int done = static_cast<int>((double(per) / double(totle)) * 50);
     int i;
@@ -343,6 +355,101 @@ void progress_bar(int per, int totle, double time )
         bar[i] = '#';
     }
     bar[i] = 0;
-    printf("[%-50s][%.f%%][%d/%d][time: %2.f]\r", bar, double(per)/double(totle)*100.0,per, totle, time);
+    printf("[%-50s][%.f%%][%d/%d][time: %2.f]\r", bar, double(per) / double(totle) * 100.0, per, totle, time);
     fflush(stdout);
+}
+
+double cubic_coeff(double x) {
+    x = (x > 0) ? x : -x;
+    if (x < 1) {
+        return 1 - 2 * x * x + x * x * x;
+    } else if (x < 2) {
+        return 4 - 8 * x + 5 * x * x - x * x * x;
+    }
+    return 0;
+}
+
+/**
+ * 图像scale变换
+ * @param src 原图像
+ * @param sigma scale变换率
+ * @return
+ */
+Matrix<double> *ReSize(Matrix<double> *src, double sigma) {
+    double min = 0.0;
+    double max = 0.0;
+    auto dest = new Matrix<double>(static_cast<int>(src->height * sigma), static_cast<int>(src->width * sigma));
+    for (int i = 0; i < src->height; ++i) {
+        for (int j = 0; j < src->width; ++j) {
+
+            double col = j * sigma;
+            double row = i * sigma;
+            int dest_x = static_cast<int>(col); //i
+            int dest_y = static_cast<int>(row); //j
+
+            double col_ = (j - 1) * sigma;
+            double row_ = (i - 1) * sigma;
+            int dest_x_ = static_cast<int>(col_); //i
+            int dest_y_ = static_cast<int>(row_); //j
+
+            //处理超出边界的像素
+            if ((j - 1) < 0 || (i - 1) < 0 || (i + 2) > (src->height - 1) ||
+                (j + 2) > (src->width - 1)) {
+                continue;
+            }
+
+            double values[4][4];
+            for (int r = i - 1, s = 0; r <= i + 2; ++r, s++) {
+                for (int c = j - 1, t = 0; c <= j + 2; ++c, t++) {
+                    values[s][t] = src->Get(r, c);
+                }
+            }
+
+            double u = col - dest_x;
+            double v = row - dest_y;
+            double A[4], C[4];
+
+            for (int distance = 1, s = 0; distance >= -2; distance--, s++) {
+                A[s] = cubic_coeff(u + distance);
+                C[s] = cubic_coeff(v + distance);
+            }
+
+            double dfCubicValue = 0;
+            for (int s = 0; s < 4; s++) {
+                for (int t = 0; t < 4; t++) {
+                    dfCubicValue += values[s][t] * A[t] * C[s];
+                }
+            }
+
+            for (int m = dest_y_; m <= dest_y; ++m) {
+                for (int n = dest_x_; n < dest_x; ++n) {
+                    dest->Set(m, n, dfCubicValue);
+                }
+            }
+
+            if (dfCubicValue < min) {
+                min = dfCubicValue;
+            }
+            if (dfCubicValue > max) {
+                max = dfCubicValue;
+            }
+        }
+    }
+
+    if (min < 0) {
+        auto then_zero = dest->operator+(fabs(min)); //大于零
+        auto one = then_zero->operator/(max); //归一化
+        auto out = one->operator*(255.0); //复原亮度
+        delete (then_zero);
+        delete (dest);
+        delete (one);
+        return out;
+    }
+
+
+    auto one = dest->operator/(max); //归一化
+    auto out = one->operator*(255.0); //复原亮度
+    delete (dest);
+    delete (one);
+    return out;
 }

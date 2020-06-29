@@ -14,10 +14,10 @@
 #include "adam.hpp"
 #include "pgmer.hpp"
 
-void train_faces(){
-    std::vector<std::vector<Matrix<double> *> > imgs;
+void train_faces() {
+    std::vector<std::vector<Matrix < double> *> > imgs;
     std::vector<int> labels;
-    load_faces_dataset(imgs, labels);
+    load_faces_dataset("data/faces_dataset/faces_and_nofaces.txt", imgs, labels);
 
     srand(static_cast<unsigned int>(time(nullptr)));
     int batch_size = 25;
@@ -36,7 +36,7 @@ void train_faces(){
         for (int j = 0; j < batch_size; ++j) {
             la->Set(j, label[j], 1);
         }
-        time_t s,e;
+        time_t s, e;
         s = clock();
         cnn->train(&x, la);
         e = clock();
@@ -53,7 +53,7 @@ void train_faces(){
         start = static_cast<int>(rand() % (imgs.size() - 1));
         end = start + 1;
 
-        std::vector<std::vector<Matrix<double> *> > test_x(imgs.begin() + start, imgs.begin() + end);
+        std::vector<std::vector<Matrix < double> *> > test_x(imgs.begin() + start, imgs.begin() + end);
         std::vector<int> test_label(labels.begin() + start, labels.begin() + end);
         auto test_la = new Matrix<double>(1, 2);
         for (int j = 0; j < 1; ++j) {
@@ -74,13 +74,12 @@ void train_faces(){
 }
 
 
-
 //minats手写数字训练
-void train(){
-    std::vector<std::vector<Matrix<double> *> > imgs;
+void train() {
+    std::vector<std::vector<Matrix < double> *> > imgs;
     std::vector<int> labels;
 
-    std::vector<std::vector<Matrix<double> *> > t_imgs;
+    std::vector<std::vector<Matrix < double> *> > t_imgs;
     std::vector<int> t_labels;
 
     Load_data(
@@ -110,7 +109,7 @@ void train(){
         for (int j = 0; j < batch_size; ++j) {
             la->Set(j, label[j], 1);
         }
-        time_t s,e;
+        time_t s, e;
         s = clock();
         cnn->train(&x, la);
         e = clock();
@@ -123,12 +122,11 @@ void train(){
 }
 
 
-
-void test(){
-    std::vector<std::vector<Matrix<double> *> > imgs;
+void test() {
+    std::vector<std::vector<Matrix < double> *> > imgs;
     std::vector<int> labels;
 
-    std::vector<std::vector<Matrix<double> *> > t_imgs;
+    std::vector<std::vector<Matrix < double> *> > t_imgs;
     std::vector<int> t_labels;
 
     Load_data(
@@ -153,7 +151,7 @@ void test(){
         start = static_cast<int>(rand() % (imgs.size() - 1));
         end = start + 1;
 
-        std::vector<std::vector<Matrix<double> *> > test_x(imgs.begin() + start, imgs.begin() + end);
+        std::vector<std::vector<Matrix < double> *> > test_x(imgs.begin() + start, imgs.begin() + end);
         std::vector<int> test_label(labels.begin() + start, labels.begin() + end);
         auto test_la = new Matrix<double>(1, 10);
         for (int j = 0; j < 1; ++j) {
@@ -175,12 +173,13 @@ void test(){
 }
 
 
-void test_jpg(){
+void test_jpg() {
     system("Img2PGM2.exe -i test.jpg -o test.pgm");
     Pgmer *pgmer = new Pgmer;
     pgmer->ReadImg("./test.pgm");
     auto data = pgmer->To2DMatrix()->operator/(255.0);
-    auto x = new std::vector<std::vector<Matrix<double> *>>{std::vector<Matrix<double> *>{data}};
+    auto x = new std::vector<std::vector<Matrix < double> *>>
+    { std::vector<Matrix < double> *>{ data }};
 
     auto test_la = new Matrix<double>(1, 2);
     for (int j = 0; j < 1; ++j) {
@@ -195,10 +194,13 @@ void test_jpg(){
 }
 
 
-
-
 int main() {
     train_faces();
+//    Pgmer *pgmer = new Pgmer;
+//    pgmer->ReadImg("./2.pgm");
+//    auto data = pgmer->To2DMatrix();
+//    auto dest = ReSize(data, 1.25);
+//    dest->WriteImg("resize.pgm");
     return 0;
 }
 
