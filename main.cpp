@@ -20,11 +20,20 @@ void train_faces() {
     load_faces_dataset("data/faces_dataset/faces_and_nofaces.txt", imgs, labels);
 
     srand(static_cast<unsigned int>(time(nullptr)));
-    int batch_size = 25;
-    int epoch = 1000;
+    int batch_size = 30;
     int start;
     int end;
-    auto cnn = new Cnn(batch_size);
+    int channel = 1;
+    int img_w = 40;
+    int img_h = 40;
+    int filter_num = 80;
+    int filter_size = 5;
+    int stride = 1;
+    int pad = 2;
+    std::vector<int> input_shape{batch_size, channel, img_h, img_w};
+    auto cnn = new Cnn(filter_num, filter_size, stride,pad, input_shape);
+
+    int epoch = 500;
 
     Matrix<double> *la;
     for (int i = 0; i < epoch; ++i) {
@@ -94,11 +103,19 @@ void train() {
 
     srand(static_cast<unsigned int>(time(nullptr)));
     int batch_size = 30;
-    int epoch = 100;
     int start;
     int end;
-    auto cnn = new Cnn(batch_size);
+    int channel = 1;
+    int img_w = 28;
+    int img_h = 28;
+    int filter_num = 50;
+    int filter_size = 5;
+    int stride = 1;
+    int pad = 2;
+    std::vector<int> input_shape{batch_size, channel, img_h, img_w};
+    auto cnn = new Cnn(filter_num, filter_size, stride,pad, input_shape);
 
+    int epoch = 500;
     Matrix<double> *la;
     for (int i = 0; i < epoch; ++i) {
         start = static_cast<int>(rand() % (imgs.size() - batch_size));
@@ -143,7 +160,15 @@ void test() {
     int batch_size = 30;
     int start;
     int end;
-    auto cnn = new Cnn(batch_size);
+    int channel = 1;
+    int img_w = 28;
+    int img_h = 28;
+    int filter_num = 50;
+    int filter_size = 5;
+    int stride = 1;
+    int pad = 2;
+    std::vector<int> input_shape{batch_size, channel, img_h, img_w};
+    auto cnn = new Cnn(filter_num, filter_size, stride,pad, input_shape);
 
     int test_num = 200;
     int right_times = 0;
@@ -185,7 +210,18 @@ void test_jpg() {
     for (int j = 0; j < 1; ++j) {
         test_la->Set(j, 1, 1);
     }
-    auto cnn = new Cnn(100);
+    int batch_size = 30;
+    int start;
+    int end;
+    int channel = 1;
+    int img_w = 40;
+    int img_h = 40;
+    int filter_num = 50;
+    int filter_size = 5;
+    int stride = 1;
+    int pad = 2;
+    std::vector<int> input_shape{batch_size, channel, img_h, img_w};
+    auto cnn = new Cnn(filter_num, filter_size, stride,pad, input_shape);
     cnn->load_param("./param.json");
     auto pre = cnn->predict(x, test_la);
 
@@ -196,11 +232,6 @@ void test_jpg() {
 
 int main() {
     train_faces();
-//    Pgmer *pgmer = new Pgmer;
-//    pgmer->ReadImg("./2.pgm");
-//    auto data = pgmer->To2DMatrix();
-//    auto dest = ReSize(data, 1.25);
-//    dest->WriteImg("resize.pgm");
     return 0;
 }
 

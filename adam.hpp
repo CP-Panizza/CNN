@@ -4,7 +4,7 @@
 
 #include "matrix.hpp"
 #include <map>
-
+#include "utils.h"
 
 class Adam {
 public:

@@ -7,6 +7,7 @@
 #include "libs/rapidjson/document.h"
 #include "libs/rapidjson/writer.h"
 #include "libs/rapidjson/stringbuffer.h"
+#include "utils.h"
 
 using namespace rapidjson;
 
@@ -25,18 +26,12 @@ public:
 
     double lr = 0.01;
 
-    Cnn(int batch_size) {
+    Cnn(int filter_num, int filter_size ,int stride, int pad, std::vector<int> &input_shape) {
         double std_init_whight = 0.01;
-        int channel = 1;
-        int img_w = 40;
-        int img_h = 40;
-        int filter_num = 50;
-        int filter_size = 5;
-        int stride = 1;
-        int pad = 2;
-        int hide_size = 150;
+
+        int hide_size = 200;
         int output_size = 2;
-        std::vector<int> input_shape{batch_size, channel, img_h, img_w};
+
         conv = new Conv(std_init_whight, filter_num, filter_size, stride, pad, input_shape);
         conv_relu = new ConvRelu;
         pooling = new Pooling(2, 2, conv->out_shape);

@@ -5,6 +5,7 @@
 
 #include "matrix.hpp"
 #include <vector>
+#include "utils.h"
 
 class ConvRelu{
 public:

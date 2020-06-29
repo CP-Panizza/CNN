@@ -11,6 +11,8 @@ matrix.hpp
 C:/Users/Administrator/Desktop/CNN/matrix.hpp
 map
 -
+utils.h
+C:/Users/Administrator/Desktop/CNN/utils.h
 
 C:/Users/Administrator/Desktop/CNN/affine.hpp
 matrix.hpp
@@ -29,6 +31,8 @@ libs/rapidjson/writer.h
 C:/Users/Administrator/Desktop/CNN/libs/rapidjson/writer.h
 libs/rapidjson/stringbuffer.h
 C:/Users/Administrator/Desktop/CNN/libs/rapidjson/stringbuffer.h
+utils.h
+C:/Users/Administrator/Desktop/CNN/utils.h
 
 C:/Users/Administrator/Desktop/CNN/conv.hpp
 matrix.hpp
@@ -43,6 +47,8 @@ matrix.hpp
 C:/Users/Administrator/Desktop/CNN/matrix.hpp
 vector
 -
+utils.h
+C:/Users/Administrator/Desktop/CNN/utils.h
 
 C:/Users/Administrator/Desktop/CNN/layers.h
 conv.hpp
