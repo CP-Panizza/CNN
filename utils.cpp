@@ -367,7 +367,7 @@ void progress_bar(int per, int totle, double time, char *info) {
         bar[i] = '#';
     }
     bar[i] = 0;
-    printf("[%-50s][%.f%%][%d/%d][time: %2.f][info:%s]\r", bar, double(per) / double(totle) * 100.0, per, totle, time, info);
+    printf("[%-50s][%f%%][%d/%d][time: %f][info:%s]\r", bar, double(per) / double(totle) * 100.0, per, totle, time, info);
     fflush(stdout);
 }
 
