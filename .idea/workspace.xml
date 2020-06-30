@@ -13,21 +13,11 @@
   <component name="ChangeListManager">
     <list default="true" id="abcc317c-6d3c-4996-9314-8db21278e7a5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/affine.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/affine.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Cnn.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Cnn.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Cnn.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Cnn.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Cnn.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Cnn.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/param.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/resize.pgm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnn.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/cnn.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conv.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/conv.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layers.h" beforeDir="false" afterPath="$PROJECT_DIR$/layers.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/faces_param.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deep_cnn.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/deep_cnn.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrix.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/matrix.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pooling_affine.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/pooling_affine.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/softmax.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/softmax.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/utils.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/utils.h" afterDir="false" />
     </list>
@@ -43,23 +33,24 @@
     <session id="1765157498">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.33" value="1" />
+          <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.40" value="1" />
           <entry key="project.open.time.42" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Makefile" value="4" />
-          <entry key="cpp" value="17" />
-          <entry key="h" value="14" />
-          <entry key="hpp" value="70" />
+          <entry key="cpp" value="19" />
+          <entry key="h" value="16" />
+          <entry key="hpp" value="73" />
           <entry key="hpp___jb_old___" value="1" />
           <entry key="jpg" value="1" />
           <entry key="ostream" value="1" />
@@ -72,16 +63,16 @@
           <entry key="CMakeLists.txt" value="5" />
           <entry key="Image" value="67" />
           <entry key="Makefile" value="1" />
-          <entry key="ObjectiveC" value="103" />
+          <entry key="ObjectiveC" value="110" />
           <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Makefile" value="72" />
-          <entry key="cpp" value="3369" />
-          <entry key="h" value="43" />
-          <entry key="hpp" value="2236" />
+          <entry key="cpp" value="3414" />
+          <entry key="h" value="47" />
+          <entry key="hpp" value="2266" />
           <entry key="mm" value="30" />
           <entry key="txt" value="10" />
         </counts>
@@ -89,8 +80,8 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="10" />
-          <entry key="Doxygen file" value="5" />
-          <entry key="ObjectiveC" value="5673" />
+          <entry key="Doxygen file" value="7" />
+          <entry key="ObjectiveC" value="5750" />
           <entry key="PLAIN_TEXT" value="72" />
         </counts>
       </usages-collector>
@@ -100,26 +91,18 @@
     <favorites_list name="Cnn" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+            <state relative-caret-position="314">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
-                <element signature="e#4278#6140#0" />
-                <element signature="e#6143#7058#0" />
+                <element signature="e#2678#4452#0" />
+                <element signature="e#4455#6312#0" />
+                <element signature="e#6315#7232#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/load_data.hpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-756">
-              <caret line="176" column="144" selection-start-line="176" selection-start-column="135" selection-end-line="176" selection-end-column="144" />
             </state>
           </provider>
         </entry>
@@ -127,8 +110,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/deep_cnn.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="81" column="32" lean-forward="true" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
+            <state relative-caret-position="1708">
+              <caret line="85" column="17" lean-forward="true" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -148,16 +131,16 @@
         <option value="$PROJECT_DIR$/matrix.hpp" />
         <option value="$PROJECT_DIR$/conv.hpp" />
         <option value="$PROJECT_DIR$/softmax.hpp" />
-        <option value="$PROJECT_DIR$/utils.h" />
-        <option value="$PROJECT_DIR$/utils.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/layers.h" />
         <option value="$PROJECT_DIR$/dropout.hpp" />
         <option value="$PROJECT_DIR$/cnn.hpp" />
-        <option value="$PROJECT_DIR$/main.cpp" />
-        <option value="$PROJECT_DIR$/deep_cnn.hpp" />
         <option value="$PROJECT_DIR$/affine.hpp" />
         <option value="$PROJECT_DIR$/pooling_affine.hpp" />
+        <option value="$PROJECT_DIR$/utils.h" />
+        <option value="$PROJECT_DIR$/utils.cpp" />
+        <option value="$PROJECT_DIR$/deep_cnn.hpp" />
+        <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
   </component>
@@ -178,7 +161,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -191,23 +173,11 @@
               <item name="CNN" type="462c0819:PsiDirectoryNode" />
               <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Cnn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNN" type="462c0819:PsiDirectoryNode" />
-              <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Cnn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CNN" type="462c0819:PsiDirectoryNode" />
-              <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="faces_dataset" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -254,29 +224,31 @@
       <workItem from="1593387688711" duration="9891000" />
       <workItem from="1593399711763" duration="2115000" />
       <workItem from="1593416194269" duration="221000" />
-      <workItem from="1593417241057" duration="14986000" />
+      <workItem from="1593417241057" duration="17692000" />
+      <workItem from="1593474676247" duration="3022000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47399000" />
+    <option name="totallyTimeSpent" value="53127000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="25" width="1938" height="1064" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49666667" visible="true" weight="0.17542918" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49666667" visible="true" weight="0.17757511" />
       <window_info id="Structure" order="1" sideWeight="0.50333333" side_tool="true" weight="0.24517168" />
       <window_info id="Favorites" order="2" sideWeight="0.5005417" side_tool="true" weight="0.16044776" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.54888886" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3611111" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.43555555" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.58666664" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.49444443" />
+      <window_info active="true" anchor="bottom" id="Messages" order="8" visible="true" weight="0.52444446" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.5988889" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="CMake" order="12" weight="0.38222224" />
@@ -287,6 +259,30 @@
       <window_info anchor="right" id="make" order="4" />
       <window_info anchor="right" id="LuaJ" order="5" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49666667" visible="true" weight="0.17757511" />
+      <window_info id="Structure" order="1" sideWeight="0.50333333" side_tool="true" weight="0.24517168" />
+      <window_info id="Favorites" order="2" sideWeight="0.5005417" side_tool="true" weight="0.16044776" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.54555553" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.43555555" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.52444446" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.5988889" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="CMake" order="12" weight="0.38222224" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="make" order="4" />
+      <window_info anchor="right" id="LuaJ" order="5" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -299,7 +295,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/utils.cpp</url>
-          <line>474</line>
+          <line>489</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
@@ -401,20 +397,7 @@
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/2.pgm">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="39" column="61" lean-forward="true" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/matrix.hpp___jb_old___">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="392" column="5" selection-start-line="392" selection-start-column="5" selection-end-line="392" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/matrix.hpp___jb_old___" />
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="532">
@@ -457,9 +440,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="644">
           <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="e#46#67#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -474,13 +454,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="41" column="31" lean-forward="true" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="477" selection-start-line="477" selection-end-line="477" />
         </state>
       </provider>
     </entry>
@@ -525,28 +498,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utils.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="565">
+          <caret line="59" column="7" lean-forward="true" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="384" column="44" selection-start-line="384" selection-start-column="44" selection-end-line="384" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/deep_cnn.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="81" column="32" lean-forward="true" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
+        <state relative-caret-position="1708">
+          <caret line="85" column="17" lean-forward="true" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/load_data.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-756">
-          <caret line="176" column="144" selection-start-line="176" selection-start-column="135" selection-end-line="176" selection-end-column="144" />
+        <state relative-caret-position="1036">
+          <caret line="200" column="18" lean-forward="true" selection-start-line="200" selection-start-column="18" selection-end-line="200" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+        <state relative-caret-position="314">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#4278#6140#0" />
-            <element signature="e#6143#7058#0" />
+            <element signature="e#2678#4452#0" />
+            <element signature="e#4455#6312#0" />
+            <element signature="e#6315#7232#0" />
           </folding>
         </state>
       </provider>

@@ -33,16 +33,15 @@ public:
     Adam *adam;
     double lr = 0.001;
 
-    DeepCnn(int batch_size) {
-        int channel = 1;
-        int img_w = 20;
-        int img_h = 20;
+    DeepCnn(std::vector<int> &input_shape) {
         int filter_size = 5;
         int stride = 1;
         int pad = 2;
         int hidden_size = 50;
-        std::vector<int> input_shape{batch_size, channel, img_h, img_w};
 
+        /**
+         * He方式初始化权重参数
+         */
         Matrix<double> pre_node_nums = {1 * 3 * 3,
                                         16 * 3 * 3,
                                         16 * 3 * 3,
@@ -64,7 +63,7 @@ public:
 
         conv6 = new Conv(wight_init_scales->Get(0, 2), 32, filter_size, stride, pad, pooling5->out_shape);
         relu7 = new ConvRelu;
-        conv8 = new Conv(wight_init_scales->Get(0, 3), 32, filter_size, stride, 2, conv6->out_shape);
+        conv8 = new Conv(wight_init_scales->Get(0, 3), 32, filter_size, stride, pad, conv6->out_shape);
         relu9 = new ConvRelu;
         pooling10 = new Pooling(2, 2, conv8->out_shape);
 

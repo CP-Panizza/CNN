@@ -19,6 +19,8 @@ Matrix<double> *sum(Matrix<double> *mat, std::string dim);
 
 std::vector<std::string> split(std::string str, std::string pattern);
 
+Matrix<double> *rand_matrix_n(int row, int col);
+
 Matrix<double> *rand_matrix(int row, int col);
 
 Matrix<double> *mat_exp(Matrix<double> *x);

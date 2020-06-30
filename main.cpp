@@ -18,13 +18,18 @@
 void train_faces() {
     std::vector<std::vector<Matrix<double> *> > imgs;
     std::vector<int> labels;
-//    load_faces_dataset("data/faces_dataset/faces_and_nofaces.txt", imgs, labels);
-    load_faces_dataset("data/faces_dataset/img_db.txt", imgs, labels);
+    load_faces_dataset("data/faces_dataset/faces_and_nofaces.txt", imgs, labels);
+//    load_faces_dataset("data/faces_dataset/img_db.txt", imgs, labels);
     srand(static_cast<unsigned int>(time(nullptr)));
-    int batch_size = 20;
+    int batch_size = 28;
+    int channel = 1;
+    int img_w = 40;
+    int img_h = 40;
     int start;
     int end;
-    auto deep_cnn = new DeepCnn(batch_size);
+
+    std::vector<int> input_shape{batch_size, channel, img_h, img_w};
+    auto deep_cnn = new DeepCnn(input_shape);
 
     int epoch = 500;
 
@@ -41,11 +46,10 @@ void train_faces() {
         time_t s, e;
         s = clock();
         double loss = deep_cnn->train(&x, la);
-        std::cout << "loss:" << loss << std::endl;
         e = clock();
         double sec = (e - s) / 1000.0;
         char buff[50];
-        int n = sprintf(buff, "loss %f", loss);
+        int n = sprintf(buff, "los:%.2lf", loss);
         buff[n] = '\0';
         progress_bar(i, epoch, sec, buff);
         delete (la);
@@ -112,7 +116,7 @@ void train() {
     std::vector<int> input_shape{batch_size, channel, img_h, img_w};
     auto cnn = new Cnn(filter_num, filter_size, stride, pad, input_shape);
 
-    int epoch = 500;
+    int epoch = 1000;
     Matrix<double> *la;
     for (int i = 0; i < epoch; ++i) {
         start = static_cast<int>(rand() % (imgs.size() - batch_size));
@@ -129,7 +133,7 @@ void train() {
         e = clock();
         double sec = (e - s) / 1000.0;
         char buff[50];
-        int n = sprintf(buff, "loss %f", loss);
+        int n = sprintf(buff, "loss %.2lf", loss);
         buff[n] = '\0';
         progress_bar(i, epoch, sec, buff);
         delete (la);

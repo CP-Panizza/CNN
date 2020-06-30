@@ -203,7 +203,7 @@ std::vector<std::string> split(std::string str, std::string pattern) {
 }
 
 
-Matrix<double> *rand_matrix(int row, int col) {
+Matrix<double> *rand_matrix_n(int row, int col) {
     auto data = new Matrix<double>(row, col);
     double min = 0.0;
     double max = 0.0;
@@ -226,6 +226,21 @@ Matrix<double> *rand_matrix(int row, int col) {
     return out;
 }
 
+/**
+ * 生成随机正态分布矩阵
+ * @param row
+ * @param col
+ * @return
+ */
+Matrix<double> *rand_matrix(int row, int col) {
+    auto data = new Matrix<double>(row, col);
+    for (int i = 0; i < row; ++i) {
+        for (int j = 0; j < col; ++j) {
+            data->Set(i, j, gauss_rand());
+        }
+    }
+    return data;
+}
 
 Matrix<double> *mat_exp(Matrix<double> *x) {
     auto data = CreateArray<double>(x->height, x->width);
@@ -367,7 +382,7 @@ void progress_bar(int per, int totle, double time, char *info) {
         bar[i] = '#';
     }
     bar[i] = 0;
-    printf("[%-50s][%f%%][%d/%d][time: %f][info:%s]\r", bar, double(per) / double(totle) * 100.0, per, totle, time, info);
+    printf("[%-50s][%.1lf%%][%d/%d][time:%.2lf][%s]\r", bar, double(per) / double(totle) * 100.0, per, totle, time, info);
     fflush(stdout);
 }
 
