@@ -7,7 +7,12 @@
 
 #include <vector>
 #include "matrix.hpp"
-//#include <windows.h>
+
+struct Point{
+    int height;
+    int width;
+};
+
 
 Matrix<double> *im2col(std::vector<std::vector<Matrix<double> *>> *input_data, int filter_h, int filter_w, int stride = 1, int pad = 0);
 
@@ -43,24 +48,14 @@ void progress_bar(int per, int totle, double time, char *info);
 
 double cubic_coeff(double x);
 
+int _round_(double a);
+
 Matrix<double> *ReSize(Matrix<double> *src, double sigma);
 
+void Build_img(int sub_img_h_w, int stride, Matrix<double> *src, double min, double max, std::vector<double> &sigmas, std::vector<Matrix<double>*> &imgs, std::vector<Point> &points);
+
 double cross_entropy_error(Matrix<double> *y, Matrix<double> *t);
-//template<class Type>
-//void DrawImg(Matrix<Type> *mat, int x, int y) {
-//    HWND wnd;    //窗口句柄
-//    HDC dc;    //绘图设备环境句柄
-//    wnd = GetForegroundWindow(); //获取窗口句柄
-//    dc = GetDC(wnd);    //获取绘图设备
-//    for (int j = 0; j < mat->height; j++) {
-//        for (int i = 0; i < mat->width; i++) {
-//            Type v = mat->data[j*mat->width + i];
-//            SetPixel(dc, i + x, j + y, RGB(v, v, v)); //画像素点
-//        }
-//    }
-//    std::cout << "any key next..." << std::endl;
-//    getchar();
-//}
+
 
 template<class _Type>
 _Type max(_Type *data, int len) {
@@ -87,6 +82,21 @@ int max_index(_Type *data, int len) {
     return index;
 }
 
+
+//洗牌
+template <class Type1, class  Type2>
+void shuffle_data(std::vector<Type1> &data1, std::vector<Type2> &data2){
+    int n = static_cast<int>(data1.size());
+    int T = 1000;
+    int i,j;
+    srand(static_cast<unsigned int>(time(nullptr)));
+    while(T--){
+        i = rand()%n;
+        j = rand()%n;
+        std::swap(data1[i], data1[j]);
+        std::swap(data2[i], data2[j]);
+    }
+}
 
 
 

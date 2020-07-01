@@ -157,13 +157,14 @@ void Load_data(const string &mnist_img_path, const string &mnist_label_path, vec
         auto data = CreateArray<double>(rows, cols);
         for (int m = 0; m != rows; m++) {
             for (int n = 0; n != cols; n++) {
-                if (pixels[m * cols + n] == 0) {
+                int pix = pixels[m * cols + n];
+                if (pix == 0) {
                     data[m * cols + n] = 0;
                 } else {
                     if (normalize) {
-                        data[m * cols + n] = 1;
+                        data[m * cols + n] = double(abs(pix)) / 255.0;
                     } else {
-                        data[m * cols + n] = 255;
+                        data[m * cols + n] = abs(pix);
                     }
                 }
             }

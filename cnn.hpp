@@ -30,12 +30,12 @@ public:
         double std_init_whight = 0.01;
 
         int hide_size = 200;
-        int output_size = 10;
+        int output_size = 2;
 
         conv = new Conv(std_init_whight, filter_num, filter_size, stride, pad, input_shape);
         conv_relu = new ConvRelu;
         pooling = new Pooling(2, 2, conv->out_shape);
-        int filter_num1 = 30, filter_size1 = 3, stride1 = 1, pad1 = 0;
+        int filter_num1 = 100, filter_size1 = 5, stride1 = 1, pad1 = 2;
         conv1 = new Conv(std_init_whight, filter_num1, filter_size1, stride1, pad1, pooling->out_shape);
         conv_relu1 = new ConvRelu;
         fc = new PoolingAffine(0.1,conv1->out_shape, hide_size);
@@ -289,12 +289,12 @@ public:
         f.close();
     }
 
-    bool load_param(const std::string &path) {
+    void load_param(const std::string &path) {
         std::string param = read_file(path);
         rapidjson::Document d;
         if (d.Parse(param.c_str()).HasParseError()) {
-            printf("parse error!\n");
-            return false;
+            printf("load_param error!\n");
+            exit(-1);
         }
         rapidjson::Document::Array conv_w_ = d["conv_w"].GetArray();
         for (int i = 0; i < conv_w_.Size(); ++i) {
@@ -360,7 +360,6 @@ public:
             }
         }
 
-        return true;
     }
 };
 

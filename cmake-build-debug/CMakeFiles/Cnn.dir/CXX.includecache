@@ -42,6 +42,14 @@ vector
 utils.h
 C:/Users/Administrator/Desktop/CNN/utils.h
 
+C:/Users/Administrator/Desktop/CNN/conv_dropout.hpp
+matrix.hpp
+C:/Users/Administrator/Desktop/CNN/matrix.hpp
+utils.h
+C:/Users/Administrator/Desktop/CNN/utils.h
+vector
+-
+
 C:/Users/Administrator/Desktop/CNN/conv_relu.hpp
 matrix.hpp
 C:/Users/Administrator/Desktop/CNN/matrix.hpp
@@ -53,6 +61,12 @@ C:/Users/Administrator/Desktop/CNN/utils.h
 C:/Users/Administrator/Desktop/CNN/deep_cnn.hpp
 layers.h
 C:/Users/Administrator/Desktop/CNN/layers.h
+libs/rapidjson/document.h
+C:/Users/Administrator/Desktop/CNN/libs/rapidjson/document.h
+libs/rapidjson/writer.h
+C:/Users/Administrator/Desktop/CNN/libs/rapidjson/writer.h
+libs/rapidjson/stringbuffer.h
+C:/Users/Administrator/Desktop/CNN/libs/rapidjson/stringbuffer.h
 
 C:/Users/Administrator/Desktop/CNN/dropout.hpp
 matrix.hpp
@@ -79,6 +93,8 @@ softmax.hpp
 C:/Users/Administrator/Desktop/CNN/softmax.hpp
 adam.hpp
 C:/Users/Administrator/Desktop/CNN/adam.hpp
+conv_dropout.hpp
+C:/Users/Administrator/Desktop/CNN/conv_dropout.hpp
 
 C:/Users/Administrator/Desktop/CNN/libs/rapidjson/allocators.h
 rapidjson.h

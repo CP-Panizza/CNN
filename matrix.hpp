@@ -456,7 +456,7 @@ public:
     }
 
     Matrix<Type> *Copy() {
-        auto t = new Matrix(this->height, this->width);
+        Matrix<Type> *t = new Matrix<Type>(this->height, this->width);
         for (int j = 0; j < this->height; ++j) {
             for (int i = 0; i < this->width; ++i) {
                 t->Set(j ,i, this->Get(j,i));

@@ -5,6 +5,7 @@ CMakeFiles/Cnn.dir/main.cpp.obj: ../adam.hpp
 CMakeFiles/Cnn.dir/main.cpp.obj: ../affine.hpp
 CMakeFiles/Cnn.dir/main.cpp.obj: ../cnn.hpp
 CMakeFiles/Cnn.dir/main.cpp.obj: ../conv.hpp
+CMakeFiles/Cnn.dir/main.cpp.obj: ../conv_dropout.hpp
 CMakeFiles/Cnn.dir/main.cpp.obj: ../conv_relu.hpp
 CMakeFiles/Cnn.dir/main.cpp.obj: ../deep_cnn.hpp
 CMakeFiles/Cnn.dir/main.cpp.obj: ../dropout.hpp

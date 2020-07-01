@@ -15,4 +15,5 @@
 #include "dropout.hpp"
 #include "softmax.hpp"
 #include "adam.hpp"
+#include "conv_dropout.hpp"
 #endif //CONVELUTION_LAYERS_H

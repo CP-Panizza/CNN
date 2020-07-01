@@ -17,7 +17,9 @@ add_executable(
         relu.hpp
         affine.hpp
         dropout.hpp
+        conv_dropout.hpp
         deep_cnn.hpp
+        sigmoid.hpp
         softmax.hpp
         cnn.hpp
         adam.hpp

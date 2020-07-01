@@ -378,7 +378,7 @@ void progress_bar(int per, int totle, double time, char *info) {
     char bar[51];
     int done = static_cast<int>((double(per) / double(totle)) * 50);
     int i;
-    for (i = 0; i < done; ++i) {
+    for (i = 0; i < done; i++) {
         bar[i] = '#';
     }
     bar[i] = 0;
@@ -397,15 +397,30 @@ double cubic_coeff(double x) {
 }
 
 /**
+ * 对double四舍五入
+ * @return
+ */
+int _round_(double a){
+    int b;
+    if(a>0){
+        b = static_cast<int>((a * 2 + 1) / 2);
+    }else {
+        b = static_cast<int>((a * 2 - 1) / 2);
+    }
+    return b;
+}
+
+/**
  * 图像scale变换
  * @param src 原图像
  * @param sigma scale变换率
  * @return
  */
 Matrix<double> *ReSize(Matrix<double> *src, double sigma) {
-    double min = 0.0;
-    double max = 0.0;
+    double min_val = 0.0;
+    double max_val = 0.0;
     auto dest = new Matrix<double>(static_cast<int>(src->height * sigma), static_cast<int>(src->width * sigma));
+
     for (int i = 0; i < src->height; ++i) {
         for (int j = 0; j < src->width; ++j) {
 
@@ -441,31 +456,33 @@ Matrix<double> *ReSize(Matrix<double> *src, double sigma) {
                 C[s] = cubic_coeff(v + distance);
             }
 
-            double dfCubicValue = 0;
+            double dfCubicValue = 0.0;
             for (int s = 0; s < 4; s++) {
                 for (int t = 0; t < 4; t++) {
                     dfCubicValue += values[s][t] * A[t] * C[s];
                 }
             }
 
-            for (int m = dest_y_; m <= dest_y; ++m) {
+            for (int m = dest_y_; m < dest_y; ++m) {
                 for (int n = dest_x_; n < dest_x; ++n) {
                     dest->Set(m, n, dfCubicValue);
                 }
             }
 
-            if (dfCubicValue < min) {
-                min = dfCubicValue;
+            if (dfCubicValue < min_val) {
+                min_val = dfCubicValue;
             }
-            if (dfCubicValue > max) {
-                max = dfCubicValue;
+
+            if (dfCubicValue > max_val) {
+                max_val = dfCubicValue;
             }
         }
     }
 
-    if (min < 0) {
-        auto then_zero = dest->operator+(fabs(min)); //大于零
-        auto one = then_zero->operator/(max); //归一化
+
+    if (min_val < 0) {
+        auto then_zero = dest->operator+(fabs(min_val)); //大于零
+        auto one = then_zero->operator/(max_val); //归一化
         auto out = one->operator*(255.0); //复原亮度
         delete (then_zero);
         delete (dest);
@@ -474,7 +491,7 @@ Matrix<double> *ReSize(Matrix<double> *src, double sigma) {
     }
 
 
-    auto one = dest->operator/(max); //归一化
+    auto one = dest->operator/(max_val); //归一化
     auto out = one->operator*(255.0); //复原亮度
     delete (dest);
     delete (one);
@@ -497,3 +514,42 @@ double cross_entropy_error(Matrix<double> *y, Matrix<double> *t){
     delete(mul);
     return out;
 }
+
+/**
+ * 建立图像金字塔，并切分成20x20大小的适合网络输入的图像
+ * @param src 原始输入图像，不固定宽高
+ * @param min 金字塔图像中最小宽度或高度
+ * @param max 金字塔图像中最大宽度或高度
+ * @param sigmas 每个剪切好的图像对应的sigma
+ * @param imgs 剪切好的图像
+ * @param sub_img_h_w截取图像的宽度和高度
+ * @param stride 截取图片步长
+ */
+void Build_img(int sub_img_h_w, int stride, Matrix<double> *src, double min, double max, std::vector<double> &sigmas, std::vector<Matrix<double>*> &imgs, std::vector<Point> &points){
+    int min_length = src->width < src->height? src->width:src->height;  //取输入图像的宽和高中的小的值
+    double sigma1 = min / double(min_length);//最小sigma
+    double sigma2 = max / double(min_length);//最大sigma
+
+    int step = _round_(sigma2 / sigma1); //图像从最小到最大总共缩放的次数
+
+    double step_sigma = (sigma2 - sigma1) / double(step);  //每一次放大sigma的增量
+
+    double init_sigma = sigma1;
+
+    for (int i = 0; i < step; ++i) {
+        auto _scale_img = ReSize(src, init_sigma);
+        for (int m = 0; m <= _scale_img->height - sub_img_h_w; m+=stride) {
+            for (int n = 0; n <= _scale_img->width - sub_img_h_w ; n+=stride) {
+                auto sub_img = _scale_img->SubMat(m, n, sub_img_h_w,sub_img_h_w);
+                imgs.push_back(sub_img->operator/(255.0));
+                sigmas.push_back(init_sigma);
+                points.push_back(Point{m,n});
+                delete(sub_img);
+            }
+        }
+        init_sigma += step_sigma;
+    }
+}
+
+
+

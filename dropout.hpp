@@ -11,6 +11,10 @@ public:
     bool is_train = true; //训练标记
     double dropout_ratio = 0.5;
 
+    Dropout(double _dropout_ratio = 0.5){
+        this->dropout_ratio = _dropout_ratio;
+    }
+
     Matrix<double> *forword(Matrix<double> *x){
         if(this->is_train){
             if(this->mask != nullptr){

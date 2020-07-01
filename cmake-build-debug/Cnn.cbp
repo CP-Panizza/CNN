@@ -92,6 +92,9 @@
 		<Unit filename="C:/Users/Administrator/Desktop/CNN/conv.hpp">
 			<Option target="Cnn"/>
 		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/CNN/conv_dropout.hpp">
+			<Option target="Cnn"/>
+		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/CNN/conv_relu.hpp">
 			<Option target="Cnn"/>
 		</Unit>
@@ -120,6 +123,9 @@
 			<Option target="Cnn"/>
 		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/CNN/relu.hpp">
+			<Option target="Cnn"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/CNN/sigmoid.hpp">
 			<Option target="Cnn"/>
 		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/CNN/softmax.hpp">
