@@ -114,8 +114,8 @@ void train() {
     int start;
     int end;
     int channel = 1;
-    int img_w = 20;
-    int img_h = 20;
+    int img_w = 40;
+    int img_h = 40;
     int filter_num = 50;
     int filter_size = 3;
     int stride = 1;
@@ -276,7 +276,7 @@ void find_face() {
     std::vector<Matrix<double> *> imgs;
     std::vector<Point> points;
 
-    Build_img(20, 10, data, 20.0, 144.0, sigmas, imgs, points);
+    Build_img(40, 10, data, 40.0, 144.0, sigmas, imgs, points);
 
     int batch_size = 30;
     int start;
@@ -314,6 +314,7 @@ void find_face() {
     data->SubMat(point.height / sigmas[index], point.width / sigmas[index], 20 / sigmas[index],
                  20 / sigmas[index])->WriteImg("pp.pgm");
 }
+
 
 
 int main() {
