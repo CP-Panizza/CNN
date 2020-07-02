@@ -95,25 +95,25 @@ public:
 
         //参数更新
 //        std::vector<std::string> keys = {"fc_w", "fc_b", "fc1_w", "fc1_b", "conv_w", "conv_b",};
-        auto params = new std::map<string, Matrix<double> *>;
-        params->insert(std::pair<string, Matrix<double> *>("fc_w", fc->W->Copy()));
-        params->insert(std::pair<string, Matrix<double> *>("fc_b", fc->b->Copy()));
-        params->insert(std::pair<string, Matrix<double> *>("fc1_w", fc1->W->Copy()));
-        params->insert(std::pair<string, Matrix<double> *>("fc1_b", fc1->b->Copy()));
-        params->insert(std::pair<string, Matrix<double> *>("conv1_w", conv1->W->Copy()));
-        params->insert(std::pair<string, Matrix<double> *>("conv1_b", conv1->b->Copy()));
-        params->insert(std::pair<string, Matrix<double> *>("conv_w", conv->W->Copy()));
-        params->insert(std::pair<string, Matrix<double> *>("conv_b", conv->b->Copy()));
+        auto params = new std::map<std::string, Matrix<double> *>;
+        params->insert(std::pair<std::string, Matrix<double> *>("fc_w", fc->W->Copy()));
+        params->insert(std::pair<std::string, Matrix<double> *>("fc_b", fc->b->Copy()));
+        params->insert(std::pair<std::string, Matrix<double> *>("fc1_w", fc1->W->Copy()));
+        params->insert(std::pair<std::string, Matrix<double> *>("fc1_b", fc1->b->Copy()));
+        params->insert(std::pair<std::string, Matrix<double> *>("conv1_w", conv1->W->Copy()));
+        params->insert(std::pair<std::string, Matrix<double> *>("conv1_b", conv1->b->Copy()));
+        params->insert(std::pair<std::string, Matrix<double> *>("conv_w", conv->W->Copy()));
+        params->insert(std::pair<std::string, Matrix<double> *>("conv_b", conv->b->Copy()));
 
-        auto grads = new std::map<string, Matrix<double> *>;
-        grads->insert(std::pair<string, Matrix<double> *>("fc_w", fc->dW));
-        grads->insert(std::pair<string, Matrix<double> *>("fc_b", fc->db));
-        grads->insert(std::pair<string, Matrix<double> *>("fc1_w", fc1->dW));
-        grads->insert(std::pair<string, Matrix<double> *>("fc1_b", fc1->db));
-        grads->insert(std::pair<string, Matrix<double> *>("conv1_w", conv1->dW));
-        grads->insert(std::pair<string, Matrix<double> *>("conv1_b", conv1->db));
-        grads->insert(std::pair<string, Matrix<double> *>("conv_w", conv->dW));
-        grads->insert(std::pair<string, Matrix<double> *>("conv_b", conv->db));
+        auto grads = new std::map<std::string, Matrix<double> *>;
+        grads->insert(std::pair<std::string, Matrix<double> *>("fc_w", fc->dW));
+        grads->insert(std::pair<std::string, Matrix<double> *>("fc_b", fc->db));
+        grads->insert(std::pair<std::string, Matrix<double> *>("fc1_w", fc1->dW));
+        grads->insert(std::pair<std::string, Matrix<double> *>("fc1_b", fc1->db));
+        grads->insert(std::pair<std::string, Matrix<double> *>("conv1_w", conv1->dW));
+        grads->insert(std::pair<std::string, Matrix<double> *>("conv1_b", conv1->db));
+        grads->insert(std::pair<std::string, Matrix<double> *>("conv_w", conv->dW));
+        grads->insert(std::pair<std::string, Matrix<double> *>("conv_b", conv->db));
 
         this->adam->update(params, grads);
 
@@ -278,7 +278,7 @@ public:
         w.EndArray();
         w.EndObject();
 
-        string data(s.GetString());
+        std::string data(s.GetString());
 
         std::ofstream f(path);
         if (f.is_open()) {

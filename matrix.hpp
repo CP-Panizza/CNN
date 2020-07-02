@@ -1,7 +1,3 @@
-//
-// Created by Administrator on 2020/6/4.
-//
-
 #ifndef CONVELUTION_MATRIX_HPP
 #define CONVELUTION_MATRIX_HPP
 

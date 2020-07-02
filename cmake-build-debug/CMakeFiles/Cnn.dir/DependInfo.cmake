@@ -7,7 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/Administrator/Desktop/CNN/main.cpp" "C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/Cnn.dir/main.cpp.obj"
   "C:/Users/Administrator/Desktop/CNN/utils.cpp" "C:/Users/Administrator/Desktop/CNN/cmake-build-debug/CMakeFiles/Cnn.dir/utils.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "MSVC")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

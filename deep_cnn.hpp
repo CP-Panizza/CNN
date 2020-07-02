@@ -1,4 +1,4 @@
-#ifndef _DEEP_CNN_
+﻿#ifndef _DEEP_CNN_
 #define _DEEP_CNN_
 
 #include "layers.h"

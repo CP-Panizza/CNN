@@ -4,7 +4,7 @@ file(REMOVE_RECURSE
   "Cnn.pdb"
   "Cnn.exe"
   "Cnn.exe.manifest"
-  "libCnn.dll.a"
+  "Cnn.lib"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -4,17 +4,17 @@
 	<Project>
 		<Option title="Cnn"/>
 		<Option makefile_is_custom="1"/>
-		<Option compiler="gcc"/>
+		<Option compiler="msvc8"/>
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="C:/Users/Administrator/Desktop/CNN/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Users\Administrator\Desktop\CNN\cmake-build-debug\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\Administrator\Desktop\CNN\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\Administrator\Desktop\CNN\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\Administrator\Desktop\CNN\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Cnn">
@@ -22,20 +22,21 @@
 				<Option working_dir="C:/Users/Administrator/Desktop/CNN/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
-				<Option compiler="gcc"/>
+				<Option compiler="msvc8"/>
 				<Compiler>
-					<Add directory="D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include"/>
-					<Add directory="D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed"/>
-					<Add directory="D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/include"/>
-					<Add directory="D:/MinGW64/lib/gcc/../../x86_64-w64-mingw32/include/c++"/>
-					<Add directory="D:/MinGW64/lib/gcc/../../x86_64-w64-mingw32/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="D:/MinGW64/lib/gcc/../../x86_64-w64-mingw32/include/c++/backward"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 Cnn"/>
-					<CompileFile command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Users\Administrator\Desktop\CNN\cmake-build-debug\Makefile VERBOSE=1 Cnn"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\Administrator\Desktop\CNN\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\Administrator\Desktop\CNN\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\Administrator\Desktop\CNN\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Cnn/fast">
@@ -43,40 +44,41 @@
 				<Option working_dir="C:/Users/Administrator/Desktop/CNN/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
-				<Option compiler="gcc"/>
+				<Option compiler="msvc8"/>
 				<Compiler>
-					<Add directory="D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include"/>
-					<Add directory="D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed"/>
-					<Add directory="D:/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/include"/>
-					<Add directory="D:/MinGW64/lib/gcc/../../x86_64-w64-mingw32/include/c++"/>
-					<Add directory="D:/MinGW64/lib/gcc/../../x86_64-w64-mingw32/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="D:/MinGW64/lib/gcc/../../x86_64-w64-mingw32/include/c++/backward"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 Cnn/fast"/>
-					<CompileFile command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Users\Administrator\Desktop\CNN\cmake-build-debug\Makefile VERBOSE=1 Cnn/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\Administrator\Desktop\CNN\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\Administrator\Desktop\CNN\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\Administrator\Desktop\CNN\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="C:/Users/Administrator/Desktop/CNN/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Users\Administrator\Desktop\CNN\cmake-build-debug\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\Administrator\Desktop\CNN\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\Administrator\Desktop\CNN\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\Administrator\Desktop\CNN\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="C:/Users/Administrator/Desktop/CNN/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/CNN/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Users\Administrator\Desktop\CNN\cmake-build-debug\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\Administrator\Desktop\CNN\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\Administrator\Desktop\CNN\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\Administrator\Desktop\CNN\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
